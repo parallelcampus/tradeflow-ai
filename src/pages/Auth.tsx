@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Globe, ArrowRight, Loader2 } from 'lucide-react';
+import { Globe, ArrowRight, Loader2, Shield } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 
@@ -90,8 +90,8 @@ const Auth = () => {
       });
     } else {
       toast({
-        title: 'Account created!',
-        description: 'Welcome to GTPC. Redirecting to your dashboard...',
+        title: 'Account created',
+        description: 'Welcome to GTPC. Redirecting to your portal...',
       });
     }
   };
@@ -99,133 +99,177 @@ const Auth = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-6 w-6 animate-spin text-primary" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        {/* Logo */}
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
-            <Globe className="h-7 w-7 text-primary-foreground" />
+    <div className="min-h-screen bg-background flex">
+      {/* Left Panel - Branding */}
+      <div className="hidden lg:flex lg:w-1/2 bg-primary relative overflow-hidden">
+        <div className="absolute inset-0 bg-pattern opacity-5" />
+        <div className="relative z-10 flex flex-col justify-between p-12 text-primary-foreground">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-white/10 backdrop-blur rounded-lg flex items-center justify-center">
+              <Globe className="h-5 w-5" />
+            </div>
+            <span className="text-lg font-serif font-semibold">GTPC</span>
           </div>
-          <div>
-            <h1 className="text-2xl font-display font-bold text-foreground">GTPC</h1>
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Global Trade Promotion</p>
+          
+          <div className="max-w-md">
+            <h1 className="text-4xl font-serif font-semibold mb-4 leading-tight">
+              Global Trade Promotion Corporation
+            </h1>
+            <p className="text-lg text-primary-foreground/80 leading-relaxed">
+              Empowering exporters, importers, and enterprises with technology-driven trade facilitation services.
+            </p>
+            
+            <div className="mt-12 space-y-4">
+              <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                  <Shield className="h-4 w-4" />
+                </div>
+                <span>Government-backed trade infrastructure</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                  <Globe className="h-4 w-4" />
+                </div>
+                <span>Serving 50+ countries worldwide</span>
+              </div>
+            </div>
           </div>
+
+          <p className="text-xs text-primary-foreground/50">
+            © 2026 Global Trade Promotion Corporation. All rights reserved.
+          </p>
         </div>
+      </div>
 
-        <Card className="border-border/50 shadow-xl">
-          <CardHeader className="text-center pb-4">
-            <CardTitle className="text-2xl font-display">Welcome to GTPC</CardTitle>
-            <CardDescription>
-              Access your trade facilitation portal
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Tabs defaultValue="signin" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-6">
-                <TabsTrigger value="signin">Sign In</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="signin">
-                <form onSubmit={handleSignIn} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="signin-email">Email</Label>
-                    <Input
-                      id="signin-email"
-                      type="email"
-                      placeholder="you@company.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className={errors.email ? 'border-destructive' : ''}
-                    />
-                    {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signin-password">Password</Label>
-                    <Input
-                      id="signin-password"
-                      type="password"
-                      placeholder="••••••••"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className={errors.password ? 'border-destructive' : ''}
-                    />
-                    {errors.password && <p className="text-sm text-destructive">{errors.password}</p>}
-                  </div>
-                  <Button type="submit" className="w-full" disabled={isLoading}>
-                    {isLoading ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <>
-                        Sign In <ArrowRight className="ml-2 h-4 w-4" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </TabsContent>
-              
-              <TabsContent value="signup">
-                <form onSubmit={handleSignUp} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-name">Full Name</Label>
-                    <Input
-                      id="signup-name"
-                      type="text"
-                      placeholder="John Doe"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className={errors.fullName ? 'border-destructive' : ''}
-                    />
-                    {errors.fullName && <p className="text-sm text-destructive">{errors.fullName}</p>}
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
-                    <Input
-                      id="signup-email"
-                      type="email"
-                      placeholder="you@company.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className={errors.email ? 'border-destructive' : ''}
-                    />
-                    {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-password">Password</Label>
-                    <Input
-                      id="signup-password"
-                      type="password"
-                      placeholder="••••••••"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className={errors.password ? 'border-destructive' : ''}
-                    />
-                    {errors.password && <p className="text-sm text-destructive">{errors.password}</p>}
-                  </div>
-                  <Button type="submit" className="w-full" disabled={isLoading}>
-                    {isLoading ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <>
-                        Create Account <ArrowRight className="ml-2 h-4 w-4" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </TabsContent>
-            </Tabs>
-          </CardContent>
-        </Card>
+      {/* Right Panel - Auth Form */}
+      <div className="flex-1 flex items-center justify-center p-6 lg:p-12">
+        <div className="w-full max-w-[400px]">
+          {/* Mobile Logo */}
+          <div className="flex items-center gap-3 mb-8 lg:hidden">
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <Globe className="h-5 w-5 text-primary-foreground" />
+            </div>
+            <div>
+              <h1 className="text-lg font-serif font-semibold">GTPC</h1>
+              <p className="text-xs text-muted-foreground">Trade Portal</p>
+            </div>
+          </div>
 
-        <p className="text-center text-sm text-muted-foreground mt-6">
-          By continuing, you agree to GTPC's Terms of Service and Privacy Policy
-        </p>
+          <Card className="border-border shadow-card">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-xl font-serif">Welcome back</CardTitle>
+              <CardDescription>
+                Sign in to access your trade facilitation portal
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Tabs defaultValue="signin" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mb-6">
+                  <TabsTrigger value="signin" className="text-sm">Sign In</TabsTrigger>
+                  <TabsTrigger value="signup" className="text-sm">Sign Up</TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="signin">
+                  <form onSubmit={handleSignIn} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="signin-email" className="text-sm font-medium">Email</Label>
+                      <Input
+                        id="signin-email"
+                        type="email"
+                        placeholder="you@organization.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className={errors.email ? 'border-destructive' : ''}
+                      />
+                      {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="signin-password" className="text-sm font-medium">Password</Label>
+                      <Input
+                        id="signin-password"
+                        type="password"
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className={errors.password ? 'border-destructive' : ''}
+                      />
+                      {errors.password && <p className="text-xs text-destructive">{errors.password}</p>}
+                    </div>
+                    <Button type="submit" className="w-full" disabled={isLoading}>
+                      {isLoading ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <>
+                          Sign In <ArrowRight className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </TabsContent>
+                
+                <TabsContent value="signup">
+                  <form onSubmit={handleSignUp} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="signup-name" className="text-sm font-medium">Full Name</Label>
+                      <Input
+                        id="signup-name"
+                        type="text"
+                        placeholder="Your full name"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        className={errors.fullName ? 'border-destructive' : ''}
+                      />
+                      {errors.fullName && <p className="text-xs text-destructive">{errors.fullName}</p>}
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="signup-email" className="text-sm font-medium">Email</Label>
+                      <Input
+                        id="signup-email"
+                        type="email"
+                        placeholder="you@organization.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className={errors.email ? 'border-destructive' : ''}
+                      />
+                      {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="signup-password" className="text-sm font-medium">Password</Label>
+                      <Input
+                        id="signup-password"
+                        type="password"
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className={errors.password ? 'border-destructive' : ''}
+                      />
+                      {errors.password && <p className="text-xs text-destructive">{errors.password}</p>}
+                    </div>
+                    <Button type="submit" className="w-full" disabled={isLoading}>
+                      {isLoading ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <>
+                          Create Account <ArrowRight className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </TabsContent>
+              </Tabs>
+            </CardContent>
+          </Card>
+
+          <p className="text-center text-xs text-muted-foreground mt-6">
+            By continuing, you agree to GTPC's Terms of Service and Privacy Policy
+          </p>
+        </div>
       </div>
     </div>
   );

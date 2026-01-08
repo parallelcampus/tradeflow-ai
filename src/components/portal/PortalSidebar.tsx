@@ -12,7 +12,7 @@ import {
   TrendingUp,
   Shield,
   LogOut,
-  ChevronDown
+  ChevronRight
 } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
@@ -78,10 +78,10 @@ export function PortalSidebar() {
         <NavLink
           to={item.url}
           className={cn(
-            'flex items-center gap-3 rounded-lg px-3 py-2 transition-colors',
+            'flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors',
             isActive(item.url) 
-              ? 'bg-primary text-primary-foreground' 
-              : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+              ? 'bg-sidebar-accent text-sidebar-accent-foreground font-medium' 
+              : 'text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground'
           )}
         >
           <item.icon className="h-4 w-4 shrink-0" />
@@ -91,23 +91,53 @@ export function PortalSidebar() {
     </SidebarMenuItem>
   );
 
+  const CollapsibleGroup = ({ 
+    label, 
+    items 
+  }: { 
+    label: string; 
+    items: { title: string; url: string; icon: any }[] 
+  }) => (
+    <SidebarGroup>
+      <Collapsible defaultOpen={isGroupActive(items)}>
+        <CollapsibleTrigger className="w-full group">
+          <SidebarGroupLabel className="flex items-center justify-between cursor-pointer text-sidebar-foreground/50 hover:text-sidebar-foreground/70 transition-colors text-xs uppercase tracking-wider font-medium">
+            {!collapsed && <span>{label}</span>}
+            {!collapsed && (
+              <ChevronRight className="h-3.5 w-3.5 transition-transform group-data-[state=open]:rotate-90" />
+            )}
+          </SidebarGroupLabel>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <SidebarGroupContent className="mt-1">
+            <SidebarMenu>
+              {items.map((item) => (
+                <NavItem key={item.title} item={item} />
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </CollapsibleContent>
+      </Collapsible>
+    </SidebarGroup>
+  );
+
   return (
-    <Sidebar collapsible="icon" className="border-r border-border/50">
-      <SidebarHeader className="p-4">
+    <Sidebar collapsible="icon" className="border-r border-sidebar-border">
+      <SidebarHeader className="p-4 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shrink-0">
-            <Globe className="h-5 w-5 text-primary-foreground" />
+          <div className="w-9 h-9 bg-sidebar-primary/10 rounded-lg flex items-center justify-center shrink-0">
+            <Globe className="h-5 w-5 text-sidebar-primary" />
           </div>
           {!collapsed && (
             <div>
-              <h1 className="text-lg font-display font-bold text-foreground">GTPC</h1>
-              <p className="text-xs text-muted-foreground">Trade Portal</p>
+              <h1 className="text-base font-serif font-semibold text-sidebar-foreground">GTPC</h1>
+              <p className="text-2xs text-sidebar-foreground/50 uppercase tracking-wider">Trade Portal</p>
             </div>
           )}
         </div>
       </SidebarHeader>
 
-      <SidebarContent className="px-2">
+      <SidebarContent className="px-3 py-4">
         {/* Main Navigation */}
         <SidebarGroup>
           <SidebarGroupContent>
@@ -119,91 +149,41 @@ export function PortalSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
+        <div className="my-4 h-px bg-sidebar-border" />
+
         {/* Trade Services */}
-        <SidebarGroup>
-          <Collapsible defaultOpen={isGroupActive(tradeItems)}>
-            <CollapsibleTrigger className="w-full">
-              <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:text-foreground transition-colors">
-                {!collapsed && <span>Trade Services</span>}
-                {!collapsed && <ChevronDown className="h-4 w-4" />}
-              </SidebarGroupLabel>
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {tradeItems.map((item) => (
-                    <NavItem key={item.title} item={item} />
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </CollapsibleContent>
-          </Collapsible>
-        </SidebarGroup>
+        <CollapsibleGroup label="Trade Services" items={tradeItems} />
 
         {/* Events & Training */}
-        <SidebarGroup>
-          <Collapsible defaultOpen={isGroupActive(eventsItems)}>
-            <CollapsibleTrigger className="w-full">
-              <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:text-foreground transition-colors">
-                {!collapsed && <span>Events & Training</span>}
-                {!collapsed && <ChevronDown className="h-4 w-4" />}
-              </SidebarGroupLabel>
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {eventsItems.map((item) => (
-                    <NavItem key={item.title} item={item} />
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </CollapsibleContent>
-          </Collapsible>
-        </SidebarGroup>
+        <CollapsibleGroup label="Events & Training" items={eventsItems} />
 
         {/* Admin */}
-        <SidebarGroup>
-          <Collapsible defaultOpen={isGroupActive(adminItems)}>
-            <CollapsibleTrigger className="w-full">
-              <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:text-foreground transition-colors">
-                {!collapsed && <span>Administration</span>}
-                {!collapsed && <ChevronDown className="h-4 w-4" />}
-              </SidebarGroupLabel>
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {adminItems.map((item) => (
-                    <NavItem key={item.title} item={item} />
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </CollapsibleContent>
-          </Collapsible>
-        </SidebarGroup>
+        <CollapsibleGroup label="Administration" items={adminItems} />
       </SidebarContent>
 
-      <SidebarFooter className="p-4 border-t border-border/50">
+      <SidebarFooter className="p-4 border-t border-sidebar-border">
         {!collapsed && user && (
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-              <span className="text-sm font-medium text-primary">
+          <div className="flex items-center gap-3 mb-3 p-2 rounded-md bg-sidebar-accent/30">
+            <div className="w-8 h-8 rounded-full bg-sidebar-primary/20 flex items-center justify-center">
+              <span className="text-xs font-medium text-sidebar-primary">
                 {user.email?.charAt(0).toUpperCase()}
               </span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium truncate">{user.email}</p>
-              <p className="text-xs text-muted-foreground">Exporter</p>
+              <p className="text-sm font-medium text-sidebar-foreground truncate">
+                {user.user_metadata?.full_name || user.email?.split('@')[0]}
+              </p>
+              <p className="text-2xs text-sidebar-foreground/50 uppercase tracking-wider">Exporter</p>
             </div>
           </div>
         )}
         <Button 
           variant="ghost" 
-          className="w-full justify-start gap-2 text-muted-foreground hover:text-destructive"
+          className="w-full justify-start gap-2 text-sidebar-foreground/60 hover:text-destructive hover:bg-destructive/10"
           onClick={signOut}
         >
           <LogOut className="h-4 w-4" />
-          {!collapsed && <span>Sign Out</span>}
+          {!collapsed && <span className="text-sm">Sign Out</span>}
         </Button>
       </SidebarFooter>
     </Sidebar>

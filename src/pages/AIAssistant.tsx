@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Send, Paperclip, Mic, Bot, User, Sparkles, FileText, Globe, TrendingUp } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Send, Paperclip, Bot, User, FileText, Globe, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
@@ -23,7 +23,7 @@ const initialMessages: Message[] = [
   {
     id: '1',
     role: 'assistant',
-    content: "Hello! I'm your GTPC AI Trade Assistant. I can help you with:\n\n• **Government Schemes** - Find and understand export-import subsidies\n• **Buyer Discovery** - Connect with international buyers\n• **Documentation** - Navigate compliance requirements\n• **Trade Guidance** - Get step-by-step export guidance\n\nHow can I assist you today?",
+    content: "Hello! I'm your GTPC AI Trade Assistant. I can help you with:\n\n• **Government Schemes** – Find and understand export-import subsidies\n• **Buyer Discovery** – Connect with international buyers\n• **Documentation** – Navigate compliance requirements\n• **Trade Guidance** – Get step-by-step export guidance\n\nHow can I assist you today?",
     timestamp: new Date(),
   },
 ];
@@ -32,6 +32,13 @@ export default function AIAssistant() {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -52,7 +59,7 @@ export default function AIAssistant() {
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: "Thank you for your question! I'm processing your request. This is a demo response - in the full implementation, I would connect to the AI backend to provide detailed, context-aware answers about trade schemes, buyer discovery, and export-import guidance.\n\nWould you like me to help you with anything specific about government schemes or buyer connections?",
+        content: "Thank you for your question. I'm processing your request.\n\nThis is a demo response – in the full implementation, I would connect to the AI backend to provide detailed, context-aware answers about trade schemes, buyer discovery, and export-import guidance.\n\nWould you like me to help you with anything specific about government schemes or buyer connections?",
         timestamp: new Date(),
       };
       setMessages(prev => [...prev, assistantMessage]);
@@ -65,22 +72,26 @@ export default function AIAssistant() {
   };
 
   return (
-    <div className="h-[calc(100vh-8rem)] flex flex-col">
+    <div className="h-[calc(100vh-7rem)] flex flex-col animate-fade-in">
       {/* Header */}
       <div className="mb-4">
-        <h1 className="text-2xl font-display font-bold flex items-center gap-2">
-          <Sparkles className="h-6 w-6 text-primary" />
-          AI Trade Assistant
-        </h1>
-        <p className="text-muted-foreground">
-          Ask questions about schemes, buyers, documentation, and trade guidance
-        </p>
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+            <Bot className="h-5 w-5 text-accent" />
+          </div>
+          <div>
+            <h1 className="text-xl font-serif font-semibold">AI Trade Assistant</h1>
+            <p className="text-sm text-muted-foreground">
+              Ask questions about schemes, buyers, documentation, and trade guidance
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Chat Container */}
-      <Card className="flex-1 border-border/50 flex flex-col overflow-hidden">
-        <ScrollArea className="flex-1 p-4">
-          <div className="space-y-4 max-w-3xl mx-auto">
+      <Card className="flex-1 border-border shadow-card flex flex-col overflow-hidden">
+        <ScrollArea className="flex-1 p-4" ref={scrollRef}>
+          <div className="space-y-4 max-w-2xl mx-auto">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -90,36 +101,36 @@ export default function AIAssistant() {
                 )}
               >
                 <div className={cn(
-                  'w-8 h-8 rounded-full flex items-center justify-center shrink-0',
-                  message.role === 'assistant' ? 'bg-primary' : 'bg-muted'
+                  'w-8 h-8 rounded-lg flex items-center justify-center shrink-0',
+                  message.role === 'assistant' ? 'bg-accent/10' : 'bg-muted'
                 )}>
                   {message.role === 'assistant' ? (
-                    <Bot className="h-4 w-4 text-primary-foreground" />
+                    <Bot className="h-4 w-4 text-accent" />
                   ) : (
                     <User className="h-4 w-4 text-muted-foreground" />
                   )}
                 </div>
                 <div className={cn(
-                  'rounded-2xl px-4 py-3 max-w-[80%]',
+                  'rounded-lg px-4 py-3 max-w-[85%] text-sm',
                   message.role === 'assistant' 
-                    ? 'bg-muted/50' 
+                    ? 'bg-muted/50 border border-border/50' 
                     : 'bg-primary text-primary-foreground'
                 )}>
-                  <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                  <p className="whitespace-pre-wrap leading-relaxed">{message.content}</p>
                 </div>
               </div>
             ))}
             
             {isLoading && (
               <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                  <Bot className="h-4 w-4 text-primary-foreground" />
+                <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <Bot className="h-4 w-4 text-accent" />
                 </div>
-                <div className="bg-muted/50 rounded-2xl px-4 py-3">
-                  <div className="flex gap-1">
-                    <span className="w-2 h-2 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <span className="w-2 h-2 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <span className="w-2 h-2 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                <div className="bg-muted/50 border border-border/50 rounded-lg px-4 py-3">
+                  <div className="flex gap-1.5">
+                    <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                   </div>
                 </div>
               </div>
@@ -129,17 +140,18 @@ export default function AIAssistant() {
 
         {/* Suggested Prompts */}
         {messages.length === 1 && (
-          <div className="px-4 pb-4">
-            <div className="flex flex-wrap gap-2 max-w-3xl mx-auto">
+          <div className="px-4 pb-3 border-t border-border/50">
+            <p className="text-xs text-muted-foreground mb-2 pt-3">Suggested questions:</p>
+            <div className="flex flex-wrap gap-2 max-w-2xl mx-auto">
               {suggestedPrompts.map((prompt, index) => (
                 <Button
                   key={index}
                   variant="outline"
                   size="sm"
-                  className="text-xs"
+                  className="text-xs h-8 bg-background"
                   onClick={() => handlePromptClick(prompt.text)}
                 >
-                  <prompt.icon className="h-3 w-3 mr-1" />
+                  <prompt.icon className="h-3 w-3 mr-1.5" />
                   {prompt.text}
                 </Button>
               ))}
@@ -148,11 +160,11 @@ export default function AIAssistant() {
         )}
 
         {/* Input Area */}
-        <CardContent className="border-t border-border/50 p-4">
-          <div className="max-w-3xl mx-auto">
+        <CardContent className="border-t border-border p-4">
+          <div className="max-w-2xl mx-auto">
             <div className="flex gap-2 items-end">
-              <Button variant="ghost" size="icon" className="shrink-0">
-                <Paperclip className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className="shrink-0 h-9 w-9 text-muted-foreground">
+                <Paperclip className="h-4 w-4" />
               </Button>
               <div className="flex-1 relative">
                 <Textarea
@@ -165,18 +177,15 @@ export default function AIAssistant() {
                       handleSend();
                     }
                   }}
-                  className="min-h-[44px] max-h-32 resize-none pr-12"
+                  className="min-h-[44px] max-h-32 resize-none text-sm"
                   rows={1}
                 />
               </div>
-              <Button variant="ghost" size="icon" className="shrink-0">
-                <Mic className="h-5 w-5" />
-              </Button>
               <Button 
                 size="icon" 
                 onClick={handleSend}
                 disabled={!input.trim() || isLoading}
-                className="shrink-0"
+                className="shrink-0 h-9 w-9"
               >
                 <Send className="h-4 w-4" />
               </Button>
