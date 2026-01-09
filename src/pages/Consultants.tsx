@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -7,18 +7,19 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { 
   Search, Filter, Star, MapPin, Clock, DollarSign, Award, 
   Calendar, Video, Phone, Users, Briefcase, CheckCircle2, 
   MessageSquare, Globe, Languages, GraduationCap, Trophy,
-  ChevronRight, Loader2
+  ChevronRight, Loader2, RefreshCw, Link2
 } from 'lucide-react';
 import ConsultantProfile from '@/components/consultants/ConsultantProfile';
 import BookingModal from '@/components/consultants/BookingModal';
+import { syncConsultantsFromERPNext } from '@/lib/api/erpnext';
+import { toast } from 'sonner';
 
 interface Consultant {
   id: string;
@@ -46,6 +47,7 @@ interface Consultant {
 }
 
 export default function Consultants() {
+  const queryClient = useQueryClient();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIndustry, setSelectedIndustry] = useState<string>('all');
   const [selectedCountry, setSelectedCountry] = useState<string>('all');
@@ -54,6 +56,24 @@ export default function Consultants() {
   const [selectedConsultant, setSelectedConsultant] = useState<Consultant | null>(null);
   const [bookingConsultant, setBookingConsultant] = useState<Consultant | null>(null);
   const [showFilters, setShowFilters] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
+
+  const handleERPNextSync = async () => {
+    setIsSyncing(true);
+    try {
+      const success = await syncConsultantsFromERPNext();
+      if (success) {
+        toast.success('Consultants synced from ERPNext');
+        queryClient.invalidateQueries({ queryKey: ['consultants'] });
+      } else {
+        toast.error('Failed to sync consultants');
+      }
+    } catch (error) {
+      toast.error('Error syncing consultants');
+    } finally {
+      setIsSyncing(false);
+    }
+  };
 
   // Fetch industries
   const { data: industries } = useQuery({
@@ -151,14 +171,25 @@ export default function Consultants() {
             Connect with trade experts to grow your business globally
           </p>
         </div>
-        <Button
-          variant="outline"
-          onClick={() => setShowFilters(!showFilters)}
-          className="md:hidden"
-        >
-          <Filter className="h-4 w-4 mr-2" />
-          Filters
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleERPNextSync}
+            disabled={isSyncing}
+          >
+            <Link2 className={`h-4 w-4 mr-2 ${isSyncing ? 'animate-spin' : ''}`} />
+            Sync ERPNext
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => setShowFilters(!showFilters)}
+            className="md:hidden"
+          >
+            <Filter className="h-4 w-4 mr-2" />
+            Filters
+          </Button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">

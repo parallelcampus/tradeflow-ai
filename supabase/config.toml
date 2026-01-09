@@ -1,1 +1,13 @@
 project_id = "fbuishideflknmqlibng"
+
+[functions.erpnext-api]
+verify_jwt = false
+
+[functions.erpnext-schemes]
+verify_jwt = false
+
+[functions.erpnext-user-sync]
+verify_jwt = false
+
+[functions.erpnext-consultant]
+verify_jwt = false
