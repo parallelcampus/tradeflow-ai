@@ -57,7 +57,7 @@ const featureStatus: Record<string, { enabled: boolean; reason?: string }> = {
   '/dashboard/b2b': { enabled: true },
   '/dashboard/events': { enabled: true },
   '/dashboard/delegations': { enabled: false, reason: 'Coming in Phase 2' },
-  '/dashboard/training': { enabled: false, reason: 'Coming in Phase 2' },
+  '/dashboard/training': { enabled: true },
   '/dashboard/documents': { enabled: false, reason: 'Coming in Phase 2' },
   '/dashboard/billing': { enabled: false, reason: 'Admin access required' },
   '/dashboard/admin/users': { enabled: false, reason: 'Admin access required' },
