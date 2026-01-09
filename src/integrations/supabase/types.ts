@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_suggested_questions: {
+        Row: {
+          category: string
+          click_count: number | null
+          created_at: string
+          icon: string | null
+          id: string
+          is_active: boolean | null
+          priority: number | null
+          question: string
+          target_industries: string[] | null
+          target_roles: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          click_count?: number | null
+          created_at?: string
+          icon?: string | null
+          id?: string
+          is_active?: boolean | null
+          priority?: number | null
+          question: string
+          target_industries?: string[] | null
+          target_roles?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          click_count?: number | null
+          created_at?: string
+          icon?: string | null
+          id?: string
+          is_active?: boolean | null
+          priority?: number | null
+          question?: string
+          target_industries?: string[] | null
+          target_roles?: string[] | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       consultant_availability: {
         Row: {
           consultant_id: string

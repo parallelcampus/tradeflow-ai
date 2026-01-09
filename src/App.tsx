@@ -29,6 +29,7 @@ import AdminEvents from "./pages/admin/AdminEvents";
 import AdminSchemes from "./pages/admin/AdminSchemes";
 import AdminPolicies from "./pages/admin/AdminPolicies";
 import AdminERPNextUsers from "./pages/admin/AdminERPNextUsers";
+import AdminAISuggestions from "./pages/admin/AdminAISuggestions";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +70,7 @@ const App = () => (
             <Route path="/admin/erpnext-users" element={<AdminLayout title="Users & Plans" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Users & Plans' }]}><AdminERPNextUsers /></AdminLayout>} />
             <Route path="/admin/consultants" element={<AdminLayout title="Consultants" breadcrumbs={[{ label: 'Consultants' }]}><ComingSoon title="Consultant Management" /></AdminLayout>} />
             <Route path="/admin/sync" element={<AdminLayout title="Sync Status" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Sync Status' }]}><ComingSoon title="Sync Status" /></AdminLayout>} />
+            <Route path="/admin/ai-suggestions" element={<AdminLayout title="AI Suggestions" breadcrumbs={[{ label: 'AI Suggestions' }]}><AdminAISuggestions /></AdminLayout>} />
             <Route path="/admin/settings" element={<AdminLayout title="Settings" breadcrumbs={[{ label: 'Settings' }]}><ComingSoon title="Admin Settings" /></AdminLayout>} />
             
             <Route path="*" element={<NotFound />} />

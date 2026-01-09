@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Paperclip, Bot, User, FileText, Globe, TrendingUp, Sparkles } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { Send, Paperclip, Bot, User, FileText, Globe, TrendingUp, Sparkles, Award, Landmark, Calculator, GraduationCap, Users, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
+import { supabase } from '@/integrations/supabase/client';
 
 interface Message {
   id: string;
@@ -13,11 +15,26 @@ interface Message {
   timestamp: Date;
 }
 
-const suggestedPrompts = [
-  { icon: FileText, text: 'What schemes are available for electronics exporters?' },
-  { icon: Globe, text: 'How do I find buyers in Southeast Asia?' },
-  { icon: TrendingUp, text: 'Explain the PLI scheme benefits' },
-];
+interface SuggestedQuestion {
+  id: string;
+  question: string;
+  category: string;
+  icon: string;
+  priority: number;
+}
+
+const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  FileText,
+  Globe,
+  TrendingUp,
+  Sparkles,
+  Award,
+  Landmark,
+  Calculator,
+  GraduationCap,
+  Users,
+  Search,
+};
 
 const initialMessages: Message[] = [
   {
@@ -33,6 +50,22 @@ export default function AIAssistant() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Fetch suggested questions from database
+  const { data: suggestedQuestions = [] } = useQuery({
+    queryKey: ['ai-suggested-questions'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('ai_suggested_questions')
+        .select('id, question, category, icon, priority')
+        .eq('is_active', true)
+        .order('priority', { ascending: false })
+        .limit(5);
+      
+      if (error) throw error;
+      return data as SuggestedQuestion[];
+    },
+  });
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -139,22 +172,27 @@ export default function AIAssistant() {
         </ScrollArea>
 
         {/* Suggested Prompts */}
-        {messages.length === 1 && (
+        {messages.length === 1 && suggestedQuestions.length > 0 && (
           <div className="px-4 pb-3 border-t border-border">
             <p className="text-xs text-muted-foreground mb-2 pt-3 font-medium">Suggested questions:</p>
             <div className="flex flex-wrap gap-2 max-w-2xl mx-auto">
-              {suggestedPrompts.map((prompt, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  size="sm"
-                  className="text-xs h-8 bg-background hover:bg-muted"
-                  onClick={() => handlePromptClick(prompt.text)}
-                >
-                  <prompt.icon className="h-3 w-3 mr-1.5" />
-                  {prompt.text}
-                </Button>
-              ))}
+              {suggestedQuestions.map((suggestion) => {
+                const IconComponent = ICON_MAP[suggestion.icon] || Sparkles;
+                return (
+                  <Button
+                    key={suggestion.id}
+                    variant="outline"
+                    size="sm"
+                    className="text-xs h-8 bg-background hover:bg-muted"
+                    onClick={() => handlePromptClick(suggestion.question)}
+                  >
+                    <IconComponent className="h-3 w-3 mr-1.5" />
+                    {suggestion.question.length > 50 
+                      ? suggestion.question.substring(0, 50) + '...' 
+                      : suggestion.question}
+                  </Button>
+                );
+              })}
             </div>
           </div>
         )}
