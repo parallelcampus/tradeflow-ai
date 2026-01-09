@@ -100,8 +100,26 @@ export default function AIAssistant() {
     }, 1500);
   };
 
-  const handlePromptClick = (prompt: string) => {
+  const handlePromptClick = async (questionId: string, prompt: string) => {
     setInput(prompt);
+    
+    // Track click in database (fire and forget - increment click_count)
+    try {
+      const { data } = await supabase
+        .from('ai_suggested_questions')
+        .select('click_count')
+        .eq('id', questionId)
+        .single();
+      
+      if (data) {
+        await supabase
+          .from('ai_suggested_questions')
+          .update({ click_count: (data.click_count || 0) + 1 })
+          .eq('id', questionId);
+      }
+    } catch {
+      // Silent fail - analytics shouldn't break UX
+    }
   };
 
   return (
@@ -184,7 +202,7 @@ export default function AIAssistant() {
                     variant="outline"
                     size="sm"
                     className="text-xs h-8 bg-background hover:bg-muted"
-                    onClick={() => handlePromptClick(suggestion.question)}
+                    onClick={() => handlePromptClick(suggestion.id, suggestion.question)}
                   >
                     <IconComponent className="h-3 w-3 mr-1.5" />
                     {suggestion.question.length > 50 
