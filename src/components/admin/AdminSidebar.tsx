@@ -8,7 +8,9 @@ import {
   Building2,
   Settings,
   ChevronDown,
-  Shield
+  Shield,
+  Landmark,
+  Sparkles
 } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import { useSidebar } from '@/components/ui/sidebar';
@@ -56,13 +58,19 @@ const contentManagement = [
     title: 'Events & Exhibitions',
     url: '/admin/events',
     icon: Calendar,
-    badge: '3',
+    badge: '14',
   },
   {
     title: 'Government Schemes',
     url: '/admin/schemes',
     icon: FileText,
     badge: 'ERPNext',
+  },
+  {
+    title: 'Policies',
+    url: '/admin/policies',
+    icon: Landmark,
+    badge: 'AI',
   },
 ];
 
