@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import { PortalLayout } from "@/components/portal/PortalLayout";
+import { AdminLayout } from "@/components/admin/AdminLayout";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -20,6 +21,11 @@ import Training from "./pages/Training";
 import Delegations from "./pages/Delegations";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminTraining from "./pages/admin/AdminTraining";
+import AdminDelegations from "./pages/admin/AdminDelegations";
+import AdminEvents from "./pages/admin/AdminEvents";
+import AdminSchemes from "./pages/admin/AdminSchemes";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +55,18 @@ const App = () => (
             <Route path="/dashboard/admin/orgs" element={<PortalLayout><ComingSoon title="Organizations" /></PortalLayout>} />
             <Route path="/dashboard/admin/security" element={<PortalLayout><ComingSoon title="Security" /></PortalLayout>} />
             <Route path="/dashboard/settings" element={<PortalLayout><ComingSoon title="Settings" /></PortalLayout>} />
+            
+            {/* Admin Panel Routes */}
+            <Route path="/admin" element={<AdminLayout title="Dashboard"><AdminDashboard /></AdminLayout>} />
+            <Route path="/admin/training" element={<AdminLayout title="Training Programs" breadcrumbs={[{ label: 'Training Programs' }]}><AdminTraining /></AdminLayout>} />
+            <Route path="/admin/delegations" element={<AdminLayout title="Delegations" breadcrumbs={[{ label: 'Delegations' }]}><AdminDelegations /></AdminLayout>} />
+            <Route path="/admin/events" element={<AdminLayout title="Events & Exhibitions" breadcrumbs={[{ label: 'Events' }]}><AdminEvents /></AdminLayout>} />
+            <Route path="/admin/schemes" element={<AdminLayout title="Government Schemes" breadcrumbs={[{ label: 'Schemes' }]}><AdminSchemes /></AdminLayout>} />
+            <Route path="/admin/users" element={<AdminLayout title="Users" breadcrumbs={[{ label: 'Users' }]}><ComingSoon title="User Management" /></AdminLayout>} />
+            <Route path="/admin/consultants" element={<AdminLayout title="Consultants" breadcrumbs={[{ label: 'Consultants' }]}><ComingSoon title="Consultant Management" /></AdminLayout>} />
+            <Route path="/admin/roles" element={<AdminLayout title="Roles & Permissions" breadcrumbs={[{ label: 'Roles' }]}><ComingSoon title="Roles & Permissions" /></AdminLayout>} />
+            <Route path="/admin/settings" element={<AdminLayout title="Settings" breadcrumbs={[{ label: 'Settings' }]}><ComingSoon title="Admin Settings" /></AdminLayout>} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
