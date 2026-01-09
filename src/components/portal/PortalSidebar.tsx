@@ -53,6 +53,8 @@ const featureStatus: Record<string, { enabled: boolean; reason?: string }> = {
   '/dashboard/schemes': { enabled: true },
   '/dashboard/buyers': { enabled: true },
   '/dashboard/consultants': { enabled: true },
+  '/dashboard/meetings': { enabled: true },
+  '/dashboard/b2b': { enabled: true },
   '/dashboard/events': { enabled: true },
   '/dashboard/delegations': { enabled: false, reason: 'Coming in Phase 2' },
   '/dashboard/training': { enabled: false, reason: 'Coming in Phase 2' },
@@ -74,6 +76,8 @@ const tradeItems = [
   { title: 'Govt Schemes', url: '/dashboard/schemes', icon: FileText },
   { title: 'Buyer Discovery', url: '/dashboard/buyers', icon: TrendingUp },
   { title: 'Consultants', url: '/dashboard/consultants', icon: Users },
+  { title: 'My Appointments', url: '/dashboard/meetings', icon: Calendar },
+  { title: 'B2B Meetings', url: '/dashboard/b2b', icon: Building2 },
 ];
 
 const eventsItems = [

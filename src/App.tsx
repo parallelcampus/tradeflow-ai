@@ -14,6 +14,8 @@ import Schemes from "./pages/Schemes";
 import BuyerDiscovery from "./pages/BuyerDiscovery";
 import Consultants from "./pages/Consultants";
 import ConsultantRegister from "./pages/ConsultantRegister";
+import MyMeetings from "./pages/MyMeetings";
+import B2BMeetings from "./pages/B2BMeetings";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 
@@ -36,6 +38,8 @@ const App = () => (
             <Route path="/dashboard/buyers" element={<PortalLayout><BuyerDiscovery /></PortalLayout>} />
             <Route path="/dashboard/consultants" element={<PortalLayout><Consultants /></PortalLayout>} />
             <Route path="/dashboard/consultants/register" element={<PortalLayout><ConsultantRegister /></PortalLayout>} />
+            <Route path="/dashboard/meetings" element={<PortalLayout><MyMeetings /></PortalLayout>} />
+            <Route path="/dashboard/b2b" element={<PortalLayout><B2BMeetings /></PortalLayout>} />
             <Route path="/dashboard/events" element={<PortalLayout><ComingSoon title="Events" /></PortalLayout>} />
             <Route path="/dashboard/delegations" element={<PortalLayout><ComingSoon title="Delegations" /></PortalLayout>} />
             <Route path="/dashboard/training" element={<PortalLayout><ComingSoon title="Training" /></PortalLayout>} />
