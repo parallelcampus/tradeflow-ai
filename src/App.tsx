@@ -17,6 +17,7 @@ import ConsultantRegister from "./pages/ConsultantRegister";
 import MyMeetings from "./pages/MyMeetings";
 import B2BMeetings from "./pages/B2BMeetings";
 import Training from "./pages/Training";
+import Delegations from "./pages/Delegations";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 
@@ -42,7 +43,7 @@ const App = () => (
             <Route path="/dashboard/meetings" element={<PortalLayout><MyMeetings /></PortalLayout>} />
             <Route path="/dashboard/b2b" element={<PortalLayout><B2BMeetings /></PortalLayout>} />
             <Route path="/dashboard/events" element={<PortalLayout><ComingSoon title="Events" /></PortalLayout>} />
-            <Route path="/dashboard/delegations" element={<PortalLayout><ComingSoon title="Delegations" /></PortalLayout>} />
+            <Route path="/dashboard/delegations" element={<PortalLayout><Delegations /></PortalLayout>} />
             <Route path="/dashboard/training" element={<PortalLayout><Training /></PortalLayout>} />
             <Route path="/dashboard/admin/users" element={<PortalLayout><ComingSoon title="User Management" /></PortalLayout>} />
             <Route path="/dashboard/admin/orgs" element={<PortalLayout><ComingSoon title="Organizations" /></PortalLayout>} />
