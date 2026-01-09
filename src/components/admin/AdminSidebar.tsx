@@ -3,14 +3,15 @@ import {
   GraduationCap, 
   Globe, 
   FileText, 
-  Users, 
   Calendar,
   Building2,
   Settings,
   ChevronDown,
   Shield,
   Landmark,
-  Sparkles
+  RefreshCw,
+  Database,
+  ExternalLink
 } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import { useSidebar } from '@/components/ui/sidebar';
@@ -74,11 +75,12 @@ const contentManagement = [
   },
 ];
 
-const usersManagement = [
+const erpnextItems = [
   {
-    title: 'All Users',
-    url: '/admin/users',
-    icon: Users,
+    title: 'Users & Plans',
+    url: '/admin/erpnext-users',
+    icon: Database,
+    badge: 'ERPNext',
   },
   {
     title: 'Consultants',
@@ -86,9 +88,9 @@ const usersManagement = [
     icon: Building2,
   },
   {
-    title: 'Roles & Permissions',
-    url: '/admin/roles',
-    icon: Shield,
+    title: 'Sync Status',
+    url: '/admin/sync',
+    icon: RefreshCw,
   },
 ];
 
@@ -185,19 +187,19 @@ export function AdminSidebar() {
           </SidebarGroup>
         </Collapsible>
 
-        {/* Users Management */}
+        {/* ERPNext Integration */}
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
             <CollapsibleTrigger asChild>
               <SidebarGroupLabel className="cursor-pointer hover:bg-muted/50 rounded-lg transition-colors flex items-center justify-between pr-2">
-                {!collapsed && <span>User Management</span>}
+                {!collapsed && <span>ERPNext Integration</span>}
                 {!collapsed && <ChevronDown className="h-4 w-4 transition-transform group-data-[state=open]/collapsible:rotate-180" />}
               </SidebarGroupLabel>
             </CollapsibleTrigger>
             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu>
-                  {usersManagement.map((item) => (
+                  {erpnextItems.map((item) => (
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton asChild tooltip={item.title}>
                         <NavLink
@@ -206,7 +208,16 @@ export function AdminSidebar() {
                           activeClassName="bg-primary/10 text-primary font-medium"
                         >
                           <item.icon className="h-4 w-4 shrink-0" />
-                          {!collapsed && <span>{item.title}</span>}
+                          {!collapsed && (
+                            <>
+                              <span className="flex-1">{item.title}</span>
+                              {item.badge && (
+                                <Badge variant="secondary" className="text-xs px-1.5 py-0">
+                                  {item.badge}
+                                </Badge>
+                              )}
+                            </>
+                          )}
                         </NavLink>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
