@@ -28,6 +28,7 @@ import AdminDelegations from "./pages/admin/AdminDelegations";
 import AdminEvents from "./pages/admin/AdminEvents";
 import AdminSchemes from "./pages/admin/AdminSchemes";
 import AdminPolicies from "./pages/admin/AdminPolicies";
+import AdminERPNextUsers from "./pages/admin/AdminERPNextUsers";
 
 const queryClient = new QueryClient();
 
@@ -65,9 +66,9 @@ const App = () => (
             <Route path="/admin/events" element={<AdminLayout title="Events & Exhibitions" breadcrumbs={[{ label: 'Events' }]}><AdminEvents /></AdminLayout>} />
             <Route path="/admin/schemes" element={<AdminLayout title="Government Schemes" breadcrumbs={[{ label: 'Schemes' }]}><AdminSchemes /></AdminLayout>} />
             <Route path="/admin/policies" element={<AdminLayout title="Government Policies" breadcrumbs={[{ label: 'Policies' }]}><AdminPolicies /></AdminLayout>} />
-            <Route path="/admin/users" element={<AdminLayout title="Users" breadcrumbs={[{ label: 'Users' }]}><ComingSoon title="User Management" /></AdminLayout>} />
+            <Route path="/admin/erpnext-users" element={<AdminLayout title="Users & Plans" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Users & Plans' }]}><AdminERPNextUsers /></AdminLayout>} />
             <Route path="/admin/consultants" element={<AdminLayout title="Consultants" breadcrumbs={[{ label: 'Consultants' }]}><ComingSoon title="Consultant Management" /></AdminLayout>} />
-            <Route path="/admin/roles" element={<AdminLayout title="Roles & Permissions" breadcrumbs={[{ label: 'Roles' }]}><ComingSoon title="Roles & Permissions" /></AdminLayout>} />
+            <Route path="/admin/sync" element={<AdminLayout title="Sync Status" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Sync Status' }]}><ComingSoon title="Sync Status" /></AdminLayout>} />
             <Route path="/admin/settings" element={<AdminLayout title="Settings" breadcrumbs={[{ label: 'Settings' }]}><ComingSoon title="Admin Settings" /></AdminLayout>} />
             
             <Route path="*" element={<NotFound />} />
