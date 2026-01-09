@@ -111,21 +111,21 @@ const Auth = () => {
         <div className="absolute inset-0 bg-pattern opacity-5" />
         <div className="relative z-10 flex flex-col justify-between p-12 text-primary-foreground">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white/10 backdrop-blur rounded-lg flex items-center justify-center">
-              <Globe className="h-5 w-5" />
+            <div className="w-9 h-9 bg-white/10 backdrop-blur rounded-lg flex items-center justify-center">
+              <Globe className="h-4 w-4" />
             </div>
-            <span className="text-lg font-serif font-semibold">GTPC</span>
+            <span className="text-base font-semibold">GTPC</span>
           </div>
           
           <div className="max-w-md">
-            <h1 className="text-4xl font-serif font-semibold mb-4 leading-tight">
+            <h1 className="text-3xl font-semibold mb-4 leading-tight">
               Global Trade Promotion Corporation
             </h1>
-            <p className="text-lg text-primary-foreground/80 leading-relaxed">
+            <p className="text-base text-primary-foreground/80 leading-relaxed">
               Empowering exporters, importers, and enterprises with technology-driven trade facilitation services.
             </p>
             
-            <div className="mt-12 space-y-4">
+            <div className="mt-10 space-y-3">
               <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                   <Shield className="h-4 w-4" />
@@ -152,27 +152,27 @@ const Auth = () => {
         <div className="w-full max-w-[400px]">
           {/* Mobile Logo */}
           <div className="flex items-center gap-3 mb-8 lg:hidden">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <Globe className="h-5 w-5 text-primary-foreground" />
+            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
+              <Globe className="h-4 w-4 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-lg font-serif font-semibold">GTPC</h1>
+              <h1 className="text-base font-semibold">GTPC</h1>
               <p className="text-xs text-muted-foreground">Trade Portal</p>
             </div>
           </div>
 
-          <Card className="border-border shadow-card">
+          <Card className="border shadow-sm">
             <CardHeader className="pb-4">
-              <CardTitle className="text-xl font-serif">Welcome back</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-lg font-semibold">Welcome back</CardTitle>
+              <CardDescription className="text-sm">
                 Sign in to access your trade facilitation portal
               </CardDescription>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="signin" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-6">
-                  <TabsTrigger value="signin" className="text-sm">Sign In</TabsTrigger>
-                  <TabsTrigger value="signup" className="text-sm">Sign Up</TabsTrigger>
+                  <TabsTrigger value="signin" className="text-sm font-medium">Sign In</TabsTrigger>
+                  <TabsTrigger value="signup" className="text-sm font-medium">Sign Up</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="signin">

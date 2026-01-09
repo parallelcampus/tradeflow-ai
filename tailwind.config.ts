@@ -56,6 +56,7 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+          hover: "hsl(var(--sidebar-hover))",
         },
         // Status colors
         success: "hsl(var(--success))",
@@ -63,8 +64,7 @@ export default {
         info: "hsl(var(--info))",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Source Serif 4', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
