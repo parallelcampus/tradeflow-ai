@@ -12,6 +12,7 @@ import AIAssistant from "./pages/AIAssistant";
 import Marketplace from "./pages/Marketplace";
 import Schemes from "./pages/Schemes";
 import BuyerDiscovery from "./pages/BuyerDiscovery";
+import Consultants from "./pages/Consultants";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 
@@ -32,7 +33,7 @@ const App = () => (
             <Route path="/dashboard/marketplace" element={<PortalLayout><Marketplace /></PortalLayout>} />
             <Route path="/dashboard/schemes" element={<PortalLayout><Schemes /></PortalLayout>} />
             <Route path="/dashboard/buyers" element={<PortalLayout><BuyerDiscovery /></PortalLayout>} />
-            <Route path="/dashboard/consultants" element={<PortalLayout><ComingSoon title="Consultants" /></PortalLayout>} />
+            <Route path="/dashboard/consultants" element={<PortalLayout><Consultants /></PortalLayout>} />
             <Route path="/dashboard/events" element={<PortalLayout><ComingSoon title="Events" /></PortalLayout>} />
             <Route path="/dashboard/delegations" element={<PortalLayout><ComingSoon title="Delegations" /></PortalLayout>} />
             <Route path="/dashboard/training" element={<PortalLayout><ComingSoon title="Training" /></PortalLayout>} />

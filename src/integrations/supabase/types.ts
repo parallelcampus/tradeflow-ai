@@ -14,6 +14,410 @@ export type Database = {
   }
   public: {
     Tables: {
+      consultant_availability: {
+        Row: {
+          consultant_id: string
+          created_at: string | null
+          day_of_week: number | null
+          end_time: string
+          id: string
+          is_recurring: boolean | null
+          specific_date: string | null
+          start_time: string
+        }
+        Insert: {
+          consultant_id: string
+          created_at?: string | null
+          day_of_week?: number | null
+          end_time: string
+          id?: string
+          is_recurring?: boolean | null
+          specific_date?: string | null
+          start_time: string
+        }
+        Update: {
+          consultant_id?: string
+          created_at?: string | null
+          day_of_week?: number | null
+          end_time?: string
+          id?: string
+          is_recurring?: boolean | null
+          specific_date?: string | null
+          start_time?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultant_availability_consultant_id_fkey"
+            columns: ["consultant_id"]
+            isOneToOne: false
+            referencedRelation: "consultants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      consultant_industries: {
+        Row: {
+          consultant_id: string
+          expertise_level: string | null
+          id: string
+          industry_id: string
+        }
+        Insert: {
+          consultant_id: string
+          expertise_level?: string | null
+          id?: string
+          industry_id: string
+        }
+        Update: {
+          consultant_id?: string
+          expertise_level?: string | null
+          id?: string
+          industry_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultant_industries_consultant_id_fkey"
+            columns: ["consultant_id"]
+            isOneToOne: false
+            referencedRelation: "consultants"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "consultant_industries_industry_id_fkey"
+            columns: ["industry_id"]
+            isOneToOne: false
+            referencedRelation: "industries"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      consultant_meetings: {
+        Row: {
+          client_company: string | null
+          client_email: string
+          client_id: string | null
+          client_name: string
+          consultant_id: string
+          created_at: string | null
+          duration_minutes: number | null
+          end_time: string
+          id: string
+          meeting_date: string
+          meeting_link: string | null
+          meeting_type: string | null
+          notes: string | null
+          service_id: string | null
+          start_time: string
+          status: string | null
+          total_cost: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          client_company?: string | null
+          client_email: string
+          client_id?: string | null
+          client_name: string
+          consultant_id: string
+          created_at?: string | null
+          duration_minutes?: number | null
+          end_time: string
+          id?: string
+          meeting_date: string
+          meeting_link?: string | null
+          meeting_type?: string | null
+          notes?: string | null
+          service_id?: string | null
+          start_time: string
+          status?: string | null
+          total_cost?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          client_company?: string | null
+          client_email?: string
+          client_id?: string | null
+          client_name?: string
+          consultant_id?: string
+          created_at?: string | null
+          duration_minutes?: number | null
+          end_time?: string
+          id?: string
+          meeting_date?: string
+          meeting_link?: string | null
+          meeting_type?: string | null
+          notes?: string | null
+          service_id?: string | null
+          start_time?: string
+          status?: string | null
+          total_cost?: number | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultant_meetings_consultant_id_fkey"
+            columns: ["consultant_id"]
+            isOneToOne: false
+            referencedRelation: "consultants"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "consultant_meetings_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "consultant_services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      consultant_reviews: {
+        Row: {
+          consultant_id: string
+          created_at: string | null
+          id: string
+          is_verified: boolean | null
+          rating: number
+          review_text: string | null
+          reviewer_company: string | null
+          reviewer_id: string | null
+          reviewer_name: string
+          title: string | null
+        }
+        Insert: {
+          consultant_id: string
+          created_at?: string | null
+          id?: string
+          is_verified?: boolean | null
+          rating: number
+          review_text?: string | null
+          reviewer_company?: string | null
+          reviewer_id?: string | null
+          reviewer_name: string
+          title?: string | null
+        }
+        Update: {
+          consultant_id?: string
+          created_at?: string | null
+          id?: string
+          is_verified?: boolean | null
+          rating?: number
+          review_text?: string | null
+          reviewer_company?: string | null
+          reviewer_id?: string | null
+          reviewer_name?: string
+          title?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultant_reviews_consultant_id_fkey"
+            columns: ["consultant_id"]
+            isOneToOne: false
+            referencedRelation: "consultants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      consultant_services: {
+        Row: {
+          consultant_id: string
+          created_at: string | null
+          description: string | null
+          duration_minutes: number | null
+          id: string
+          price: number | null
+          service_name: string
+        }
+        Insert: {
+          consultant_id: string
+          created_at?: string | null
+          description?: string | null
+          duration_minutes?: number | null
+          id?: string
+          price?: number | null
+          service_name: string
+        }
+        Update: {
+          consultant_id?: string
+          created_at?: string | null
+          description?: string | null
+          duration_minutes?: number | null
+          id?: string
+          price?: number | null
+          service_name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultant_services_consultant_id_fkey"
+            columns: ["consultant_id"]
+            isOneToOne: false
+            referencedRelation: "consultants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      consultant_success_stories: {
+        Row: {
+          challenge: string | null
+          client_company: string | null
+          client_name: string | null
+          consultant_id: string
+          created_at: string | null
+          id: string
+          industry: string | null
+          is_featured: boolean | null
+          metrics: Json | null
+          results: string | null
+          solution: string | null
+          testimonial_quote: string | null
+          title: string
+        }
+        Insert: {
+          challenge?: string | null
+          client_company?: string | null
+          client_name?: string | null
+          consultant_id: string
+          created_at?: string | null
+          id?: string
+          industry?: string | null
+          is_featured?: boolean | null
+          metrics?: Json | null
+          results?: string | null
+          solution?: string | null
+          testimonial_quote?: string | null
+          title: string
+        }
+        Update: {
+          challenge?: string | null
+          client_company?: string | null
+          client_name?: string | null
+          consultant_id?: string
+          created_at?: string | null
+          id?: string
+          industry?: string | null
+          is_featured?: boolean | null
+          metrics?: Json | null
+          results?: string | null
+          solution?: string | null
+          testimonial_quote?: string | null
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultant_success_stories_consultant_id_fkey"
+            columns: ["consultant_id"]
+            isOneToOne: false
+            referencedRelation: "consultants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      consultants: {
+        Row: {
+          avatar_url: string | null
+          average_rating: number | null
+          bio: string | null
+          certifications: string[] | null
+          country: string | null
+          created_at: string | null
+          currency: string | null
+          education: string[] | null
+          email: string
+          full_name: string
+          headline: string | null
+          hourly_rate: number | null
+          id: string
+          is_available: boolean | null
+          is_verified: boolean | null
+          languages: string[] | null
+          linkedin_url: string | null
+          location: string | null
+          phone: string | null
+          timezone: string | null
+          total_consultations: number | null
+          updated_at: string | null
+          user_id: string | null
+          website_url: string | null
+          years_experience: number | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          average_rating?: number | null
+          bio?: string | null
+          certifications?: string[] | null
+          country?: string | null
+          created_at?: string | null
+          currency?: string | null
+          education?: string[] | null
+          email: string
+          full_name: string
+          headline?: string | null
+          hourly_rate?: number | null
+          id?: string
+          is_available?: boolean | null
+          is_verified?: boolean | null
+          languages?: string[] | null
+          linkedin_url?: string | null
+          location?: string | null
+          phone?: string | null
+          timezone?: string | null
+          total_consultations?: number | null
+          updated_at?: string | null
+          user_id?: string | null
+          website_url?: string | null
+          years_experience?: number | null
+        }
+        Update: {
+          avatar_url?: string | null
+          average_rating?: number | null
+          bio?: string | null
+          certifications?: string[] | null
+          country?: string | null
+          created_at?: string | null
+          currency?: string | null
+          education?: string[] | null
+          email?: string
+          full_name?: string
+          headline?: string | null
+          hourly_rate?: number | null
+          id?: string
+          is_available?: boolean | null
+          is_verified?: boolean | null
+          languages?: string[] | null
+          linkedin_url?: string | null
+          location?: string | null
+          phone?: string | null
+          timezone?: string | null
+          total_consultations?: number | null
+          updated_at?: string | null
+          user_id?: string | null
+          website_url?: string | null
+          years_experience?: number | null
+        }
+        Relationships: []
+      }
+      industries: {
+        Row: {
+          created_at: string | null
+          icon: string | null
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string | null
+          icon?: string | null
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string | null
+          icon?: string | null
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
