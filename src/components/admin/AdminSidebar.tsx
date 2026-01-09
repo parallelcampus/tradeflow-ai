@@ -11,7 +11,7 @@ import {
   Landmark,
   RefreshCw,
   Database,
-  ExternalLink
+  Sparkles
 } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import { useSidebar } from '@/components/ui/sidebar';
@@ -71,6 +71,12 @@ const contentManagement = [
     title: 'Policies',
     url: '/admin/policies',
     icon: Landmark,
+    badge: 'AI',
+  },
+  {
+    title: 'AI Suggestions',
+    url: '/admin/ai-suggestions',
+    icon: Sparkles,
     badge: 'AI',
   },
 ];
