@@ -13,7 +13,13 @@ import {
   Search,
   Globe,
   CheckCircle,
-  PlayCircle
+  PlayCircle,
+  FileText,
+  Landmark,
+  Building2,
+  ExternalLink,
+  Download,
+  Info
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -256,11 +262,159 @@ const certifications = [
   }
 ];
 
+// Government Policies Data
+const centralPolicies = [
+  {
+    id: '1',
+    title: 'Foreign Trade Policy 2023-28',
+    ministry: 'Ministry of Commerce & Industry',
+    description: 'Comprehensive policy framework for promoting exports and regulating imports.',
+    category: 'Trade Policy',
+    effectiveDate: '2023-04-01',
+    documentUrl: 'https://dgft.gov.in',
+    highlights: ['Remission of Duties and Taxes', 'Export Promotion Capital Goods', 'Advance Authorization', 'EPCG Scheme']
+  },
+  {
+    id: '2',
+    title: 'RODTEP Scheme',
+    ministry: 'Ministry of Commerce & Industry',
+    description: 'Remission of Duties and Taxes on Exported Products - refund of embedded taxes.',
+    category: 'Export Incentive',
+    effectiveDate: '2021-01-01',
+    documentUrl: 'https://dgft.gov.in',
+    highlights: ['Refund of central taxes', 'State taxes refund', 'Electronic credit ledger', 'Sector-specific rates']
+  },
+  {
+    id: '3',
+    title: 'Production Linked Incentive (PLI)',
+    ministry: 'Multiple Ministries',
+    description: 'Incentives for boosting domestic manufacturing and exports across 14 sectors.',
+    category: 'Manufacturing',
+    effectiveDate: '2020-03-01',
+    documentUrl: 'https://pib.gov.in',
+    highlights: ['14 key sectors', 'INR 1.97 lakh crore outlay', '5-year incentive period', 'Export-linked benefits']
+  },
+  {
+    id: '4',
+    title: 'Interest Equalisation Scheme',
+    ministry: 'RBI / Ministry of Commerce',
+    description: 'Interest subvention for pre and post-shipment export credit.',
+    category: 'Finance',
+    effectiveDate: '2015-04-01',
+    documentUrl: 'https://rbi.org.in',
+    highlights: ['3% for MSMEs', '2% for other exporters', 'All 416 tariff lines', 'Pre & post shipment credit']
+  },
+  {
+    id: '5',
+    title: 'ECGC Export Credit Insurance',
+    ministry: 'Ministry of Commerce & Industry',
+    description: 'Credit risk insurance for exporters against payment defaults.',
+    category: 'Insurance',
+    effectiveDate: '1957-01-01',
+    documentUrl: 'https://ecgc.in',
+    highlights: ['Buyer credit insurance', 'Political risk cover', 'Bank protection', 'Small exporter policy']
+  },
+  {
+    id: '6',
+    title: 'Market Access Initiative (MAI)',
+    ministry: 'Ministry of Commerce & Industry',
+    description: 'Financial assistance for export promotion activities and market development.',
+    category: 'Export Promotion',
+    effectiveDate: '2002-01-01',
+    documentUrl: 'https://commerce.gov.in',
+    highlights: ['Trade fair participation', 'Brand promotion abroad', 'Study tours', 'Market research']
+  }
+];
+
+const statePolicies = [
+  {
+    id: '1',
+    state: 'Gujarat',
+    title: 'Gujarat Export Policy 2022-27',
+    department: 'Industries & Mines Department',
+    description: 'Comprehensive export promotion policy with incentives for MSMEs and large enterprises.',
+    category: 'Export Policy',
+    effectiveDate: '2022-04-01',
+    highlights: ['50% subsidy on trade fairs', 'Interest subsidy 5%', 'Quality certification support', 'Logistics assistance']
+  },
+  {
+    id: '2',
+    state: 'Maharashtra',
+    title: 'Maharashtra Export Promotion Policy',
+    department: 'Industries Department',
+    description: 'State support for export-oriented units and new exporters.',
+    category: 'Export Policy',
+    effectiveDate: '2023-01-01',
+    highlights: ['SGST reimbursement', 'Export credit support', 'Brand development', 'Training programs']
+  },
+  {
+    id: '3',
+    state: 'Tamil Nadu',
+    title: 'Tamil Nadu MSME Policy 2021',
+    department: 'MSME Department',
+    description: 'Support for MSME exporters including subsidies and infrastructure.',
+    category: 'MSME',
+    effectiveDate: '2021-10-01',
+    highlights: ['Capital subsidy 25%', 'Technology upgrade support', 'Export market access', 'Skill development']
+  },
+  {
+    id: '4',
+    state: 'Karnataka',
+    title: 'Karnataka Export Development Policy',
+    department: 'Commerce & Industries',
+    description: 'Focus on IT, biotechnology, and manufacturing exports.',
+    category: 'Export Policy',
+    effectiveDate: '2022-07-01',
+    highlights: ['IT export incentives', 'Biotech corridor support', 'Aerospace cluster', 'EOU benefits']
+  },
+  {
+    id: '5',
+    state: 'Uttar Pradesh',
+    title: 'UP Export Promotion Policy 2020-25',
+    department: 'Export Promotion Bureau',
+    description: 'Encouraging exports from traditional and emerging sectors.',
+    category: 'Export Policy',
+    effectiveDate: '2020-08-01',
+    highlights: ['Handicraft export support', 'Textile cluster development', 'Food processing focus', 'One District One Product']
+  },
+  {
+    id: '6',
+    state: 'Rajasthan',
+    title: 'Rajasthan Investment Promotion Scheme',
+    department: 'Industries Department',
+    description: 'Investment and export promotion with special benefits for exporters.',
+    category: 'Investment',
+    effectiveDate: '2022-01-01',
+    highlights: ['Land at subsidized rates', 'Stamp duty exemption', 'Employment incentives', 'Export infrastructure']
+  },
+  {
+    id: '7',
+    state: 'West Bengal',
+    title: 'WB Incentive Scheme for Industries',
+    department: 'Commerce & Industries',
+    description: 'State incentives for export-oriented industries and IT exports.',
+    category: 'Industry',
+    effectiveDate: '2022-04-01',
+    highlights: ['Capital subsidy', 'Interest subsidy', 'Power tariff subsidy', 'Export duty exemption']
+  },
+  {
+    id: '8',
+    state: 'Kerala',
+    title: 'Kerala Industrial Policy 2023',
+    department: 'Industries & Commerce',
+    description: 'Focus on spices, seafood, and IT services exports.',
+    category: 'Industrial Policy',
+    effectiveDate: '2023-01-01',
+    highlights: ['Spice park development', 'Seafood processing', 'Ayurveda exports', 'IT/ITES promotion']
+  }
+];
+
 export default function Training() {
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [levelFilter, setLevelFilter] = useState('all');
   const [selectedCourse, setSelectedCourse] = useState<typeof courses[0] | null>(null);
+  const [policyStateFilter, setPolicyStateFilter] = useState('all');
 
   const filteredCourses = courses.filter(course => {
     const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -323,7 +477,7 @@ export default function Training() {
       )}
 
       <Tabs defaultValue="courses" className="space-y-6">
-        <TabsList className="bg-muted/50 p-1">
+        <TabsList className="bg-muted/50 p-1 flex-wrap h-auto">
           <TabsTrigger value="courses" className="gap-2">
             <BookOpen className="h-4 w-4" />
             Courses
@@ -339,6 +493,10 @@ export default function Training() {
           <TabsTrigger value="certifications" className="gap-2">
             <Award className="h-4 w-4" />
             Certifications
+          </TabsTrigger>
+          <TabsTrigger value="resources" className="gap-2">
+            <FileText className="h-4 w-4" />
+            Resources
           </TabsTrigger>
         </TabsList>
 
@@ -723,6 +881,180 @@ export default function Training() {
               </Card>
             ))}
           </div>
+        </TabsContent>
+
+        {/* Resources Tab - Government Policies */}
+        <TabsContent value="resources" className="space-y-6">
+          {/* Central Government Policies */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-blue-500/10 rounded-lg">
+                <Landmark className="h-5 w-5 text-blue-600" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Central Government Policies</h3>
+                <p className="text-sm text-muted-foreground">Key export policies and schemes from Government of India</p>
+              </div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {centralPolicies.map((policy) => (
+                <Card key={policy.id} className="hover:shadow-md transition-shadow">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between gap-2">
+                      <Badge variant="outline" className="text-blue-600 border-blue-200 bg-blue-50">
+                        {policy.category}
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-base mt-2">{policy.title}</CardTitle>
+                    <CardDescription className="text-xs">{policy.ministry}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-muted-foreground line-clamp-2">{policy.description}</p>
+                    
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Calendar className="h-3 w-3" />
+                      <span>Effective: {new Date(policy.effectiveDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</span>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-1">
+                      {policy.highlights.slice(0, 3).map((highlight, i) => (
+                        <Badge key={i} variant="secondary" className="text-xs font-normal">
+                          {highlight}
+                        </Badge>
+                      ))}
+                      {policy.highlights.length > 3 && (
+                        <Badge variant="secondary" className="text-xs font-normal">
+                          +{policy.highlights.length - 3} more
+                        </Badge>
+                      )}
+                    </div>
+                    
+                    <div className="flex gap-2 pt-2">
+                      <Button size="sm" variant="outline" className="flex-1 gap-1" asChild>
+                        <a href={policy.documentUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-3 w-3" />
+                          View Details
+                        </a>
+                      </Button>
+                      <Button size="sm" variant="ghost" className="gap-1">
+                        <Download className="h-3 w-3" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* State Government Policies */}
+          <div>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-green-500/10 rounded-lg">
+                  <Building2 className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">State Government Policies</h3>
+                  <p className="text-sm text-muted-foreground">Export promotion schemes by state governments</p>
+                </div>
+              </div>
+              <Select value={policyStateFilter} onValueChange={setPolicyStateFilter}>
+                <SelectTrigger className="w-48">
+                  <SelectValue placeholder="Filter by state" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All States</SelectItem>
+                  <SelectItem value="Gujarat">Gujarat</SelectItem>
+                  <SelectItem value="Maharashtra">Maharashtra</SelectItem>
+                  <SelectItem value="Tamil Nadu">Tamil Nadu</SelectItem>
+                  <SelectItem value="Karnataka">Karnataka</SelectItem>
+                  <SelectItem value="Uttar Pradesh">Uttar Pradesh</SelectItem>
+                  <SelectItem value="Rajasthan">Rajasthan</SelectItem>
+                  <SelectItem value="West Bengal">West Bengal</SelectItem>
+                  <SelectItem value="Kerala">Kerala</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {statePolicies
+                .filter(p => policyStateFilter === 'all' || p.state === policyStateFilter)
+                .map((policy) => (
+                <Card key={policy.id} className="hover:shadow-md transition-shadow">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between gap-2">
+                      <Badge className="bg-green-500/10 text-green-600 border-green-200">
+                        {policy.state}
+                      </Badge>
+                      <Badge variant="outline" className="text-xs">
+                        {policy.category}
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-base mt-2">{policy.title}</CardTitle>
+                    <CardDescription className="text-xs">{policy.department}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-muted-foreground line-clamp-2">{policy.description}</p>
+                    
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Calendar className="h-3 w-3" />
+                      <span>Effective: {new Date(policy.effectiveDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</span>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-1">
+                      {policy.highlights.slice(0, 2).map((highlight, i) => (
+                        <Badge key={i} variant="secondary" className="text-xs font-normal">
+                          {highlight}
+                        </Badge>
+                      ))}
+                      {policy.highlights.length > 2 && (
+                        <Badge variant="secondary" className="text-xs font-normal">
+                          +{policy.highlights.length - 2} more
+                        </Badge>
+                      )}
+                    </div>
+                    
+                    <Button size="sm" variant="outline" className="w-full gap-1 mt-2">
+                      <Info className="h-3 w-3" />
+                      View Policy Details
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <Card className="bg-muted/30 border-dashed">
+            <CardContent className="p-6">
+              <h4 className="font-semibold mb-4">Useful Government Portals</h4>
+              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
+                {[
+                  { name: 'DGFT', url: 'https://dgft.gov.in', desc: 'Directorate General of Foreign Trade' },
+                  { name: 'ECGC', url: 'https://ecgc.in', desc: 'Export Credit Guarantee Corporation' },
+                  { name: 'FIEO', url: 'https://fieo.org', desc: 'Federation of Indian Export Organisations' },
+                  { name: 'MSME', url: 'https://msme.gov.in', desc: 'Ministry of MSME' },
+                ].map((portal) => (
+                  <a 
+                    key={portal.name}
+                    href={portal.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 rounded-lg bg-background hover:bg-accent transition-colors"
+                  >
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <Globe className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-sm">{portal.name}</p>
+                      <p className="text-xs text-muted-foreground">{portal.desc}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
     </div>
