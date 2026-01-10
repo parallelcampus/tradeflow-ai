@@ -7,13 +7,24 @@ const corsHeaders = {
 
 interface SearchFilters {
   country_code?: string[];
+  region_country_code?: string[];
+  city_region_country?: string[];
   company_size?: string[];
   company_revenue?: string[];
+  company_age?: string[];
   linkedin_category?: string[];
   naics_category?: string[];
   google_category?: string[];
   company_name?: string[];
   website_keywords?: string[];
+  company_tech_stack_category?: string[];
+  company_tech_stack_tech?: string[];
+  number_of_locations?: string[];
+  topics?: string[];
+  events?: {
+    values: string[];
+    last_occurrence: number;
+  };
 }
 
 interface SearchRequest {
@@ -54,16 +65,25 @@ serve(async (req) => {
       case "search":
         endpoint = "https://api.explorium.ai/v1/businesses";
         // Build filters object for Explorium API
-        const exploriumFilters: Record<string, { values: string[] }> = {};
+        const exploriumFilters: Record<string, any> = {};
         
         if (filters?.country_code?.length) {
           exploriumFilters.country_code = { values: filters.country_code };
+        }
+        if (filters?.region_country_code?.length) {
+          exploriumFilters.region_country_code = { values: filters.region_country_code };
+        }
+        if (filters?.city_region_country?.length) {
+          exploriumFilters.city_region_country = { values: filters.city_region_country };
         }
         if (filters?.company_size?.length) {
           exploriumFilters.company_size = { values: filters.company_size };
         }
         if (filters?.company_revenue?.length) {
           exploriumFilters.company_revenue = { values: filters.company_revenue };
+        }
+        if (filters?.company_age?.length) {
+          exploriumFilters.company_age = { values: filters.company_age };
         }
         if (filters?.linkedin_category?.length) {
           exploriumFilters.linkedin_category = { values: filters.linkedin_category };
@@ -79,6 +99,24 @@ serve(async (req) => {
         }
         if (filters?.website_keywords?.length) {
           exploriumFilters.website_keywords = { values: filters.website_keywords };
+        }
+        if (filters?.company_tech_stack_category?.length) {
+          exploriumFilters.company_tech_stack_category = { values: filters.company_tech_stack_category };
+        }
+        if (filters?.company_tech_stack_tech?.length) {
+          exploriumFilters.company_tech_stack_tech = { values: filters.company_tech_stack_tech };
+        }
+        if (filters?.number_of_locations?.length) {
+          exploriumFilters.number_of_locations = { values: filters.number_of_locations };
+        }
+        if (filters?.topics?.length) {
+          exploriumFilters.topics = { values: filters.topics };
+        }
+        if (filters?.events?.values?.length && filters.events.last_occurrence) {
+          exploriumFilters.events = {
+            values: filters.events.values,
+            last_occurrence: filters.events.last_occurrence,
+          };
         }
 
         requestBody = {
