@@ -11,7 +11,8 @@ import {
   Landmark,
   RefreshCw,
   Database,
-  Sparkles
+  Sparkles,
+  Library
 } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import { useSidebar } from '@/components/ui/sidebar';
@@ -97,6 +98,15 @@ const erpnextItems = [
     title: 'Sync Status',
     url: '/admin/sync',
     icon: RefreshCw,
+  },
+];
+
+const masterDataItems = [
+  {
+    title: 'Master Data',
+    url: '/admin/master-data',
+    icon: Library,
+    badge: 'All',
   },
 ];
 
@@ -233,6 +243,38 @@ export function AdminSidebar() {
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
+
+        {/* Master Data */}
+        <SidebarGroup>
+          <SidebarGroupLabel>{!collapsed && 'Configuration'}</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {masterDataItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild tooltip={item.title}>
+                    <NavLink
+                      to={item.url}
+                      className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted/50 transition-colors"
+                      activeClassName="bg-primary/10 text-primary font-medium"
+                    >
+                      <item.icon className="h-4 w-4 shrink-0" />
+                      {!collapsed && (
+                        <>
+                          <span className="flex-1">{item.title}</span>
+                          {item.badge && (
+                            <Badge variant="secondary" className="text-xs px-1.5 py-0">
+                              {item.badge}
+                            </Badge>
+                          )}
+                        </>
+                      )}
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
 
         {/* Settings */}
         <SidebarGroup>
