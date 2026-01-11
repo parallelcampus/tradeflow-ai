@@ -30,7 +30,7 @@ import AdminSchemes from "./pages/admin/AdminSchemes";
 import AdminPolicies from "./pages/admin/AdminPolicies";
 import AdminERPNextUsers from "./pages/admin/AdminERPNextUsers";
 import AdminAISuggestions from "./pages/admin/AdminAISuggestions";
-
+import AdminMasterData from "./pages/admin/AdminMasterData";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -72,6 +72,7 @@ const App = () => (
             <Route path="/admin/sync" element={<AdminLayout title="Sync Status" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Sync Status' }]}><ComingSoon title="Sync Status" /></AdminLayout>} />
             <Route path="/admin/ai-suggestions" element={<AdminLayout title="AI Suggestions" breadcrumbs={[{ label: 'AI Suggestions' }]}><AdminAISuggestions /></AdminLayout>} />
             <Route path="/admin/settings" element={<AdminLayout title="Settings" breadcrumbs={[{ label: 'Settings' }]}><ComingSoon title="Admin Settings" /></AdminLayout>} />
+            <Route path="/admin/master-data" element={<AdminLayout title="Master Data" breadcrumbs={[{ label: 'Master Data' }]}><AdminMasterData /></AdminLayout>} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>
