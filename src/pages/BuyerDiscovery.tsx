@@ -24,6 +24,7 @@ import {
   Building,
   LayoutGrid,
   List,
+  Loader2,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -46,24 +47,39 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Slider } from "@/components/ui/slider";
 import { useToast } from "@/hooks/use-toast";
+import { useBuyerDiscoveryFilters } from "@/hooks/useBuyerFilters";
 import {
   exploriumApi,
-  countryCodes,
-  regionCodes,
-  companySizes,
-  revenueRanges,
-  companyAges,
-  industries,
-  techCategories,
-  businessEvents,
-  buyerIntentTopics,
-  numberOfLocations,
   type Business,
   type SearchFilters,
 } from "@/lib/api/explorium";
 
+// Number of locations options (static for now, can be moved to master data later)
+const numberOfLocations = [
+  { value: "1", label: "Single Location" },
+  { value: "2-5", label: "2-5 Locations" },
+  { value: "6-10", label: "6-10 Locations" },
+  { value: "11-50", label: "11-50 Locations" },
+  { value: "51+", label: "50+ Locations" },
+];
+
 export default function BuyerDiscovery() {
   const { toast } = useToast();
+  
+  // Fetch dynamic filter options from master data
+  const {
+    countries: countryCodes,
+    regions: regionCodes,
+    companySizes,
+    revenueRanges,
+    companyAges,
+    techCategories,
+    businessEvents,
+    intentTopics: buyerIntentTopics,
+    industries,
+    isLoading: isLoadingFilters,
+  } = useBuyerDiscoveryFilters();
+  
   const [isLoading, setIsLoading] = useState(false);
   const [businesses, setBusinesses] = useState<Business[]>([]);
   const [totalResults, setTotalResults] = useState(0);
@@ -302,6 +318,18 @@ export default function BuyerDiscovery() {
   const availableRegions = selectedCountries.flatMap(
     (country) => regionCodes[country] || []
   );
+
+  // Show loading state for filters
+  if (isLoadingFilters) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <p className="text-muted-foreground">Loading filter options...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -821,10 +849,10 @@ export default function BuyerDiscovery() {
                               }
                             >
                               <div className="flex items-center gap-2">
-                                <span className="text-lg">{event.icon}</span>
+                                <Zap className="h-4 w-4 text-primary" />
                                 <div>
                                   <p className="font-medium text-sm">{event.label}</p>
-                                  <p className="text-xs text-muted-foreground">{event.description}</p>
+                                  <p className="text-xs text-muted-foreground">{event.description || ""}</p>
                                 </div>
                               </div>
                             </div>
