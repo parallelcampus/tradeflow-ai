@@ -1,115 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Government-Style Design System - Classic White & Navy */
-    /* Clean, professional, institutional */
+    /* Government-Style Institutional Design System */
+    /* Ultra-minimal, authoritative, text-first */
     
+    /* Pure White Background */
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    
+    /* Charcoal Text - Primary */
+    --foreground: 210 22% 15%;
+    
+    /* Soft Gray - Secondary Text */
+    --muted-foreground: 220 9% 35%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 210 22% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 210 22% 15%;
 
-    /* Primary: Deep Navy - authoritative, trustworthy, government */
-    --primary: 222 47% 20%;
+    /* Deep Forest Green - Single Accent Color */
+    --primary: 162 74% 14%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: Light warm gray */
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 222 47% 11%;
+    /* Light gray for secondary surfaces */
+    --secondary: 0 0% 97%;
+    --secondary-foreground: 210 22% 15%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 0 0% 97%;
 
-    /* Accent: Slightly lighter navy for hover states */
-    --accent: 222 47% 28%;
+    /* Accent same as primary for consistency */
+    --accent: 162 74% 14%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 222 47% 20%;
+    /* Very subtle borders */
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 162 74% 14%;
 
-    --radius: 0.375rem;
+    --radius: 0.25rem;
 
-    /* Status colors */
-    --success: 142 71% 35%;
-    --warning: 38 92% 50%;
-    --info: 199 89% 40%;
+    /* Status colors - muted */
+    --success: 162 74% 14%;
+    --warning: 38 80% 45%;
+    --info: 199 70% 40%;
 
-    /* Sidebar: Light/White - clean government style */
+    /* Sidebar */
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 222 47% 20%;
+    --sidebar-foreground: 210 22% 15%;
+    --sidebar-primary: 162 74% 14%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 222 47% 96%;
-    --sidebar-accent-foreground: 222 47% 20%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 222 47% 20%;
-    --sidebar-hover: 220 14% 97%;
+    --sidebar-accent: 0 0% 97%;
+    --sidebar-accent-foreground: 162 74% 14%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 162 74% 14%;
+    --sidebar-hover: 0 0% 97%;
 
-    /* Semantic surfaces */
-    --surface-elevated: 0 0% 100%;
-    --surface-sunken: 220 14% 98%;
-
-    /* Government gold accent (optional for badges/highlights) */
-    --gold: 45 93% 47%;
-    --gold-foreground: 222 47% 11%;
-
-    /* Shadows - subtle, professional */
-    --shadow-xs: 0 1px 2px 0 hsl(222 47% 11% / 0.03);
-    --shadow-sm: 0 1px 3px 0 hsl(222 47% 11% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.05);
-    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.05);
+    /* Shadows - extremely subtle */
+    --shadow-xs: 0 1px 2px 0 hsl(210 22% 15% / 0.02);
+    --shadow-sm: 0 1px 3px 0 hsl(210 22% 15% / 0.03);
+    --shadow-md: 0 4px 6px -1px hsl(210 22% 15% / 0.03);
+    --shadow-lg: 0 10px 15px -3px hsl(210 22% 15% / 0.03);
   }
 
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 20% 98%;
+    --background: 210 22% 8%;
+    --foreground: 0 0% 95%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 20% 98%;
+    --card: 210 22% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 210 22% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 213 94% 68%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 162 60% 40%;
+    --primary-foreground: 210 22% 8%;
 
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 210 22% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 222 47% 12%;
-    --muted-foreground: 215 16% 60%;
+    --muted: 210 22% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 213 94% 68%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 162 60% 40%;
+    --accent-foreground: 210 22% 8%;
 
-    --destructive: 0 62% 55%;
+    --destructive: 0 60% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 47% 16%;
-    --input: 222 47% 16%;
-    --ring: 213 94% 68%;
+    --border: 210 22% 18%;
+    --input: 210 22% 18%;
+    --ring: 162 60% 40%;
 
-    --sidebar-background: 222 47% 5%;
-    --sidebar-foreground: 210 20% 98%;
-    --sidebar-primary: 213 94% 68%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 222 47% 12%;
-    --sidebar-accent-foreground: 210 20% 98%;
-    --sidebar-border: 222 47% 12%;
-    --sidebar-ring: 213 94% 68%;
-    --sidebar-hover: 222 47% 10%;
+    --sidebar-background: 210 22% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 162 60% 40%;
+    --sidebar-primary-foreground: 210 22% 6%;
+    --sidebar-accent: 210 22% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 210 22% 12%;
+    --sidebar-ring: 162 60% 40%;
+    --sidebar-hover: 210 22% 12%;
   }
 }
 
@@ -120,41 +119,56 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Inter for all text - clean government style */
+  /* Serif headings for government/policy style */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 700;
+    line-height: 1.3;
   }
 
   h1 {
-    @apply text-3xl font-bold tracking-tight;
+    font-size: 3.5rem;
+    letter-spacing: -0.02em;
   }
 
   h2 {
-    @apply text-2xl font-semibold tracking-tight;
+    font-size: 2.25rem;
+    letter-spacing: -0.01em;
   }
 
   h3 {
-    @apply text-xl font-semibold;
+    font-size: 1.5rem;
   }
 
   h4 {
-    @apply text-lg font-medium;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+
+  /* Links with green underline on hover */
+  a {
+    transition: all 0.2s ease;
   }
 }
 
 @layer utilities {
-  /* Typography utilities */
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Card shadows */
+  /* Minimal shadows */
   .shadow-card {
     box-shadow: var(--shadow-sm);
   }
@@ -167,47 +181,38 @@
     box-shadow: var(--shadow-lg);
   }
 
-  /* Focus ring for accessibility */
+  /* Focus ring */
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
 
-  /* Status indicator dots */
-  .status-dot {
-    @apply w-2 h-2 rounded-full shrink-0;
+  /* Green underline for links */
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply w-full;
   }
 
-  .status-dot-success {
-    @apply bg-[hsl(var(--success))];
+  /* Section spacing */
+  .section-spacing {
+    @apply py-20 md:py-28 lg:py-32;
   }
 
-  .status-dot-warning {
-    @apply bg-[hsl(var(--warning))];
+  /* Container for content blocks */
+  .content-block {
+    @apply max-w-3xl mx-auto;
   }
 
-  .status-dot-error {
-    @apply bg-destructive;
-  }
-
-  /* Government-style gold accent */
-  .badge-gold {
-    @apply bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))];
-  }
-
-  /* Subtle pattern for backgrounds */
-  .bg-pattern {
-    background-image: radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0);
-    background-size: 24px 24px;
-  }
-
-  /* Loading animation */
-  @keyframes pulse-subtle {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
-  }
-
-  .animate-pulse-subtle {
-    animation: pulse-subtle 2s ease-in-out infinite;
+  /* Divider line */
+  .divider {
+    @apply border-t border-border my-12;
   }
 
   /* Fade in animation */
@@ -217,19 +222,6 @@
   }
 
   .animate-fade-in {
-    animation: fade-in 0.3s ease-out forwards;
+    animation: fade-in 0.4s ease-out forwards;
   }
-
-  /* Stagger children animation */
-  .stagger-children > * {
-    animation: fade-in 0.3s ease-out forwards;
-    opacity: 0;
-  }
-
-  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
-  .stagger-children > *:nth-child(2) { animation-delay: 50ms; }
-  .stagger-children > *:nth-child(3) { animation-delay: 100ms; }
-  .stagger-children > *:nth-child(4) { animation-delay: 150ms; }
-  .stagger-children > *:nth-child(5) { animation-delay: 200ms; }
-  .stagger-children > *:nth-child(6) { animation-delay: 250ms; }
 }

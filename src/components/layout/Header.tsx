@@ -1,61 +1,48 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Globe, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  
-  // Check if we're on a page with dark hero
-  const isDarkHero = location.pathname === "/";
 
   const navItems = [
-    { label: "Membership", href: "/membership" },
-    { label: "Consultancy", href: "/consultancy" },
-    { label: "Delegation", href: "/delegation" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Team", href: "/team" },
-    { label: "Events", href: "/events" },
+    { label: "About", href: "/about" },
+    { label: "Programs", href: "/delegation" },
+    { label: "Services", href: "/consultancy" },
+    { label: "Resources", href: "/training" },
+    { label: "Contact", href: "/contact" },
   ];
 
+  const isActive = (href: string) => location.pathname === href;
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isDarkHero 
-        ? "bg-primary/95 backdrop-blur-md border-b border-white/10" 
-        : "bg-background/95 backdrop-blur-md border-b border-border"
-    }`}>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg ${
-              isDarkHero ? "bg-white" : "bg-primary"
-            }`}>
-              <Globe className={`w-7 h-7 ${isDarkHero ? "text-primary" : "text-white"}`} />
-            </div>
             <div className="flex flex-col">
-              <span className={`text-xl font-bold tracking-tight ${isDarkHero ? "text-white" : "text-foreground"}`}>
+              <span className="text-xl font-serif font-bold tracking-tight text-foreground">
                 GTPC
               </span>
-              <span className={`text-[10px] tracking-wider uppercase ${
-                isDarkHero ? "text-white/70" : "text-muted-foreground"
-              }`}>
-                Global Trade Promotion
+              <span className="text-[10px] tracking-wider uppercase text-muted-foreground">
+                Global Trade Promotion Corporation
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isDarkHero 
-                    ? "text-white/80 hover:text-white hover:bg-white/10" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                className={`text-base font-medium transition-colors link-underline ${
+                  isActive(item.href)
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
                 }`}
               >
                 {item.label}
@@ -64,34 +51,17 @@ const Header = () => {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className={isDarkHero 
-                ? "text-white/70 hover:text-white hover:bg-white/10" 
-                : "text-muted-foreground hover:text-foreground"
-              }
-            >
-              <Globe className="w-4 h-4 mr-1" />
-              EN
-              <ChevronDown className="w-3 h-3 ml-1" />
-            </Button>
+          <div className="hidden lg:flex items-center gap-4">
             <Link to="/auth">
               <Button 
-                variant={isDarkHero ? "outline" : "outline"}
-                size="sm"
-                className={isDarkHero ? "border-white/30 text-white hover:bg-white/10" : ""}
+                variant="ghost" 
+                className="text-foreground hover:text-primary hover:bg-transparent"
               >
                 Sign In
               </Button>
             </Link>
             <Link to="/auth">
-              <Button 
-                size="sm"
-                variant={isDarkHero ? "secondary" : "default"}
-                className={isDarkHero ? "text-primary" : ""}
-              >
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-6">
                 Get Started
               </Button>
             </Link>
@@ -99,7 +69,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`lg:hidden p-2 ${isDarkHero ? "text-white" : "text-foreground"}`}
+            className="lg:hidden p-2 text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -108,42 +78,30 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className={`lg:hidden absolute top-20 left-0 right-0 border-b p-4 ${
-            isDarkHero 
-              ? "bg-primary border-white/10" 
-              : "bg-background border-border"
-          }`}>
-            <nav className="flex flex-col gap-2">
+          <div className="lg:hidden absolute top-20 left-0 right-0 bg-background border-b border-border p-6">
+            <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
-                    isDarkHero 
-                      ? "text-white/80 hover:text-white hover:bg-white/10" 
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  className={`text-base font-medium py-2 transition-colors ${
+                    isActive(item.href)
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
                   }`}
                 >
                   {item.label}
                 </Link>
               ))}
-              <div className={`flex flex-col gap-2 mt-4 pt-4 border-t ${
-                isDarkHero ? "border-white/10" : "border-border"
-              }`}>
+              <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border">
                 <Link to="/auth" onClick={() => setIsMenuOpen(false)}>
-                  <Button 
-                    variant="outline" 
-                    className={`w-full ${isDarkHero ? "border-white/30 text-white hover:bg-white/10" : ""}`}
-                  >
+                  <Button variant="outline" className="w-full rounded-none">
                     Sign In
                   </Button>
                 </Link>
                 <Link to="/auth" onClick={() => setIsMenuOpen(false)}>
-                  <Button 
-                    className="w-full"
-                    variant={isDarkHero ? "secondary" : "default"}
-                  >
+                  <Button className="w-full rounded-none">
                     Get Started
                   </Button>
                 </Link>
