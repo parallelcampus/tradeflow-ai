@@ -64,18 +64,10 @@ export default {
         info: "hsl(var(--info))",
       },
       fontFamily: {
-        sans: ['Source Sans 3', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['Merriweather', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
-        'lg': ['1.125rem', { lineHeight: '1.75' }],
-        'xl': ['1.25rem', { lineHeight: '1.75' }],
-        '2xl': ['1.5rem', { lineHeight: '1.4' }],
-        '3xl': ['2rem', { lineHeight: '1.3' }],
-        '4xl': ['2.5rem', { lineHeight: '1.2' }],
-        '5xl': ['3rem', { lineHeight: '1.15' }],
-        '6xl': ['3.5rem', { lineHeight: '1.1' }],
       },
       borderRadius: {
         lg: "var(--radius)",
