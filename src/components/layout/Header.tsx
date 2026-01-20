@@ -11,12 +11,12 @@ const Header = () => {
   const isDarkHero = location.pathname === "/";
 
   const navItems = [
-    { label: "Services", href: "/#services" },
-    { label: "Consultants", href: "/consultants" },
-    { label: "Training", href: "/training" },
+    { label: "Membership", href: "/membership" },
+    { label: "Consultancy", href: "/consultancy" },
+    { label: "Delegation", href: "/delegation" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Team", href: "/team" },
     { label: "Events", href: "/events" },
-    { label: "Schemes", href: "/schemes" },
-    { label: "AI Assistant", href: "/ai-assistant" },
   ];
 
   return (
