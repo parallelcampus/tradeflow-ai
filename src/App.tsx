@@ -22,6 +22,11 @@ import Delegations from "./pages/Delegations";
 import Events from "./pages/Events";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
+import Membership from "./pages/Membership";
+import Consultancy from "./pages/Consultancy";
+import Gallery from "./pages/Gallery";
+import Delegation from "./pages/Delegation";
+import Team from "./pages/Team";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminTraining from "./pages/admin/AdminTraining";
 import AdminDelegations from "./pages/admin/AdminDelegations";
@@ -43,6 +48,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/membership" element={<Membership />} />
+            <Route path="/consultancy" element={<Consultancy />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/delegation" element={<Delegation />} />
+            <Route path="/team" element={<Team />} />
             <Route path="/dashboard" element={<PortalLayout><Dashboard /></PortalLayout>} />
             <Route path="/dashboard/ai" element={<PortalLayout><AIAssistant /></PortalLayout>} />
             <Route path="/dashboard/marketplace" element={<PortalLayout><Marketplace /></PortalLayout>} />
