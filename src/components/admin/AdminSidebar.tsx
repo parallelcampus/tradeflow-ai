@@ -12,7 +12,10 @@ import {
   Database,
   Sparkles,
   Library,
-  HeartPulse
+  HeartPulse,
+  TrendingUp,
+  Factory,
+  Briefcase
 } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import { useSidebar } from '@/components/ui/sidebar';
@@ -48,6 +51,13 @@ const contentManagement = [
   { title: 'Tourism Management', url: '/admin/tourism-management', icon: Globe },
   { title: 'Add-On Services', url: '/admin/addon-services', icon: Database },
   { title: 'AI Suggestions', url: '/admin/ai-suggestions', icon: Sparkles, badge: 'AI' },
+];
+
+const businessExpansion = [
+  { title: 'Investment Cases', url: '/admin/investment', icon: TrendingUp },
+  { title: 'Company Setup', url: '/admin/company-setup', icon: Briefcase },
+  { title: 'Schemes Database', url: '/admin/schemes-db', icon: Landmark },
+  { title: 'Manufacturing', url: '/admin/manufacturing', icon: Factory },
 ];
 
 const erpnextItems = [
@@ -131,6 +141,22 @@ export function AdminSidebar() {
             <CollapsibleContent>
               <SidebarGroupContent>
                 {renderMenuItems(contentManagement)}
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
+
+        <Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <CollapsibleTrigger asChild>
+              <SidebarGroupLabel className="cursor-pointer hover:bg-muted/50 rounded-sm transition-colors flex items-center justify-between pr-2">
+                {!collapsed && <span>Business Expansion</span>}
+                {!collapsed && <ChevronDown className="h-4 w-4 transition-transform group-data-[state=open]/collapsible:rotate-180" />}
+              </SidebarGroupLabel>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                {renderMenuItems(businessExpansion)}
               </SidebarGroupContent>
             </CollapsibleContent>
           </SidebarGroup>

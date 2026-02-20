@@ -152,6 +152,134 @@ export type Database = {
         }
         Relationships: []
       }
+      company_setup_packages: {
+        Row: {
+          compliance_checklist: Json | null
+          country_code: string
+          country_name: string
+          created_at: string | null
+          currency: string | null
+          description: string | null
+          features: Json | null
+          id: string
+          is_active: boolean | null
+          is_featured: boolean | null
+          jurisdiction_type: string | null
+          package_name: string
+          package_tier: string
+          price: number | null
+          setup_timeline: string | null
+          sort_order: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          compliance_checklist?: Json | null
+          country_code: string
+          country_name: string
+          created_at?: string | null
+          currency?: string | null
+          description?: string | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          jurisdiction_type?: string | null
+          package_name: string
+          package_tier?: string
+          price?: number | null
+          setup_timeline?: string | null
+          sort_order?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          compliance_checklist?: Json | null
+          country_code?: string
+          country_name?: string
+          created_at?: string | null
+          currency?: string | null
+          description?: string | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          jurisdiction_type?: string | null
+          package_name?: string
+          package_tier?: string
+          price?: number | null
+          setup_timeline?: string | null
+          sort_order?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      company_setup_requests: {
+        Row: {
+          admin_notes: string | null
+          assigned_manager: string | null
+          business_type: string | null
+          company_name: string
+          compliance_status: Json | null
+          contact_email: string
+          contact_name: string
+          contact_phone: string | null
+          country_code: string
+          created_at: string | null
+          id: string
+          notes: string | null
+          package_id: string | null
+          progress_percentage: number | null
+          status: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          assigned_manager?: string | null
+          business_type?: string | null
+          company_name: string
+          compliance_status?: Json | null
+          contact_email: string
+          contact_name: string
+          contact_phone?: string | null
+          country_code: string
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          package_id?: string | null
+          progress_percentage?: number | null
+          status?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          admin_notes?: string | null
+          assigned_manager?: string | null
+          business_type?: string | null
+          company_name?: string
+          compliance_status?: Json | null
+          contact_email?: string
+          contact_name?: string
+          contact_phone?: string | null
+          country_code?: string
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          package_id?: string | null
+          progress_percentage?: number | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "company_setup_requests_package_id_fkey"
+            columns: ["package_id"]
+            isOneToOne: false
+            referencedRelation: "company_setup_packages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       consultant_availability: {
         Row: {
           consultant_id: string
@@ -532,6 +660,60 @@ export type Database = {
         }
         Relationships: []
       }
+      country_business_profiles: {
+        Row: {
+          business_climate: string | null
+          country_code: string
+          country_name: string
+          created_at: string | null
+          estimated_cost_range: string | null
+          flag_emoji: string | null
+          hero_image_url: string | null
+          id: string
+          is_active: boolean | null
+          key_benefits: Json | null
+          legal_requirements: Json | null
+          setup_timeline: string | null
+          sort_order: number | null
+          tax_structure: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          business_climate?: string | null
+          country_code: string
+          country_name: string
+          created_at?: string | null
+          estimated_cost_range?: string | null
+          flag_emoji?: string | null
+          hero_image_url?: string | null
+          id?: string
+          is_active?: boolean | null
+          key_benefits?: Json | null
+          legal_requirements?: Json | null
+          setup_timeline?: string | null
+          sort_order?: number | null
+          tax_structure?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          business_climate?: string | null
+          country_code?: string
+          country_name?: string
+          created_at?: string | null
+          estimated_cost_range?: string | null
+          flag_emoji?: string | null
+          hero_image_url?: string | null
+          id?: string
+          is_active?: boolean | null
+          key_benefits?: Json | null
+          legal_requirements?: Json | null
+          setup_timeline?: string | null
+          sort_order?: number | null
+          tax_structure?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       delegation_programs: {
         Row: {
           created_at: string
@@ -694,6 +876,66 @@ export type Database = {
         }
         Relationships: []
       }
+      government_schemes_db: {
+        Row: {
+          application_deadline: string | null
+          benefits: string | null
+          category: string
+          circular_url: string | null
+          country: string
+          created_at: string | null
+          description: string | null
+          eligibility_tags: string[] | null
+          estimated_benefit: string | null
+          id: string
+          is_active: boolean | null
+          is_featured: boolean | null
+          official_url: string | null
+          sector: string | null
+          sort_order: number | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          application_deadline?: string | null
+          benefits?: string | null
+          category: string
+          circular_url?: string | null
+          country: string
+          created_at?: string | null
+          description?: string | null
+          eligibility_tags?: string[] | null
+          estimated_benefit?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          official_url?: string | null
+          sector?: string | null
+          sort_order?: number | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          application_deadline?: string | null
+          benefits?: string | null
+          category?: string
+          circular_url?: string | null
+          country?: string
+          created_at?: string | null
+          description?: string | null
+          eligibility_tags?: string[] | null
+          estimated_benefit?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          official_url?: string | null
+          sector?: string | null
+          sort_order?: number | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       industries: {
         Row: {
           created_at: string | null
@@ -715,6 +957,138 @@ export type Database = {
           id?: string
           name?: string
           slug?: string
+        }
+        Relationships: []
+      }
+      investment_projects: {
+        Row: {
+          admin_notes: string | null
+          contact_email: string | null
+          country: string | null
+          created_at: string | null
+          created_by: string | null
+          currency: string | null
+          description: string | null
+          documents_url: string | null
+          expected_roi: string | null
+          id: string
+          investment_required: number | null
+          investment_type: string | null
+          is_active: boolean | null
+          is_featured: boolean | null
+          is_public: boolean | null
+          project_stage: string | null
+          sector: string
+          timeline: string | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          contact_email?: string | null
+          country?: string | null
+          created_at?: string | null
+          created_by?: string | null
+          currency?: string | null
+          description?: string | null
+          documents_url?: string | null
+          expected_roi?: string | null
+          id?: string
+          investment_required?: number | null
+          investment_type?: string | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          is_public?: boolean | null
+          project_stage?: string | null
+          sector: string
+          timeline?: string | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          contact_email?: string | null
+          country?: string | null
+          created_at?: string | null
+          created_by?: string | null
+          currency?: string | null
+          description?: string | null
+          documents_url?: string | null
+          expected_roi?: string | null
+          id?: string
+          investment_required?: number | null
+          investment_type?: string | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          is_public?: boolean | null
+          project_stage?: string | null
+          sector?: string
+          timeline?: string | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      investor_registrations: {
+        Row: {
+          admin_notes: string | null
+          assigned_advisor: string | null
+          capital_range: string | null
+          company_name: string | null
+          country: string | null
+          created_at: string | null
+          email: string
+          experience_summary: string | null
+          id: string
+          investment_preference: string | null
+          investor_name: string
+          investor_type: string | null
+          is_confidential: boolean | null
+          phone: string | null
+          sectors_of_interest: string[] | null
+          status: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          assigned_advisor?: string | null
+          capital_range?: string | null
+          company_name?: string | null
+          country?: string | null
+          created_at?: string | null
+          email: string
+          experience_summary?: string | null
+          id?: string
+          investment_preference?: string | null
+          investor_name: string
+          investor_type?: string | null
+          is_confidential?: boolean | null
+          phone?: string | null
+          sectors_of_interest?: string[] | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          assigned_advisor?: string | null
+          capital_range?: string | null
+          company_name?: string | null
+          country?: string | null
+          created_at?: string | null
+          email?: string
+          experience_summary?: string | null
+          id?: string
+          investment_preference?: string | null
+          investor_name?: string
+          investor_type?: string | null
+          is_confidential?: boolean | null
+          phone?: string | null
+          sectors_of_interest?: string[] | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -760,6 +1134,78 @@ export type Database = {
           status?: string | null
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      manufacturing_partnerships: {
+        Row: {
+          admin_notes: string | null
+          annual_volume: string | null
+          assigned_manager: string | null
+          budget_range: string | null
+          certifications_required: string[] | null
+          company_name: string
+          contact_email: string
+          contact_name: string
+          contact_phone: string | null
+          country: string | null
+          created_at: string | null
+          id: string
+          is_active: boolean | null
+          preferred_countries: string[] | null
+          product_category: string | null
+          request_type: string
+          requirements: string | null
+          sector: string | null
+          status: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          annual_volume?: string | null
+          assigned_manager?: string | null
+          budget_range?: string | null
+          certifications_required?: string[] | null
+          company_name: string
+          contact_email: string
+          contact_name: string
+          contact_phone?: string | null
+          country?: string | null
+          created_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          preferred_countries?: string[] | null
+          product_category?: string | null
+          request_type: string
+          requirements?: string | null
+          sector?: string | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          annual_volume?: string | null
+          assigned_manager?: string | null
+          budget_range?: string | null
+          certifications_required?: string[] | null
+          company_name?: string
+          contact_email?: string
+          contact_name?: string
+          contact_phone?: string | null
+          country?: string | null
+          created_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          preferred_countries?: string[] | null
+          product_category?: string | null
+          request_type?: string
+          requirements?: string | null
+          sector?: string | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -1347,6 +1793,74 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      scheme_assessment_requests: {
+        Row: {
+          admin_notes: string | null
+          annual_revenue: string | null
+          assigned_to: string | null
+          company_name: string
+          contact_email: string
+          contact_name: string
+          contact_phone: string | null
+          country: string | null
+          created_at: string | null
+          employee_count: string | null
+          id: string
+          notes: string | null
+          scheme_id: string | null
+          sector: string | null
+          status: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          annual_revenue?: string | null
+          assigned_to?: string | null
+          company_name: string
+          contact_email: string
+          contact_name: string
+          contact_phone?: string | null
+          country?: string | null
+          created_at?: string | null
+          employee_count?: string | null
+          id?: string
+          notes?: string | null
+          scheme_id?: string | null
+          sector?: string | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          annual_revenue?: string | null
+          assigned_to?: string | null
+          company_name?: string
+          contact_email?: string
+          contact_name?: string
+          contact_phone?: string | null
+          country?: string | null
+          created_at?: string | null
+          employee_count?: string | null
+          id?: string
+          notes?: string | null
+          scheme_id?: string | null
+          sector?: string | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "scheme_assessment_requests_scheme_id_fkey"
+            columns: ["scheme_id"]
+            isOneToOne: false
+            referencedRelation: "government_schemes_db"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       team_members: {
         Row: {
