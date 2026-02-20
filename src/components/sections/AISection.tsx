@@ -83,7 +83,7 @@ const AISection = () => {
                   key={feature.title}
                   className="group bg-card rounded-sm p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border hover:border-primary/30 flex gap-5"
                 >
-                  <div className="w-12 h-12 rounded-sm bg-foreground flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
+                  <div className="w-12 h-12 rounded-sm bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
                     <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
                   <div>
@@ -102,17 +102,17 @@ const AISection = () => {
 
         {/* Chat Preview */}
         <div className="mt-20 bg-card rounded-sm shadow-elevated border border-border overflow-hidden">
-          <div className="bg-foreground px-6 py-4 flex items-center gap-3">
+          <div className="bg-primary/5 px-6 py-4 flex items-center gap-3 border-b border-border">
             <div className="w-10 h-10 rounded-sm bg-primary flex items-center justify-center">
               <Bot className="w-5 h-5 text-primary-foreground" />
             </div>
             <div>
-              <h4 className="text-background font-semibold">AITAS AI Trade Assistant</h4>
-              <p className="text-xs text-background/60">Powered by Advanced Language Models</p>
+              <h4 className="text-foreground font-semibold">AITAS AI Trade Assistant</h4>
+              <p className="text-xs text-muted-foreground">Powered by Advanced Language Models</p>
             </div>
             <div className="ml-auto flex items-center gap-2">
               <span className="w-2 h-2 bg-primary rounded-full" />
-              <span className="text-xs text-background/60">Online</span>
+              <span className="text-xs text-muted-foreground">Online</span>
             </div>
           </div>
           
