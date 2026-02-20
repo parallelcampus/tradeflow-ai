@@ -26,6 +26,9 @@ import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import News from "./pages/News";
 import NewsArticle from "./pages/NewsArticle";
+import GlobalInvestment from "./pages/GlobalInvestment";
+import SchemesDatabase from "./pages/SchemesDatabase";
+import ManufacturingPartnerships from "./pages/ManufacturingPartnerships";
 import MyRequests from "./pages/portal/MyRequests";
 import MyDocuments from "./pages/portal/MyDocuments";
 import MyProfile from "./pages/portal/MyProfile";
@@ -59,6 +62,14 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:slug" element={<NewsArticle />} />
+            <Route path="/global-investment" element={<GlobalInvestment />} />
+            <Route path="/schemes" element={<SchemesDatabase />} />
+            <Route path="/manufacturing" element={<ManufacturingPartnerships />} />
+            <Route path="/trade-shows" element={<ComingSoon title="International Trade Shows & Expos" />} />
+            <Route path="/membership" element={<ComingSoon title="Membership" />} />
+            <Route path="/contact" element={<ComingSoon title="Contact Us" />} />
+            <Route path="/insights" element={<ComingSoon title="Insights" />} />
+            <Route path="/trade-services" element={<ComingSoon title="Trade & Export Services" />} />
             <Route path="/dashboard" element={<PortalLayout><Dashboard /></PortalLayout>} />
             <Route path="/dashboard/ai" element={<PortalLayout><AIAssistant /></PortalLayout>} />
             <Route path="/dashboard/marketplace" element={<PortalLayout><Marketplace /></PortalLayout>} />
@@ -91,6 +102,10 @@ const App = () => (
             <Route path="/admin/medical-inquiries" element={<AdminLayout title="Medical Inquiries" breadcrumbs={[{ label: 'Medical Inquiries' }]}><AdminMedicalInquiries /></AdminLayout>} />
             <Route path="/admin/tourism-management" element={<AdminLayout title="Tourism Management" breadcrumbs={[{ label: 'Tourism Management' }]}><AdminTourismManagement /></AdminLayout>} />
             <Route path="/admin/addon-services" element={<AdminLayout title="Add-On Services" breadcrumbs={[{ label: 'Add-On Services' }]}><AdminAddonServices /></AdminLayout>} />
+            <Route path="/admin/investment" element={<AdminLayout title="Investment Cases" breadcrumbs={[{ label: 'Investment' }]}><ComingSoon title="Investment Case Management" /></AdminLayout>} />
+            <Route path="/admin/company-setup" element={<AdminLayout title="Company Setup Requests" breadcrumbs={[{ label: 'Company Setup' }]}><ComingSoon title="Company Setup Management" /></AdminLayout>} />
+            <Route path="/admin/schemes-db" element={<AdminLayout title="Schemes Database" breadcrumbs={[{ label: 'Schemes DB' }]}><ComingSoon title="Schemes Database Management" /></AdminLayout>} />
+            <Route path="/admin/manufacturing" element={<AdminLayout title="Manufacturing Partnerships" breadcrumbs={[{ label: 'Manufacturing' }]}><ComingSoon title="Manufacturing Partnership Management" /></AdminLayout>} />
             <Route path="/admin/erpnext-users" element={<AdminLayout title="Users & Plans" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Users & Plans' }]}><AdminERPNextUsers /></AdminLayout>} />
             <Route path="/admin/consultants" element={<AdminLayout title="Consultants" breadcrumbs={[{ label: 'Consultants' }]}><ComingSoon title="Consultant Management" /></AdminLayout>} />
             <Route path="/admin/sync" element={<AdminLayout title="Sync Status" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Sync Status' }]}><ComingSoon title="Sync Status" /></AdminLayout>} />
