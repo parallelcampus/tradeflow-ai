@@ -124,18 +124,18 @@ export default function TourismMedical() {
       <Header />
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-foreground py-20 lg:py-28">
+        <section className="bg-primary/5 border-b border-border py-20 lg:py-28">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-sm mb-6">
                 <HeartPulse className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">Medical & International Tourism Division</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-background mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
                 Global Healthcare &<br />
                 <span className="text-primary">Pilgrimage Facilitation Program</span>
               </h1>
-              <p className="text-lg text-background/70 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 AITAS facilitates international patients and pilgrims by connecting them to accredited hospitals, healthcare specialists, and religious tourism circuits in India and other partner countries.
               </p>
             </div>
@@ -197,11 +197,11 @@ export default function TourismMedical() {
                 <div className="overflow-x-auto">
                   <table className="w-full border border-border rounded-sm">
                     <thead>
-                      <tr className="bg-foreground text-background">
-                        <th className="text-left p-4 font-semibold text-sm">Procedure</th>
-                        <th className="text-left p-4 font-semibold text-sm">India</th>
-                        <th className="text-left p-4 font-semibold text-sm">USA</th>
-                        <th className="text-left p-4 font-semibold text-sm">UK</th>
+                      <tr className="bg-primary/10">
+                        <th className="text-left p-4 font-semibold text-sm text-foreground">Procedure</th>
+                        <th className="text-left p-4 font-semibold text-sm text-foreground">India</th>
+                        <th className="text-left p-4 font-semibold text-sm text-foreground">USA</th>
+                        <th className="text-left p-4 font-semibold text-sm text-foreground">UK</th>
                       </tr>
                     </thead>
                     <tbody>
