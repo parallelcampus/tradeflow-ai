@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-foreground overflow-hidden pt-20">
+    <section className="relative min-h-screen bg-background overflow-hidden pt-20">
       {/* Subtle grid */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -22,13 +22,13 @@ const HeroSection = () => {
               <span className="text-sm font-medium text-primary">AI-Powered Trade & Allied Services</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-background leading-[1.1] animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Empowering
               <span className="block text-primary">Global Trade</span>
               <span className="block">Excellence</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-background/70 max-w-xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Transform your international trade journey with AI-driven insights, government scheme navigation, medical tourism facilitation, and seamless buyer-seller connections.
             </p>
 
@@ -47,18 +47,18 @@ const HeroSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-background/10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <div className="flex flex-col">
                 <span className="text-2xl md:text-3xl font-bold text-primary">50K+</span>
-                <span className="text-sm text-background/60">Active Members</span>
+                <span className="text-sm text-muted-foreground">Active Members</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-2xl md:text-3xl font-bold text-primary">150+</span>
-                <span className="text-sm text-background/60">Countries Served</span>
+                <span className="text-sm text-muted-foreground">Countries Served</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-2xl md:text-3xl font-bold text-primary">$2B+</span>
-                <span className="text-sm text-background/60">Trade Facilitated</span>
+                <span className="text-sm text-muted-foreground">Trade Facilitated</span>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@ const HeroSection = () => {
 
               <div className="absolute -bottom-4 left-1/4 bg-card rounded-sm p-4 shadow-md border border-border">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-sm bg-foreground flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center">
                     <Shield className="w-5 h-5 text-primary" />
                   </div>
                   <div>
@@ -113,12 +113,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 80L60 73C120 67 240 53 360 47C480 40 600 40 720 43C840 47 960 53 1080 57C1200 60 1320 60 1380 60L1440 60V80H0V80Z" fill="hsl(0 0% 100%)"/>
-        </svg>
-      </div>
+      {/* Bottom border */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
     </section>
   );
 };

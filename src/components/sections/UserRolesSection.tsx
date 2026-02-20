@@ -87,7 +87,7 @@ const UserRolesSection = () => {
                 key={role.title}
                 className="group bg-card rounded-sm p-6 shadow-card hover:shadow-elevated transition-all duration-300 border border-border hover:border-primary/30 flex flex-col"
               >
-                <div className="w-12 h-12 rounded-sm bg-foreground flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
+                <div className="w-12 h-12 rounded-sm bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
                   <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 

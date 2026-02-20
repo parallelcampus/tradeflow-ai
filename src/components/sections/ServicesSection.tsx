@@ -98,27 +98,27 @@ const ServicesSection = () => {
         </div>
 
         {/* Bottom Stats Bar */}
-        <div className="mt-20 bg-foreground rounded-sm p-8 lg:p-12">
+        <div className="mt-20 bg-primary/5 border border-primary/20 rounded-sm p-8 lg:p-12">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="flex flex-col items-center">
               <Building2 className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-background">5,000+</span>
-              <span className="text-sm text-background/60 mt-1">Registered Companies</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">5,000+</span>
+              <span className="text-sm text-muted-foreground mt-1">Registered Companies</span>
             </div>
             <div className="flex flex-col items-center">
               <ShoppingBag className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-background">25K+</span>
-              <span className="text-sm text-background/60 mt-1">Trade Deals Closed</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">25K+</span>
+              <span className="text-sm text-muted-foreground mt-1">Trade Deals Closed</span>
             </div>
             <div className="flex flex-col items-center">
               <Plane className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-background">200+</span>
-              <span className="text-sm text-background/60 mt-1">Delegations Organized</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">200+</span>
+              <span className="text-sm text-muted-foreground mt-1">Delegations Organized</span>
             </div>
             <div className="flex flex-col items-center">
               <HeartPulse className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-background">1,000+</span>
-              <span className="text-sm text-background/60 mt-1">Patients Facilitated</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">1,000+</span>
+              <span className="text-sm text-muted-foreground mt-1">Patients Facilitated</span>
             </div>
           </div>
         </div>
