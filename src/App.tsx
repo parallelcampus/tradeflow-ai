@@ -17,13 +17,12 @@ import Consultants from "./pages/Consultants";
 import ConsultantRegister from "./pages/ConsultantRegister";
 import MyMeetings from "./pages/MyMeetings";
 import B2BMeetings from "./pages/B2BMeetings";
-import Training from "./pages/Training";
 import Delegations from "./pages/Delegations";
 import Events from "./pages/Events";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
+import TourismMedical from "./pages/TourismMedical";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-import AdminTraining from "./pages/admin/AdminTraining";
 import AdminDelegations from "./pages/admin/AdminDelegations";
 import AdminEvents from "./pages/admin/AdminEvents";
 import AdminSchemes from "./pages/admin/AdminSchemes";
@@ -43,6 +42,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/tourism-medical" element={<TourismMedical />} />
             <Route path="/dashboard" element={<PortalLayout><Dashboard /></PortalLayout>} />
             <Route path="/dashboard/ai" element={<PortalLayout><AIAssistant /></PortalLayout>} />
             <Route path="/dashboard/marketplace" element={<PortalLayout><Marketplace /></PortalLayout>} />
@@ -54,7 +54,7 @@ const App = () => (
             <Route path="/dashboard/b2b" element={<PortalLayout><B2BMeetings /></PortalLayout>} />
             <Route path="/dashboard/events" element={<PortalLayout><Events /></PortalLayout>} />
             <Route path="/dashboard/delegations" element={<PortalLayout><Delegations /></PortalLayout>} />
-            <Route path="/dashboard/training" element={<PortalLayout><Training /></PortalLayout>} />
+            <Route path="/dashboard/tourism-medical" element={<PortalLayout><ComingSoon title="Tourism & Medical" /></PortalLayout>} />
             <Route path="/dashboard/admin/users" element={<PortalLayout><ComingSoon title="User Management" /></PortalLayout>} />
             <Route path="/dashboard/admin/orgs" element={<PortalLayout><ComingSoon title="Organizations" /></PortalLayout>} />
             <Route path="/dashboard/admin/security" element={<PortalLayout><ComingSoon title="Security" /></PortalLayout>} />
@@ -62,11 +62,11 @@ const App = () => (
             
             {/* Admin Panel Routes */}
             <Route path="/admin" element={<AdminLayout title="Dashboard"><AdminDashboard /></AdminLayout>} />
-            <Route path="/admin/training" element={<AdminLayout title="Training Programs" breadcrumbs={[{ label: 'Training Programs' }]}><AdminTraining /></AdminLayout>} />
             <Route path="/admin/delegations" element={<AdminLayout title="Delegations" breadcrumbs={[{ label: 'Delegations' }]}><AdminDelegations /></AdminLayout>} />
             <Route path="/admin/events" element={<AdminLayout title="Events & Exhibitions" breadcrumbs={[{ label: 'Events' }]}><AdminEvents /></AdminLayout>} />
             <Route path="/admin/schemes" element={<AdminLayout title="Government Schemes" breadcrumbs={[{ label: 'Schemes' }]}><AdminSchemes /></AdminLayout>} />
             <Route path="/admin/policies" element={<AdminLayout title="Government Policies" breadcrumbs={[{ label: 'Policies' }]}><AdminPolicies /></AdminLayout>} />
+            <Route path="/admin/tourism-medical" element={<AdminLayout title="Tourism & Medical" breadcrumbs={[{ label: 'Tourism & Medical' }]}><ComingSoon title="Tourism & Medical Management" /></AdminLayout>} />
             <Route path="/admin/erpnext-users" element={<AdminLayout title="Users & Plans" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Users & Plans' }]}><AdminERPNextUsers /></AdminLayout>} />
             <Route path="/admin/consultants" element={<AdminLayout title="Consultants" breadcrumbs={[{ label: 'Consultants' }]}><ComingSoon title="Consultant Management" /></AdminLayout>} />
             <Route path="/admin/sync" element={<AdminLayout title="Sync Status" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Sync Status' }]}><ComingSoon title="Sync Status" /></AdminLayout>} />

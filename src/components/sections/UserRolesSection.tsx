@@ -5,8 +5,8 @@ import {
   Package, 
   Calendar, 
   Plane, 
-  GraduationCap, 
   Building,
+  HeartPulse,
   ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -49,10 +49,10 @@ const roles = [
     features: ["Delegation planning", "Document coordination", "Travel management", "Outcome tracking"],
   },
   {
-    icon: GraduationCap,
-    title: "Trainers & Mentors",
-    description: "Deliver courses, certifications, and capacity-building programs on the integrated LMS.",
-    features: ["Course creation", "Live sessions", "Certification issuance", "Progress tracking"],
+    icon: HeartPulse,
+    title: "Medical & Tourism Clients",
+    description: "Access world-class healthcare coordination, pilgrimage facilitation, and travel services.",
+    features: ["Hospital network", "Case management", "Visa guidance", "Travel coordination"],
   },
   {
     icon: Building,
@@ -66,34 +66,32 @@ const UserRolesSection = () => {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 bg-navy-deep/10 text-navy-deep text-sm font-semibold rounded-full mb-4">
-            For Everyone in Trade
+          <span className="inline-block px-4 py-1.5 bg-foreground/5 text-foreground text-sm font-semibold rounded-sm mb-4">
+            For Everyone in Trade & Services
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
             One Platform,
-            <span className="text-gradient-navy"> Multiple Roles</span>
+            <span className="text-primary"> Multiple Roles</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Whether you're an exporter, consultant, event organizer, or government official—GTPC provides tailored tools for your specific needs.
+            Whether you're an exporter, medical tourist, consultant, or government official—AITAS provides tailored tools for your specific needs.
           </p>
         </div>
 
-        {/* Roles Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {roles.map((role, index) => {
+          {roles.map((role) => {
             const Icon = role.icon;
             return (
               <div
                 key={role.title}
-                className="group bg-card rounded-2xl p-6 shadow-soft hover:shadow-strong transition-all duration-500 border border-border hover:border-navy-deep/30 flex flex-col"
+                className="group bg-card rounded-sm p-6 shadow-card hover:shadow-elevated transition-all duration-300 border border-border hover:border-primary/30 flex flex-col"
               >
-                <div className="w-12 h-12 rounded-xl bg-navy-deep flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-gold-gradient transition-all duration-300">
-                  <Icon className="w-6 h-6 text-gold-soft group-hover:text-navy-deep transition-colors" />
+                <div className="w-12 h-12 rounded-sm bg-foreground flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
+                  <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 
-                <h3 className="text-lg font-bold text-foreground mb-2">
+                <h3 className="text-lg font-serif font-bold text-foreground mb-2">
                   {role.title}
                 </h3>
                 
@@ -104,13 +102,13 @@ const UserRolesSection = () => {
                 <ul className="space-y-2 mb-5">
                   {role.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-xs text-foreground">
-                      <span className="w-1 h-1 bg-gold-bright rounded-full" />
+                      <span className="w-1 h-1 bg-primary rounded-full" />
                       {feature}
                     </li>
                   ))}
                 </ul>
                 
-                <Button variant="ghost" className="p-0 h-auto text-sm text-navy-deep hover:text-gold-bright group/btn justify-start">
+                <Button variant="ghost" className="p-0 h-auto text-sm text-primary hover:text-primary/80 group/btn justify-start">
                   Get Started 
                   <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
                 </Button>

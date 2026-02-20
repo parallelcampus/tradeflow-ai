@@ -436,6 +436,123 @@ export type Database = {
         }
         Relationships: []
       }
+      delegation_programs: {
+        Row: {
+          created_at: string
+          currency: string | null
+          current_participants: number | null
+          description: string | null
+          destination_country: string
+          end_date: string | null
+          highlights: Json | null
+          id: string
+          image_url: string | null
+          included_services: Json | null
+          is_active: boolean | null
+          is_featured: boolean | null
+          itinerary: Json | null
+          max_participants: number | null
+          price: number | null
+          registration_deadline: string | null
+          start_date: string | null
+          status: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          currency?: string | null
+          current_participants?: number | null
+          description?: string | null
+          destination_country: string
+          end_date?: string | null
+          highlights?: Json | null
+          id?: string
+          image_url?: string | null
+          included_services?: Json | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          itinerary?: Json | null
+          max_participants?: number | null
+          price?: number | null
+          registration_deadline?: string | null
+          start_date?: string | null
+          status?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          currency?: string | null
+          current_participants?: number | null
+          description?: string | null
+          destination_country?: string
+          end_date?: string | null
+          highlights?: Json | null
+          id?: string
+          image_url?: string | null
+          included_services?: Json | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          itinerary?: Json | null
+          max_participants?: number | null
+          price?: number | null
+          registration_deadline?: string | null
+          start_date?: string | null
+          status?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      gallery_images: {
+        Row: {
+          category: string | null
+          created_at: string
+          description: string | null
+          event_date: string | null
+          event_name: string | null
+          id: string
+          image_url: string
+          is_active: boolean | null
+          is_featured: boolean | null
+          location: string | null
+          sort_order: number | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          event_date?: string | null
+          event_name?: string | null
+          id?: string
+          image_url: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          location?: string | null
+          sort_order?: number | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          event_date?: string | null
+          event_name?: string | null
+          id?: string
+          image_url?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          location?: string | null
+          sort_order?: number | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       industries: {
         Row: {
           created_at: string | null
@@ -856,6 +973,51 @@ export type Database = {
         }
         Relationships: []
       }
+      membership_plans: {
+        Row: {
+          created_at: string
+          currency: string | null
+          description: string | null
+          duration_months: number | null
+          features: Json | null
+          id: string
+          is_active: boolean | null
+          is_popular: boolean | null
+          name: string
+          price: number | null
+          sort_order: number | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          currency?: string | null
+          description?: string | null
+          duration_months?: number | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean | null
+          is_popular?: boolean | null
+          name: string
+          price?: number | null
+          sort_order?: number | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          currency?: string | null
+          description?: string | null
+          duration_months?: number | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean | null
+          is_popular?: boolean | null
+          name?: string
+          price?: number | null
+          sort_order?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -891,6 +1053,54 @@ export type Database = {
           id?: string
           language_preference?: string | null
           phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      team_members: {
+        Row: {
+          bio: string | null
+          created_at: string
+          department: string | null
+          designation: string
+          email: string | null
+          full_name: string
+          id: string
+          is_active: boolean | null
+          linkedin_url: string | null
+          phone: string | null
+          photo_url: string | null
+          sort_order: number | null
+          updated_at: string
+        }
+        Insert: {
+          bio?: string | null
+          created_at?: string
+          department?: string | null
+          designation: string
+          email?: string | null
+          full_name: string
+          id?: string
+          is_active?: boolean | null
+          linkedin_url?: string | null
+          phone?: string | null
+          photo_url?: string | null
+          sort_order?: number | null
+          updated_at?: string
+        }
+        Update: {
+          bio?: string | null
+          created_at?: string
+          department?: string | null
+          designation?: string
+          email?: string | null
+          full_name?: string
+          id?: string
+          is_active?: boolean | null
+          linkedin_url?: string | null
+          phone?: string | null
+          photo_url?: string | null
+          sort_order?: number | null
           updated_at?: string
         }
         Relationships: []
