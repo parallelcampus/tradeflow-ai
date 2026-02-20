@@ -10,8 +10,9 @@ const Header = () => {
     { label: "Services", href: "#services" },
     { label: "AI Solutions", href: "#ai" },
     { label: "Tourism & Medical", href: "/tourism-medical" },
+    { label: "Blog", href: "/blog" },
+    { label: "News", href: "/news" },
     { label: "Events", href: "#events" },
-    { label: "Membership", href: "#membership" },
   ];
 
   return (
