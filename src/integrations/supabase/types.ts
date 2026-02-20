@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      addon_services: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          currency: string | null
+          description: string | null
+          icon: string | null
+          id: string
+          is_active: boolean | null
+          name: string
+          price: number | null
+          sort_order: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          currency?: string | null
+          description?: string | null
+          icon?: string | null
+          id?: string
+          is_active?: boolean | null
+          name: string
+          price?: number | null
+          sort_order?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          currency?: string | null
+          description?: string | null
+          icon?: string | null
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          price?: number | null
+          sort_order?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       ai_suggested_questions: {
         Row: {
           category: string
@@ -973,6 +1015,60 @@ export type Database = {
         }
         Relationships: []
       }
+      medical_inquiries: {
+        Row: {
+          assigned_admin: string | null
+          case_notes: string | null
+          contact_email: string | null
+          contact_phone: string | null
+          country: string | null
+          created_at: string | null
+          follow_up_date: string | null
+          id: string
+          medical_condition: string | null
+          patient_name: string
+          preferred_location: string | null
+          report_urls: string[] | null
+          status: string | null
+          treatment_stage: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          assigned_admin?: string | null
+          case_notes?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
+          country?: string | null
+          created_at?: string | null
+          follow_up_date?: string | null
+          id?: string
+          medical_condition?: string | null
+          patient_name: string
+          preferred_location?: string | null
+          report_urls?: string[] | null
+          status?: string | null
+          treatment_stage?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          assigned_admin?: string | null
+          case_notes?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
+          country?: string | null
+          created_at?: string | null
+          follow_up_date?: string | null
+          id?: string
+          medical_condition?: string | null
+          patient_name?: string
+          preferred_location?: string | null
+          report_urls?: string[] | null
+          status?: string | null
+          treatment_stage?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       membership_plans: {
         Row: {
           created_at: string
@@ -1102,6 +1198,119 @@ export type Database = {
           photo_url?: string | null
           sort_order?: number | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      tourism_bookings: {
+        Row: {
+          admin_notes: string | null
+          client_email: string
+          client_name: string
+          client_phone: string | null
+          country: string | null
+          created_at: string | null
+          group_size: number | null
+          id: string
+          package_id: string | null
+          preferred_dates: string | null
+          special_requests: string | null
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          client_email: string
+          client_name: string
+          client_phone?: string | null
+          country?: string | null
+          created_at?: string | null
+          group_size?: number | null
+          id?: string
+          package_id?: string | null
+          preferred_dates?: string | null
+          special_requests?: string | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          client_email?: string
+          client_name?: string
+          client_phone?: string | null
+          country?: string | null
+          created_at?: string | null
+          group_size?: number | null
+          id?: string
+          package_id?: string | null
+          preferred_dates?: string | null
+          special_requests?: string | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tourism_bookings_package_id_fkey"
+            columns: ["package_id"]
+            isOneToOne: false
+            referencedRelation: "tourism_packages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      tourism_packages: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          currency: string | null
+          description: string | null
+          destinations: string[] | null
+          duration_days: number | null
+          highlights: Json | null
+          id: string
+          image_url: string | null
+          is_active: boolean | null
+          is_featured: boolean | null
+          itinerary: Json | null
+          max_group_size: number | null
+          price: number | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          currency?: string | null
+          description?: string | null
+          destinations?: string[] | null
+          duration_days?: number | null
+          highlights?: Json | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          itinerary?: Json | null
+          max_group_size?: number | null
+          price?: number | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          currency?: string | null
+          description?: string | null
+          destinations?: string[] | null
+          duration_days?: number | null
+          highlights?: Json | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          itinerary?: Json | null
+          max_group_size?: number | null
+          price?: number | null
+          title?: string
+          updated_at?: string | null
         }
         Relationships: []
       }

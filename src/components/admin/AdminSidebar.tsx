@@ -44,7 +44,9 @@ const contentManagement = [
   { title: 'Events & Exhibitions', url: '/admin/events', icon: Calendar, badge: '14' },
   { title: 'Government Schemes', url: '/admin/schemes', icon: FileText, badge: 'ERPNext' },
   { title: 'Policies', url: '/admin/policies', icon: Landmark, badge: 'AI' },
-  { title: 'Tourism & Medical', url: '/admin/tourism-medical', icon: HeartPulse },
+  { title: 'Medical Inquiries', url: '/admin/medical-inquiries', icon: HeartPulse },
+  { title: 'Tourism Management', url: '/admin/tourism-management', icon: Globe },
+  { title: 'Add-On Services', url: '/admin/addon-services', icon: Database },
   { title: 'AI Suggestions', url: '/admin/ai-suggestions', icon: Sparkles, badge: 'AI' },
 ];
 
