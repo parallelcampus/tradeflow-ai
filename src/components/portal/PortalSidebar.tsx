@@ -15,7 +15,10 @@ import {
   CreditCard,
   FolderOpen,
   Lock,
-  HeartPulse
+  HeartPulse,
+  ClipboardList,
+  UserCircle,
+  CalendarCheck
 } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
@@ -57,8 +60,11 @@ const featureStatus: Record<string, { enabled: boolean; reason?: string }> = {
   '/dashboard/events': { enabled: true },
   '/dashboard/delegations': { enabled: true },
   '/dashboard/tourism-medical': { enabled: true },
-  '/dashboard/documents': { enabled: false, reason: 'Coming in Phase 2' },
-  '/dashboard/billing': { enabled: false, reason: 'Admin access required' },
+  '/dashboard/requests': { enabled: true },
+  '/dashboard/my-events': { enabled: true },
+  '/dashboard/documents': { enabled: true },
+  '/dashboard/billing': { enabled: true },
+  '/dashboard/profile': { enabled: true },
   '/dashboard/admin/users': { enabled: false, reason: 'Admin access required' },
   '/dashboard/admin/orgs': { enabled: false, reason: 'Admin access required' },
   '/dashboard/admin/security': { enabled: false, reason: 'Admin access required' },
@@ -86,8 +92,11 @@ const eventsItems = [
 ];
 
 const resourceItems = [
+  { title: 'My Requests', url: '/dashboard/requests', icon: ClipboardList },
+  { title: 'My Events', url: '/dashboard/my-events', icon: CalendarCheck },
   { title: 'Documents', url: '/dashboard/documents', icon: FolderOpen },
   { title: 'Billing', url: '/dashboard/billing', icon: CreditCard },
+  { title: 'Profile', url: '/dashboard/profile', icon: UserCircle },
   { title: 'Settings', url: '/dashboard/settings', icon: Settings },
 ];
 

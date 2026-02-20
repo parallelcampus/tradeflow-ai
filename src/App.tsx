@@ -22,6 +22,11 @@ import Events from "./pages/Events";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 import TourismMedical from "./pages/TourismMedical";
+import MyRequests from "./pages/portal/MyRequests";
+import MyDocuments from "./pages/portal/MyDocuments";
+import MyProfile from "./pages/portal/MyProfile";
+import MyEvents from "./pages/portal/MyEvents";
+import MyInvoices from "./pages/portal/MyInvoices";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminDelegations from "./pages/admin/AdminDelegations";
 import AdminEvents from "./pages/admin/AdminEvents";
@@ -58,6 +63,11 @@ const App = () => (
             <Route path="/dashboard/events" element={<PortalLayout><Events /></PortalLayout>} />
             <Route path="/dashboard/delegations" element={<PortalLayout><Delegations /></PortalLayout>} />
             <Route path="/dashboard/tourism-medical" element={<PortalLayout><ComingSoon title="Tourism & Medical" /></PortalLayout>} />
+            <Route path="/dashboard/requests" element={<PortalLayout><MyRequests /></PortalLayout>} />
+            <Route path="/dashboard/documents" element={<PortalLayout><MyDocuments /></PortalLayout>} />
+            <Route path="/dashboard/profile" element={<PortalLayout><MyProfile /></PortalLayout>} />
+            <Route path="/dashboard/my-events" element={<PortalLayout><MyEvents /></PortalLayout>} />
+            <Route path="/dashboard/billing" element={<PortalLayout><MyInvoices /></PortalLayout>} />
             <Route path="/dashboard/admin/users" element={<PortalLayout><ComingSoon title="User Management" /></PortalLayout>} />
             <Route path="/dashboard/admin/orgs" element={<PortalLayout><ComingSoon title="Organizations" /></PortalLayout>} />
             <Route path="/dashboard/admin/security" element={<PortalLayout><ComingSoon title="Security" /></PortalLayout>} />
