@@ -29,6 +29,7 @@ import NewsArticle from "./pages/NewsArticle";
 import GlobalInvestment from "./pages/GlobalInvestment";
 import SchemesDatabase from "./pages/SchemesDatabase";
 import ManufacturingPartnerships from "./pages/ManufacturingPartnerships";
+import TradeShows from "./pages/TradeShows";
 import MyRequests from "./pages/portal/MyRequests";
 import MyDocuments from "./pages/portal/MyDocuments";
 import MyProfile from "./pages/portal/MyProfile";
@@ -65,7 +66,7 @@ const App = () => (
             <Route path="/global-investment" element={<GlobalInvestment />} />
             <Route path="/schemes" element={<SchemesDatabase />} />
             <Route path="/manufacturing" element={<ManufacturingPartnerships />} />
-            <Route path="/trade-shows" element={<ComingSoon title="International Trade Shows & Expos" />} />
+            <Route path="/trade-shows" element={<TradeShows />} />
             <Route path="/membership" element={<ComingSoon title="Membership" />} />
             <Route path="/contact" element={<ComingSoon title="Contact Us" />} />
             <Route path="/insights" element={<ComingSoon title="Insights" />} />
