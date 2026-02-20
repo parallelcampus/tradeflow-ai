@@ -30,6 +30,9 @@ import AdminPolicies from "./pages/admin/AdminPolicies";
 import AdminERPNextUsers from "./pages/admin/AdminERPNextUsers";
 import AdminAISuggestions from "./pages/admin/AdminAISuggestions";
 import AdminMasterData from "./pages/admin/AdminMasterData";
+import AdminMedicalInquiries from "./pages/admin/AdminMedicalInquiries";
+import AdminTourismManagement from "./pages/admin/AdminTourismManagement";
+import AdminAddonServices from "./pages/admin/AdminAddonServices";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -67,6 +70,9 @@ const App = () => (
             <Route path="/admin/schemes" element={<AdminLayout title="Government Schemes" breadcrumbs={[{ label: 'Schemes' }]}><AdminSchemes /></AdminLayout>} />
             <Route path="/admin/policies" element={<AdminLayout title="Government Policies" breadcrumbs={[{ label: 'Policies' }]}><AdminPolicies /></AdminLayout>} />
             <Route path="/admin/tourism-medical" element={<AdminLayout title="Tourism & Medical" breadcrumbs={[{ label: 'Tourism & Medical' }]}><ComingSoon title="Tourism & Medical Management" /></AdminLayout>} />
+            <Route path="/admin/medical-inquiries" element={<AdminLayout title="Medical Inquiries" breadcrumbs={[{ label: 'Medical Inquiries' }]}><AdminMedicalInquiries /></AdminLayout>} />
+            <Route path="/admin/tourism-management" element={<AdminLayout title="Tourism Management" breadcrumbs={[{ label: 'Tourism Management' }]}><AdminTourismManagement /></AdminLayout>} />
+            <Route path="/admin/addon-services" element={<AdminLayout title="Add-On Services" breadcrumbs={[{ label: 'Add-On Services' }]}><AdminAddonServices /></AdminLayout>} />
             <Route path="/admin/erpnext-users" element={<AdminLayout title="Users & Plans" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Users & Plans' }]}><AdminERPNextUsers /></AdminLayout>} />
             <Route path="/admin/consultants" element={<AdminLayout title="Consultants" breadcrumbs={[{ label: 'Consultants' }]}><ComingSoon title="Consultant Management" /></AdminLayout>} />
             <Route path="/admin/sync" element={<AdminLayout title="Sync Status" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Sync Status' }]}><ComingSoon title="Sync Status" /></AdminLayout>} />
