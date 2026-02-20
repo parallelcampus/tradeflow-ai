@@ -63,8 +63,7 @@ export default {
         info: "hsl(var(--info))",
       },
       fontFamily: {
-        sans: ["'Source Sans 3'", "'Source Sans Pro'", "system-ui", "-apple-system", "sans-serif"],
-        serif: ["'Merriweather'", "Georgia", "'Times New Roman'", "serif"],
+        sans: ["'Public Sans'", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "Arial", "sans-serif"],
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
