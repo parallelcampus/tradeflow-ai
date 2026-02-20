@@ -1,4 +1,4 @@
-import { Globe, Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Facebook } from "lucide-react";
 
 const Footer = () => {
   const footerLinks = {
@@ -11,13 +11,13 @@ const Footer = () => {
     ],
     resources: [
       { label: "AI Trade Assistant", href: "#" },
-      { label: "Training Programs", href: "#" },
+      { label: "Medical Tourism", href: "/tourism-medical" },
       { label: "Knowledge Center", href: "#" },
       { label: "Policy Updates", href: "#" },
       { label: "FAQs", href: "#" },
     ],
     company: [
-      { label: "About GTPC", href: "#" },
+      { label: "About AITAS", href: "#" },
       { label: "Our Team", href: "#" },
       { label: "Careers", href: "#" },
       { label: "Partners", href: "#" },
@@ -39,49 +39,41 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-navy-deep text-gold-pale">
-      {/* Main Footer */}
+    <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gold-gradient flex items-center justify-center shadow-gold">
-                <Globe className="w-7 h-7 text-navy-deep" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold tracking-tight">GTPC</span>
-                <span className="text-[10px] text-gold-soft/70 tracking-wider uppercase">Global Trade Promotion</span>
-              </div>
+            <div className="flex flex-col mb-6">
+              <span className="text-2xl font-serif font-bold tracking-tight">AITAS</span>
+              <span className="text-[10px] text-background/60 tracking-widest uppercase mt-1">International Alliance for Trade and Allied Services</span>
             </div>
-            <p className="text-gold-pale/70 mb-6 leading-relaxed">
-              Empowering businesses to navigate international trade with AI-driven insights, government scheme access, and seamless global connections.
+            <p className="text-background/70 mb-6 leading-relaxed">
+              Empowering businesses to navigate international trade with AI-driven insights, healthcare facilitation, and seamless global connections.
             </p>
             
-            {/* Contact Info */}
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm text-gold-pale/70">
-                <MapPin className="w-4 h-4 text-gold-soft" />
-                <span>World Trade Center, Mumbai, India</span>
+              <div className="flex items-center gap-3 text-sm text-background/70">
+                <MapPin className="w-4 h-4 text-primary" />
+                <span>Mumbai, India</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-gold-pale/70">
-                <Mail className="w-4 h-4 text-gold-soft" />
-                <span>support@gtpc.global</span>
+              <div className="flex items-center gap-3 text-sm text-background/70">
+                <Mail className="w-4 h-4 text-primary" />
+                <span>info@aitasglobal.com</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-gold-pale/70">
-                <Phone className="w-4 h-4 text-gold-soft" />
+              <div className="flex items-center gap-3 text-sm text-background/70">
+                <Phone className="w-4 h-4 text-primary" />
                 <span>+91 22 1234 5678</span>
               </div>
             </div>
           </div>
 
-          {/* Links Columns */}
           <div>
-            <h4 className="font-semibold text-gold-soft mb-4">Services</h4>
+            <h4 className="font-serif font-semibold text-primary mb-4">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-gold-pale/70 hover:text-gold-soft transition-colors">
+                  <a href={link.href} className="text-sm text-background/70 hover:text-primary transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -90,11 +82,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-gold-soft mb-4">Resources</h4>
+            <h4 className="font-serif font-semibold text-primary mb-4">Resources</h4>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-gold-pale/70 hover:text-gold-soft transition-colors">
+                  <a href={link.href} className="text-sm text-background/70 hover:text-primary transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -103,11 +95,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-gold-soft mb-4">Company</h4>
+            <h4 className="font-serif font-semibold text-primary mb-4">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-gold-pale/70 hover:text-gold-soft transition-colors">
+                  <a href={link.href} className="text-sm text-background/70 hover:text-primary transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -116,11 +108,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-gold-soft mb-4">Legal</h4>
+            <h4 className="font-serif font-semibold text-primary mb-4">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-gold-pale/70 hover:text-gold-soft transition-colors">
+                  <a href={link.href} className="text-sm text-background/70 hover:text-primary transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -130,15 +122,13 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gold-soft/10">
+      <div className="border-t border-background/10">
         <div className="container mx-auto px-4 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-gold-pale/60">
-              © 2025 Global Trade Promotion Corporation. All rights reserved.
+            <p className="text-sm text-background/60">
+              © 2026 AITAS – International Alliance for Trade and Allied Services. All rights reserved.
             </p>
             
-            {/* Social Links */}
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
@@ -147,7 +137,7 @@ const Footer = () => {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-10 h-10 rounded-full bg-gold-soft/10 flex items-center justify-center text-gold-pale/70 hover:bg-gold-soft hover:text-navy-deep transition-all duration-300"
+                    className="w-10 h-10 rounded-sm bg-background/10 flex items-center justify-center text-background/70 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   >
                     <Icon className="w-5 h-5" />
                   </a>

@@ -6,7 +6,6 @@ import {
   Users, 
   FileText, 
   Calendar, 
-  GraduationCap,
   Building2,
   Globe,
   TrendingUp,
@@ -15,7 +14,8 @@ import {
   ChevronDown,
   CreditCard,
   FolderOpen,
-  Lock
+  Lock,
+  HeartPulse
 } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
@@ -45,7 +45,6 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
-// Feature availability status
 const featureStatus: Record<string, { enabled: boolean; reason?: string }> = {
   '/dashboard': { enabled: true },
   '/dashboard/ai': { enabled: true },
@@ -57,7 +56,7 @@ const featureStatus: Record<string, { enabled: boolean; reason?: string }> = {
   '/dashboard/b2b': { enabled: true },
   '/dashboard/events': { enabled: true },
   '/dashboard/delegations': { enabled: true },
-  '/dashboard/training': { enabled: true },
+  '/dashboard/tourism-medical': { enabled: true },
   '/dashboard/documents': { enabled: false, reason: 'Coming in Phase 2' },
   '/dashboard/billing': { enabled: false, reason: 'Admin access required' },
   '/dashboard/admin/users': { enabled: false, reason: 'Admin access required' },
@@ -83,7 +82,7 @@ const tradeItems = [
 const eventsItems = [
   { title: 'Events & Exhibitions', url: '/dashboard/events', icon: Calendar },
   { title: 'Delegations', url: '/dashboard/delegations', icon: Globe },
-  { title: 'Training', url: '/dashboard/training', icon: GraduationCap },
+  { title: 'Tourism & Medical', url: '/dashboard/tourism-medical', icon: HeartPulse },
 ];
 
 const resourceItems = [
@@ -115,7 +114,7 @@ export function PortalSidebar() {
     const linkContent = (
       <div
         className={cn(
-          'flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors w-full',
+          'flex items-center gap-3 rounded-sm px-3 py-2 text-sm transition-colors w-full',
           active 
             ? 'bg-sidebar-accent text-sidebar-accent-foreground font-medium' 
             : status.enabled
@@ -193,12 +192,12 @@ export function PortalSidebar() {
     <Sidebar collapsible="icon" className="border-r border-sidebar-border bg-sidebar-background">
       <SidebarHeader className="p-4 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shrink-0">
-            <Globe className="h-4 w-4 text-primary-foreground" />
+          <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center shrink-0">
+            <span className="text-xs font-bold text-primary-foreground">A</span>
           </div>
           {!collapsed && (
             <div>
-              <h1 className="text-base font-semibold text-sidebar-foreground tracking-tight">GTPC</h1>
+              <h1 className="text-base font-serif font-semibold text-sidebar-foreground tracking-tight">AITAS</h1>
               <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">Trade Portal</p>
             </div>
           )}
@@ -206,7 +205,6 @@ export function PortalSidebar() {
       </SidebarHeader>
 
       <SidebarContent className="px-2 py-3">
-        {/* Main Navigation */}
         <SidebarGroup className="py-0">
           <SidebarGroupContent>
             <SidebarMenu className="gap-0.5">
@@ -219,23 +217,16 @@ export function PortalSidebar() {
 
         <div className="my-3 mx-3 h-px bg-sidebar-border" />
 
-        {/* Trade Services */}
         <CollapsibleGroup label="Trade Services" items={tradeItems} defaultOpen />
-
-        {/* Events & Training */}
-        <CollapsibleGroup label="Events & Training" items={eventsItems} />
-
-        {/* Resources */}
+        <CollapsibleGroup label="Events & Services" items={eventsItems} />
         <CollapsibleGroup label="Resources" items={resourceItems} />
-
-        {/* Admin - Only show if admin */}
         <CollapsibleGroup label="Administration" items={adminItems} />
       </SidebarContent>
 
       <SidebarFooter className="p-3 border-t border-sidebar-border">
         {!collapsed && user && (
-          <div className="flex items-center gap-3 mb-3 p-2 rounded-lg bg-muted/50">
-            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+          <div className="flex items-center gap-3 mb-3 p-2 rounded-sm bg-muted/50">
+            <div className="w-8 h-8 rounded-sm bg-primary/10 flex items-center justify-center">
               <span className="text-xs font-semibold text-primary">
                 {user.email?.charAt(0).toUpperCase()}
               </span>
@@ -244,7 +235,7 @@ export function PortalSidebar() {
               <p className="text-sm font-medium text-sidebar-foreground truncate">
                 {user.user_metadata?.full_name || user.email?.split('@')[0]}
               </p>
-              <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">Exporter</p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">Member</p>
             </div>
           </div>
         )}
