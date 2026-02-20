@@ -22,6 +22,10 @@ import Events from "./pages/Events";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 import TourismMedical from "./pages/TourismMedical";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
+import News from "./pages/News";
+import NewsArticle from "./pages/NewsArticle";
 import MyRequests from "./pages/portal/MyRequests";
 import MyDocuments from "./pages/portal/MyDocuments";
 import MyProfile from "./pages/portal/MyProfile";
@@ -51,6 +55,10 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/tourism-medical" element={<TourismMedical />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/news/:slug" element={<NewsArticle />} />
             <Route path="/dashboard" element={<PortalLayout><Dashboard /></PortalLayout>} />
             <Route path="/dashboard/ai" element={<PortalLayout><AIAssistant /></PortalLayout>} />
             <Route path="/dashboard/marketplace" element={<PortalLayout><Marketplace /></PortalLayout>} />
