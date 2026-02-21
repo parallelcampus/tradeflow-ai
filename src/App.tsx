@@ -46,6 +46,10 @@ import AdminMasterData from "./pages/admin/AdminMasterData";
 import AdminMedicalInquiries from "./pages/admin/AdminMedicalInquiries";
 import AdminTourismManagement from "./pages/admin/AdminTourismManagement";
 import AdminAddonServices from "./pages/admin/AdminAddonServices";
+import AdminInvestment from "./pages/admin/AdminInvestment";
+import AdminCompanySetup from "./pages/admin/AdminCompanySetup";
+import AdminSchemesDB from "./pages/admin/AdminSchemesDB";
+import AdminManufacturing from "./pages/admin/AdminManufacturing";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -103,10 +107,10 @@ const App = () => (
             <Route path="/admin/medical-inquiries" element={<AdminLayout title="Medical Inquiries" breadcrumbs={[{ label: 'Medical Inquiries' }]}><AdminMedicalInquiries /></AdminLayout>} />
             <Route path="/admin/tourism-management" element={<AdminLayout title="Tourism Management" breadcrumbs={[{ label: 'Tourism Management' }]}><AdminTourismManagement /></AdminLayout>} />
             <Route path="/admin/addon-services" element={<AdminLayout title="Add-On Services" breadcrumbs={[{ label: 'Add-On Services' }]}><AdminAddonServices /></AdminLayout>} />
-            <Route path="/admin/investment" element={<AdminLayout title="Investment Cases" breadcrumbs={[{ label: 'Investment' }]}><ComingSoon title="Investment Case Management" /></AdminLayout>} />
-            <Route path="/admin/company-setup" element={<AdminLayout title="Company Setup Requests" breadcrumbs={[{ label: 'Company Setup' }]}><ComingSoon title="Company Setup Management" /></AdminLayout>} />
-            <Route path="/admin/schemes-db" element={<AdminLayout title="Schemes Database" breadcrumbs={[{ label: 'Schemes DB' }]}><ComingSoon title="Schemes Database Management" /></AdminLayout>} />
-            <Route path="/admin/manufacturing" element={<AdminLayout title="Manufacturing Partnerships" breadcrumbs={[{ label: 'Manufacturing' }]}><ComingSoon title="Manufacturing Partnership Management" /></AdminLayout>} />
+            <Route path="/admin/investment" element={<AdminLayout title="Investment Cases" breadcrumbs={[{ label: 'Investment' }]}><AdminInvestment /></AdminLayout>} />
+            <Route path="/admin/company-setup" element={<AdminLayout title="Company Setup Requests" breadcrumbs={[{ label: 'Company Setup' }]}><AdminCompanySetup /></AdminLayout>} />
+            <Route path="/admin/schemes-db" element={<AdminLayout title="Schemes Database" breadcrumbs={[{ label: 'Schemes DB' }]}><AdminSchemesDB /></AdminLayout>} />
+            <Route path="/admin/manufacturing" element={<AdminLayout title="Manufacturing Partnerships" breadcrumbs={[{ label: 'Manufacturing' }]}><AdminManufacturing /></AdminLayout>} />
             <Route path="/admin/erpnext-users" element={<AdminLayout title="Users & Plans" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Users & Plans' }]}><AdminERPNextUsers /></AdminLayout>} />
             <Route path="/admin/consultants" element={<AdminLayout title="Consultants" breadcrumbs={[{ label: 'Consultants' }]}><ComingSoon title="Consultant Management" /></AdminLayout>} />
             <Route path="/admin/sync" element={<AdminLayout title="Sync Status" breadcrumbs={[{ label: 'ERPNext Integration' }, { label: 'Sync Status' }]}><ComingSoon title="Sync Status" /></AdminLayout>} />
