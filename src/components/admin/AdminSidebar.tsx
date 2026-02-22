@@ -116,7 +116,7 @@ export function AdminSidebar() {
           </div>
           {!collapsed && (
             <div>
-              <h2 className="font-serif font-semibold text-sm">Admin Panel</h2>
+              <h2 className="font-display font-semibold text-sm">Admin Panel</h2>
               <p className="text-xs text-muted-foreground">AITAS Management</p>
             </div>
           )}

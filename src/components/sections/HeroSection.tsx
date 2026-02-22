@@ -8,7 +8,7 @@ const HeroSection = () => {
       {/* Subtle grid */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(hsl(155 79% 20% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(155 79% 20% / 0.4) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(hsl(230 51% 25% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(230 51% 25% / 0.4) 1px, transparent 1px)`,
           backgroundSize: '80px 80px'
         }}
       />
@@ -22,14 +22,14 @@ const HeroSection = () => {
               <span className="text-sm font-medium text-primary">AI-Powered Trade & Allied Services</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-foreground leading-[1.1] animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Empowering
               <span className="block text-primary">Global Trade</span>
               <span className="block">Excellence</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Transform your international trade journey with AI-driven insights, government scheme navigation, medical tourism facilitation, and seamless buyer-seller connections.
+              Navigate international markets with confidence. AITAS delivers AI-driven trade intelligence, government scheme advisory, manufacturing partnerships, and medical tourism facilitation — all from a single platform.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -39,9 +39,9 @@ const HeroSection = () => {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link to="/tourism-medical">
+              <Link to="/global-investment">
                 <Button variant="heroOutline" size="xl" className="border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground">
-                  Medical & Tourism
+                  Explore Investment
                 </Button>
               </Link>
             </div>

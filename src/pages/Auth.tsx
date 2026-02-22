@@ -116,7 +116,7 @@ const Auth = () => {
           <div className="relative z-10 flex flex-col justify-between p-12 text-primary-foreground">
             <div className="flex items-center gap-3">
               <div className="flex flex-col">
-                <span className="text-2xl font-serif font-bold tracking-tight">AITAS</span>
+                <span className="text-2xl font-display font-bold tracking-tight">AITAS</span>
                 <span className="text-[9px] text-primary-foreground/60 tracking-widest uppercase leading-tight">International Alliance for<br />Trade and Allied Services</span>
               </div>
             </div>
@@ -157,7 +157,7 @@ const Auth = () => {
             {/* Mobile Logo */}
             <div className="flex items-center gap-3 mb-8 lg:hidden">
               <div className="flex flex-col">
-                <span className="text-xl font-serif font-bold tracking-tight">AITAS</span>
+                <span className="text-xl font-display font-bold tracking-tight">AITAS</span>
                 <span className="text-[8px] text-muted-foreground tracking-widest uppercase leading-tight">Trade & Allied Services</span>
               </div>
             </div>

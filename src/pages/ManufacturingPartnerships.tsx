@@ -90,7 +90,7 @@ export default function ManufacturingPartnerships() {
                 <Factory className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">Manufacturing & Industry Partnerships</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
                 Manufacturing &<br />
                 <span className="text-primary">Industrial Partnerships</span>
               </h1>
@@ -104,7 +104,7 @@ export default function ManufacturingPartnerships() {
         {/* Services */}
         <section className="py-16">
           <div className="container mx-auto px-4 lg:px-8">
-            <h2 className="text-3xl font-serif font-bold text-foreground mb-3">
+            <h2 className="text-3xl font-display font-bold text-foreground mb-3">
               Partnership <span className="text-primary">Services</span>
             </h2>
             <p className="text-muted-foreground mb-8 max-w-2xl">
@@ -115,7 +115,7 @@ export default function ManufacturingPartnerships() {
                 <Card key={s.title} className="border hover:border-primary/30 transition-colors">
                   <CardContent className="p-6">
                     <s.icon className="w-8 h-8 text-primary mb-4" />
-                    <h3 className="text-lg font-serif font-bold text-foreground mb-2">{s.title}</h3>
+                    <h3 className="text-lg font-display font-bold text-foreground mb-2">{s.title}</h3>
                     <p className="text-sm text-muted-foreground">{s.desc}</p>
                   </CardContent>
                 </Card>
@@ -124,7 +124,7 @@ export default function ManufacturingPartnerships() {
 
             {/* Request Type Selection */}
             <div className="mb-12">
-              <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
+              <h3 className="text-2xl font-display font-bold text-foreground mb-6">
                 Select Your <span className="text-primary">Request Type</span>
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
@@ -151,7 +151,7 @@ export default function ManufacturingPartnerships() {
             {/* Partnership Form */}
             <Card className="border border-primary/20 max-w-2xl">
               <CardHeader>
-                <CardTitle className="text-2xl font-serif flex items-center gap-3">
+                <CardTitle className="text-2xl font-display flex items-center gap-3">
                   <Factory className="w-6 h-6 text-primary" />
                   Find a Manufacturing Partner
                 </CardTitle>

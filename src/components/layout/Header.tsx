@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   NavigationMenu,
@@ -13,13 +13,14 @@ import {
 
 const navItems = [
   {
-    label: "Trade & Export Services",
+    label: "Services",
     href: "/trade-services",
     children: [
       { label: "Export-Import Facilitation", href: "/trade-services" },
       { label: "Buyer Discovery", href: "/dashboard/buyers" },
       { label: "B2B Matchmaking", href: "/dashboard/b2b" },
-      { label: "Consultants", href: "/dashboard/consultants" },
+      { label: "Consultants Network", href: "/dashboard/consultants" },
+      { label: "AI Trade Assistant", href: "/dashboard/ai-assistant" },
     ],
   },
   {
@@ -48,10 +49,10 @@ const navItems = [
   },
   {
     label: "Insights",
-    href: "/insights",
+    href: "/blog",
     children: [
       { label: "Blog", href: "/blog" },
-      { label: "News", href: "/news" },
+      { label: "News & Updates", href: "/news" },
     ],
   },
   {
@@ -70,7 +71,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <div className="flex flex-col">
-              <span className="text-2xl font-serif font-bold text-foreground tracking-tight">AITAS</span>
+              <span className="text-2xl font-display font-bold text-foreground tracking-tight">AITAS</span>
               <span className="text-[9px] text-muted-foreground tracking-widest uppercase leading-tight">International Alliance for<br />Trade and Allied Services</span>
             </div>
           </Link>

@@ -12,7 +12,7 @@ const CTASection = () => {
             <span className="text-sm font-medium text-primary">Start Free Today</span>
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
             Ready to Transform Your
             <span className="block text-primary">Global Trade Journey?</span>
           </h2>

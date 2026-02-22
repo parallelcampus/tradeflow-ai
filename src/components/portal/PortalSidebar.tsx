@@ -206,7 +206,7 @@ export function PortalSidebar() {
           </div>
           {!collapsed && (
             <div>
-              <h1 className="text-base font-serif font-semibold text-sidebar-foreground tracking-tight">AITAS</h1>
+              <h1 className="text-base font-display font-semibold text-sidebar-foreground tracking-tight">AITAS</h1>
               <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">Trade Portal</p>
             </div>
           )}

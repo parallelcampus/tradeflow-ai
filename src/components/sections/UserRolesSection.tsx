@@ -70,7 +70,7 @@ const UserRolesSection = () => {
           <span className="inline-block px-4 py-1.5 bg-foreground/5 text-foreground text-sm font-semibold rounded-sm mb-4">
             For Everyone in Trade & Services
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
             One Platform,
             <span className="text-primary"> Multiple Roles</span>
           </h2>
@@ -91,7 +91,7 @@ const UserRolesSection = () => {
                   <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 
-                <h3 className="text-lg font-serif font-bold text-foreground mb-2">
+                <h3 className="text-lg font-display font-bold text-foreground mb-2">
                   {role.title}
                 </h3>
                 

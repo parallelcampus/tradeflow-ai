@@ -64,6 +64,7 @@ export default {
       },
       fontFamily: {
         sans: ["'Public Sans'", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "Arial", "sans-serif"],
+        display: ["'DM Serif Display'", "Georgia", "'Times New Roman'", "serif"],
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
