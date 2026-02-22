@@ -79,7 +79,7 @@ export default function News() {
                 <Newspaper className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">AITAS News</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 leading-tight">
                 News & <span className="text-primary">Photo Gallery</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -95,7 +95,7 @@ export default function News() {
             <div className="container mx-auto px-4 lg:px-8">
               <div className="flex items-center gap-2 mb-4">
                 <Image className="h-5 w-5 text-primary" />
-                <h2 className="text-lg font-serif font-bold text-foreground">Daily Photo Gallery</h2>
+                <h2 className="text-lg font-display font-bold text-foreground">Daily Photo Gallery</h2>
               </div>
               <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                 {allPhotos.slice(0, 12).map((photo, i) => (
@@ -152,7 +152,7 @@ export default function News() {
             ) : filtered.length === 0 ? (
               <div className="text-center py-20">
                 <Newspaper className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-2">No News Yet</h2>
+                <h2 className="text-2xl font-display font-bold text-foreground mb-2">No News Yet</h2>
                 <p className="text-muted-foreground max-w-md mx-auto">
                   Stay tuned for the latest news, event reports, and photo coverage from AITAS activities.
                 </p>
@@ -172,7 +172,7 @@ export default function News() {
                           <Badge variant="outline" className="capitalize text-[10px]">{article.category || "General"}</Badge>
                           {article.source && <span className="text-xs text-muted-foreground">Source: {article.source}</span>}
                         </div>
-                        <h3 className="text-xl font-serif font-bold text-foreground mb-2">{article.title}</h3>
+                        <h3 className="text-xl font-display font-bold text-foreground mb-2">{article.title}</h3>
                         <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{article.summary}</p>
 
                         {/* Inline photo previews */}

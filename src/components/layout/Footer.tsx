@@ -45,7 +45,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="flex flex-col mb-6">
-              <span className="text-2xl font-serif font-bold tracking-tight">AITAS</span>
+              <span className="text-2xl font-display font-bold tracking-tight">AITAS</span>
               <span className="text-[10px] text-background/60 tracking-widest uppercase mt-1">International Alliance for Trade and Allied Services</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-serif font-semibold text-primary mb-4">Services</h4>
+            <h4 className="font-display font-semibold text-primary mb-4">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
@@ -82,7 +82,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-serif font-semibold text-primary mb-4">Resources</h4>
+            <h4 className="font-display font-semibold text-primary mb-4">Resources</h4>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
@@ -95,7 +95,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-serif font-semibold text-primary mb-4">Company</h4>
+            <h4 className="font-display font-semibold text-primary mb-4">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -108,7 +108,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-serif font-semibold text-primary mb-4">Legal</h4>
+            <h4 className="font-display font-semibold text-primary mb-4">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>

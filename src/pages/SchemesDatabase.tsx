@@ -111,7 +111,7 @@ export default function SchemesDatabase() {
                 <Landmark className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">Government Schemes & Incentives</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
                 Government Schemes &<br />
                 <span className="text-primary">Incentives Database</span>
               </h1>
@@ -172,7 +172,7 @@ export default function SchemesDatabase() {
                         </Badge>
                         {scheme.is_featured && <Star className="w-4 h-4 text-primary fill-primary" />}
                       </div>
-                      <h3 className="text-lg font-serif font-bold text-foreground mb-2">{scheme.title}</h3>
+                      <h3 className="text-lg font-display font-bold text-foreground mb-2">{scheme.title}</h3>
                       <p className="text-sm text-muted-foreground mb-4 flex-1 line-clamp-3">{scheme.description}</p>
                       
                       <div className="space-y-2 text-sm mb-4">
@@ -228,7 +228,7 @@ export default function SchemesDatabase() {
               <Card className="border">
                 <CardContent className="p-12 text-center">
                   <Landmark className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-lg font-serif font-bold text-foreground mb-2">No Schemes Found</h3>
+                  <h3 className="text-lg font-display font-bold text-foreground mb-2">No Schemes Found</h3>
                   <p className="text-sm text-muted-foreground mb-4">
                     {searchQuery || countryFilter !== 'all' || categoryFilter !== 'all'
                       ? 'Try adjusting your filters or search query.'
@@ -250,7 +250,7 @@ export default function SchemesDatabase() {
               <Card className="border border-primary/20 max-w-2xl mx-auto">
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-2xl font-serif flex items-center gap-3">
+                    <CardTitle className="text-2xl font-display flex items-center gap-3">
                       <CheckCircle2 className="w-6 h-6 text-primary" />
                       Request Eligibility Assessment
                     </CardTitle>

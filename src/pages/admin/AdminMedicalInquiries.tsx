@@ -224,7 +224,7 @@ export default function AdminMedicalInquiries() {
       <Dialog open={isDetailOpen} onOpenChange={setIsDetailOpen}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle className="font-serif">Case Details: {selectedInquiry?.patient_name}</DialogTitle>
+            <DialogTitle className="font-display">Case Details: {selectedInquiry?.patient_name}</DialogTitle>
           </DialogHeader>
           {selectedInquiry && (
             <div className="grid gap-4 py-4">

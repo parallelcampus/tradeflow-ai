@@ -108,7 +108,7 @@ export default function GlobalInvestment() {
                 <Globe className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">Global Investment & Expansion Division</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
                 Enabling Strategic<br />
                 <span className="text-primary">Global Expansion</span>
               </h1>
@@ -149,7 +149,7 @@ export default function GlobalInvestment() {
             <div className="container mx-auto px-4 lg:px-8">
               {/* Countries Grid */}
               <div className="mb-16">
-                <h2 className="text-3xl font-serif font-bold text-foreground mb-3">
+                <h2 className="text-3xl font-display font-bold text-foreground mb-3">
                   International Company <span className="text-primary">Setup Desk</span>
                 </h2>
                 <p className="text-muted-foreground mb-8 max-w-2xl">
@@ -162,7 +162,7 @@ export default function GlobalInvestment() {
                         <div className="flex items-start gap-4">
                           <span className="text-4xl">{country.emoji}</span>
                           <div className="flex-1">
-                            <h3 className="text-lg font-serif font-bold text-foreground mb-1">{country.name}</h3>
+                            <h3 className="text-lg font-display font-bold text-foreground mb-1">{country.name}</h3>
                             <p className="text-sm text-muted-foreground mb-3">{country.highlight}</p>
                             <div className="flex flex-wrap gap-1.5">
                               {country.types.map((type) => (
@@ -180,7 +180,7 @@ export default function GlobalInvestment() {
 
               {/* Services Grid */}
               <div className="mb-16">
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
+                <h3 className="text-2xl font-display font-bold text-foreground mb-6">
                   Setup Services <span className="text-primary">Included</span>
                 </h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -198,7 +198,7 @@ export default function GlobalInvestment() {
 
               {/* Package Tiers */}
               <div className="mb-16">
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
+                <h3 className="text-2xl font-display font-bold text-foreground mb-6">
                   Setup Package <span className="text-primary">Tiers</span>
                 </h3>
                 <div className="grid md:grid-cols-3 gap-6">
@@ -210,7 +210,7 @@ export default function GlobalInvestment() {
                         </div>
                       )}
                       <CardHeader>
-                        <CardTitle className="text-xl font-serif">{tier.name}</CardTitle>
+                        <CardTitle className="text-xl font-display">{tier.name}</CardTitle>
                         <p className="text-2xl font-bold text-primary">{tier.price}</p>
                       </CardHeader>
                       <CardContent>
@@ -234,7 +234,7 @@ export default function GlobalInvestment() {
               {/* Lead Capture */}
               <Card className="border border-primary/20 max-w-2xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-serif flex items-center gap-3">
+                  <CardTitle className="text-2xl font-display flex items-center gap-3">
                     <Globe className="w-6 h-6 text-primary" />
                     Start Your Global Expansion
                   </CardTitle>
@@ -283,7 +283,7 @@ export default function GlobalInvestment() {
           <section className="py-16">
             <div className="container mx-auto px-4 lg:px-8">
               <div className="mb-16">
-                <h2 className="text-3xl font-serif font-bold text-foreground mb-3">
+                <h2 className="text-3xl font-display font-bold text-foreground mb-3">
                   Investment & Joint Venture <span className="text-primary">Facilitation</span>
                 </h2>
                 <p className="text-muted-foreground mb-8 max-w-2xl">
@@ -302,7 +302,7 @@ export default function GlobalInvestment() {
               {/* Investor Registration Form */}
               <Card className="border border-primary/20 max-w-2xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-serif flex items-center gap-3">
+                  <CardTitle className="text-2xl font-display flex items-center gap-3">
                     <TrendingUp className="w-6 h-6 text-primary" />
                     Investor Registration
                   </CardTitle>
@@ -377,7 +377,7 @@ export default function GlobalInvestment() {
         {activeTab === 'projects' && (
           <section className="py-16">
             <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-3">
+              <h2 className="text-3xl font-display font-bold text-foreground mb-3">
                 Investment <span className="text-primary">Projects</span>
               </h2>
               <p className="text-muted-foreground mb-8 max-w-2xl">
@@ -389,7 +389,7 @@ export default function GlobalInvestment() {
                     <Card key={project.id} className="border hover:border-primary/30 transition-colors">
                       <CardContent className="p-6">
                         {project.is_featured && <Badge className="bg-primary text-primary-foreground mb-3">Featured</Badge>}
-                        <h3 className="text-lg font-serif font-bold text-foreground mb-2">{project.title}</h3>
+                        <h3 className="text-lg font-display font-bold text-foreground mb-2">{project.title}</h3>
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
                         <div className="space-y-2 text-sm">
                           <div className="flex justify-between"><span className="text-muted-foreground">Sector</span><span className="font-medium">{project.sector}</span></div>
@@ -412,7 +412,7 @@ export default function GlobalInvestment() {
                 <Card className="border">
                   <CardContent className="p-12 text-center">
                     <Briefcase className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                    <h3 className="text-lg font-serif font-bold text-foreground mb-2">Projects Coming Soon</h3>
+                    <h3 className="text-lg font-display font-bold text-foreground mb-2">Projects Coming Soon</h3>
                     <p className="text-sm text-muted-foreground">Investment opportunities are being curated. Register as an investor to get early access.</p>
                   </CardContent>
                 </Card>

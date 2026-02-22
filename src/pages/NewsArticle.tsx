@@ -58,7 +58,7 @@ export default function NewsArticlePage() {
           </div>
         ) : !article ? (
           <div className="text-center py-32">
-            <h1 className="text-2xl font-serif font-bold mb-2">Article Not Found</h1>
+            <h1 className="text-2xl font-display font-bold mb-2">Article Not Found</h1>
             <Link to="/news" className="text-primary hover:underline text-sm">← Back to News</Link>
           </div>
         ) : (
@@ -74,7 +74,7 @@ export default function NewsArticlePage() {
                   <ArrowLeft className="h-4 w-4" /> Back to News
                 </Link>
                 <Badge variant="outline" className="mb-3 capitalize">{article.category || "General"}</Badge>
-                <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4 leading-tight">{article.title}</h1>
+                <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4 leading-tight">{article.title}</h1>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8 pb-8 border-b border-border">
                   {article.source && <span>Source: {article.source}</span>}
                   {article.published_at && (
@@ -96,7 +96,7 @@ export default function NewsArticlePage() {
                     <div className="border-t border-border pt-8">
                       <div className="flex items-center gap-2 mb-4">
                         <Image className="h-5 w-5 text-primary" />
-                        <h2 className="text-xl font-serif font-bold text-foreground">Photo Gallery</h2>
+                        <h2 className="text-xl font-display font-bold text-foreground">Photo Gallery</h2>
                       </div>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         {photos.map((photo, i) => (

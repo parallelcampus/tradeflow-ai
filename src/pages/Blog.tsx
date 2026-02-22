@@ -54,7 +54,7 @@ export default function Blog() {
                 <BookOpen className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">AITAS Blog</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 leading-tight">
                 Trade Insights & <span className="text-primary">Industry Analysis</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -73,7 +73,7 @@ export default function Blog() {
             ) : posts.length === 0 ? (
               <div className="text-center py-20">
                 <BookOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-2">Coming Soon</h2>
+                <h2 className="text-2xl font-display font-bold text-foreground mb-2">Coming Soon</h2>
                 <p className="text-muted-foreground max-w-md mx-auto">
                   Our editorial team is preparing insightful articles on trade, healthcare, and global markets. Check back soon.
                 </p>
@@ -92,7 +92,7 @@ export default function Blog() {
                         )}
                         <CardContent className="p-8 flex flex-col justify-center">
                           <Badge variant="outline" className="w-fit mb-3 capitalize">{featured.category || "General"}</Badge>
-                          <h2 className="text-2xl font-serif font-bold text-foreground mb-3">{featured.title}</h2>
+                          <h2 className="text-2xl font-display font-bold text-foreground mb-3">{featured.title}</h2>
                           <p className="text-muted-foreground mb-4 line-clamp-3">{featured.excerpt}</p>
                           <div className="flex items-center gap-3 text-xs text-muted-foreground">
                             {featured.author_name && <span>By {featured.author_name}</span>}
@@ -122,7 +122,7 @@ export default function Blog() {
                       )}
                       <CardContent className="p-5">
                         <Badge variant="outline" className="mb-2 capitalize text-[10px]">{post.category || "General"}</Badge>
-                        <h3 className="text-lg font-serif font-bold text-foreground mb-2 line-clamp-2">{post.title}</h3>
+                        <h3 className="text-lg font-display font-bold text-foreground mb-2 line-clamp-2">{post.title}</h3>
                         <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{post.excerpt}</p>
                         <div className="flex items-center justify-between text-xs text-muted-foreground">
                           <span>{post.author_name}</span>

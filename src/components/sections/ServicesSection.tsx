@@ -16,32 +16,32 @@ const services = [
   {
     icon: Globe,
     title: "Export-Import Services",
-    description: "End-to-end trade facilitation with documentation, compliance, and logistics support.",
+    description: "Complete trade facilitation including documentation, customs compliance, logistics coordination, and regulatory guidance for seamless cross-border commerce.",
   },
   {
     icon: FileText,
     title: "Government Schemes",
-    description: "AI-powered navigation of subsidies, incentives, and policy benefits for your business.",
+    description: "AI-powered navigation of national and state-level subsidies, incentives, tax benefits, and policy programmes tailored to your industry and export profile.",
   },
   {
     icon: Users,
     title: "Buyer Discovery",
-    description: "Connect with verified international buyers using intelligent matching algorithms.",
+    description: "Identify and connect with verified international buyers through intelligent matching algorithms, trade databases, and curated B2B introductions.",
   },
   {
     icon: Calendar,
     title: "Events & Exhibitions",
-    description: "Access trade fairs, B2B meetings, and international delegations worldwide.",
+    description: "Participate in global trade fairs, AITAS-organized B2B meetings, international delegations, and industry-specific exhibitions worldwide.",
   },
   {
     icon: HeartPulse,
     title: "Medical & Tourism Facilitation",
-    description: "International healthcare coordination, pilgrimage circuits, and travel support services.",
+    description: "End-to-end coordination for international patients seeking treatment in India, plus curated pilgrimage circuits and cultural tourism programmes.",
   },
   {
     icon: Sparkles,
     title: "AI Trade Assistant",
-    description: "24/7 intelligent support for queries, document analysis, and scheme guidance.",
+    description: "Round-the-clock intelligent support for trade queries, document analysis, scheme eligibility checks, and market intelligence reports.",
   },
 ];
 
@@ -54,18 +54,18 @@ const ServicesSection = () => {
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-sm mb-4">
             Our Services
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
             Complete Trade & Allied
             <span className="text-primary"> Services Ecosystem</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            From policy navigation to medical tourism, we provide everything you need to succeed in international trade and allied services.
+            From policy navigation to medical tourism, AITAS provides everything your enterprise needs to compete and succeed in international markets.
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, index) => {
+          {services.map((service) => {
             const Icon = service.icon;
             return (
               <div
@@ -79,7 +79,7 @@ const ServicesSection = () => {
                     <Icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                   </div>
                   
-                  <h3 className="text-xl font-serif font-bold text-foreground mb-3">
+                  <h3 className="text-xl font-display font-bold text-foreground mb-3">
                     {service.title}
                   </h3>
                   

@@ -52,7 +52,7 @@ export default function BlogArticle() {
           </div>
         ) : !post ? (
           <div className="text-center py-32">
-            <h1 className="text-2xl font-serif font-bold mb-2">Article Not Found</h1>
+            <h1 className="text-2xl font-display font-bold mb-2">Article Not Found</h1>
             <Link to="/blog" className="text-primary hover:underline text-sm">← Back to Blog</Link>
           </div>
         ) : (
@@ -68,7 +68,7 @@ export default function BlogArticle() {
                   <ArrowLeft className="h-4 w-4" /> Back to Blog
                 </Link>
                 <Badge variant="outline" className="mb-3 capitalize">{post.category || "General"}</Badge>
-                <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4 leading-tight">{post.title}</h1>
+                <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4 leading-tight">{post.title}</h1>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8 pb-8 border-b border-border">
                   {post.author_name && (
                     <span className="flex items-center gap-1"><User className="h-4 w-4" /> {post.author_name}</span>

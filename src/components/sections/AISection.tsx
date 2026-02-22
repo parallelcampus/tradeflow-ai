@@ -51,7 +51,7 @@ const AISection = () => {
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-sm mb-4">
               AI-Powered
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
               Intelligence That
               <span className="block text-primary">Understands Trade</span>
             </h2>
@@ -87,7 +87,7 @@ const AISection = () => {
                     <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-serif font-bold text-foreground mb-2">
+                    <h3 className="text-lg font-display font-bold text-foreground mb-2">
                       {feature.title}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">

@@ -131,7 +131,7 @@ export default function TourismMedical() {
                 <HeartPulse className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">Medical & International Tourism Division</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
                 Global Healthcare &<br />
                 <span className="text-primary">Pilgrimage Facilitation Program</span>
               </h1>
@@ -173,7 +173,7 @@ export default function TourismMedical() {
           <section className="py-16">
             <div className="container mx-auto px-4 lg:px-8">
               <div className="mb-16">
-                <h2 className="text-3xl font-serif font-bold text-foreground mb-3">
+                <h2 className="text-3xl font-display font-bold text-foreground mb-3">
                   Medical Tourism <span className="text-primary">Services</span>
                 </h2>
                 <p className="text-muted-foreground mb-8 max-w-2xl">
@@ -191,7 +191,7 @@ export default function TourismMedical() {
 
               {/* Cost Comparison */}
               <div className="mb-16">
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
+                <h3 className="text-2xl font-display font-bold text-foreground mb-6">
                   Cost Advantage: <span className="text-primary">India vs Global Markets</span>
                 </h3>
                 <div className="overflow-x-auto">
@@ -221,7 +221,7 @@ export default function TourismMedical() {
               {/* Medical Consultation Form */}
               <Card className="border border-primary/20 max-w-2xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-serif flex items-center gap-3">
+                  <CardTitle className="text-2xl font-display flex items-center gap-3">
                     <Stethoscope className="w-6 h-6 text-primary" />
                     Request Medical Consultation
                   </CardTitle>
@@ -277,7 +277,7 @@ export default function TourismMedical() {
         {activeTab === 'pilgrimage' && (
           <section className="py-16">
             <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-3">
+              <h2 className="text-3xl font-display font-bold text-foreground mb-3">
                 International Pilgrimage & <span className="text-primary">Religious Tourism</span>
               </h2>
               <p className="text-muted-foreground mb-10 max-w-2xl">
@@ -293,7 +293,7 @@ export default function TourismMedical() {
                           <Star className="w-6 h-6 text-primary" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-serif font-bold text-foreground mb-2">{circuit.title}</h3>
+                          <h3 className="text-lg font-display font-bold text-foreground mb-2">{circuit.title}</h3>
                           <p className="text-sm text-muted-foreground">{circuit.description}</p>
                         </div>
                       </div>
@@ -314,7 +314,7 @@ export default function TourismMedical() {
                   <Card key={i} className="border hover:border-primary/30 transition-colors">
                     <CardContent className="p-6">
                       <item.icon className="w-8 h-8 text-primary mb-4" />
-                      <h4 className="font-serif font-bold text-foreground mb-2">{item.title}</h4>
+                      <h4 className="font-display font-bold text-foreground mb-2">{item.title}</h4>
                       <p className="text-sm text-muted-foreground">{item.desc}</p>
                     </CardContent>
                   </Card>
@@ -324,7 +324,7 @@ export default function TourismMedical() {
               {/* Plan Pilgrimage Form */}
               <Card className="border border-primary/20 max-w-2xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-serif flex items-center gap-3">
+                  <CardTitle className="text-2xl font-display flex items-center gap-3">
                     <Globe className="w-6 h-6 text-primary" />
                     Plan Your Pilgrimage
                   </CardTitle>
@@ -372,7 +372,7 @@ export default function TourismMedical() {
         {activeTab === 'partner' && (
           <section className="py-16">
             <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-3">
+              <h2 className="text-3xl font-display font-bold text-foreground mb-3">
                 Partner With <span className="text-primary">AITAS</span>
               </h2>
               <p className="text-muted-foreground mb-10 max-w-2xl">
@@ -382,7 +382,7 @@ export default function TourismMedical() {
               <div className="grid md:grid-cols-2 gap-8">
                 <Card className="border border-primary/20">
                   <CardHeader>
-                    <CardTitle className="text-xl font-serif flex items-center gap-3">
+                    <CardTitle className="text-xl font-display flex items-center gap-3">
                       <Stethoscope className="w-5 h-5 text-primary" />
                       Hospital Registration
                     </CardTitle>
@@ -402,7 +402,7 @@ export default function TourismMedical() {
 
                 <Card className="border border-primary/20">
                   <CardHeader>
-                    <CardTitle className="text-xl font-serif flex items-center gap-3">
+                    <CardTitle className="text-xl font-display flex items-center gap-3">
                       <Plane className="w-5 h-5 text-primary" />
                       Tourism Partner Registration
                     </CardTitle>
