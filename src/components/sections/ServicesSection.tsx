@@ -15,33 +15,33 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: Globe,
-    title: "Export-Import Services",
-    description: "Complete trade facilitation including documentation, customs compliance, logistics coordination, and regulatory guidance for seamless cross-border commerce.",
+    title: "Export-Import Facilitation",
+    description: "End-to-end trade support — from IEC registration and customs documentation to shipping logistics and foreign exchange compliance for Indian MSMEs and corporates.",
   },
   {
     icon: FileText,
-    title: "Government Schemes",
-    description: "AI-powered navigation of national and state-level subsidies, incentives, tax benefits, and policy programmes tailored to your industry and export profile.",
+    title: "Government Scheme Advisory",
+    description: "AI-curated access to 500+ central and state incentive programmes including RoDTEP, PLI, ECLGS, and MSME subsidies — matched to your business profile automatically.",
   },
   {
     icon: Users,
-    title: "Buyer Discovery",
-    description: "Identify and connect with verified international buyers through intelligent matching algorithms, trade databases, and curated B2B introductions.",
+    title: "Global Buyer Discovery",
+    description: "Identify verified importers across 85+ countries using AI-powered intent signals, trade data analytics, and curated B2B matchmaking events.",
   },
   {
     icon: Calendar,
-    title: "Events & Exhibitions",
-    description: "Participate in global trade fairs, AITAS-organized B2B meetings, international delegations, and industry-specific exhibitions worldwide.",
+    title: "Trade Shows & Delegations",
+    description: "Participate in AITAS-organized international exhibitions, trade delegations, and sector-specific buyer-seller meets in key markets worldwide.",
   },
   {
     icon: HeartPulse,
-    title: "Medical & Tourism Facilitation",
-    description: "End-to-end coordination for international patients seeking treatment in India, plus curated pilgrimage circuits and cultural tourism programmes.",
+    title: "Medical & Tourism Services",
+    description: "Comprehensive coordination for international patients seeking treatment at NABH-accredited hospitals in India, plus curated pilgrimage and heritage tourism circuits.",
   },
   {
     icon: Sparkles,
-    title: "AI Trade Assistant",
-    description: "Round-the-clock intelligent support for trade queries, document analysis, scheme eligibility checks, and market intelligence reports.",
+    title: "AI Trade Intelligence",
+    description: "24/7 AI assistant trained on Indian trade policy, DGFT notifications, customs tariffs, and FEMA regulations — with multilingual support in 7 languages.",
   },
 ];
 
@@ -55,11 +55,11 @@ const ServicesSection = () => {
             Our Services
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-            Complete Trade & Allied
-            <span className="text-primary"> Services Ecosystem</span>
+            Integrated Trade &
+            <span className="text-primary"> Allied Services</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            From policy navigation to medical tourism, AITAS provides everything your enterprise needs to compete and succeed in international markets.
+            AITAS brings together every service an Indian enterprise needs to export, invest, manufacture, and grow globally — powered by AI and backed by domain experts.
           </p>
         </div>
 
@@ -102,23 +102,23 @@ const ServicesSection = () => {
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="flex flex-col items-center">
               <Building2 className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-foreground">5,000+</span>
-              <span className="text-sm text-muted-foreground mt-1">Registered Companies</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">3,200+</span>
+              <span className="text-sm text-muted-foreground mt-1">MSME Members</span>
             </div>
             <div className="flex flex-col items-center">
               <ShoppingBag className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-foreground">25K+</span>
-              <span className="text-sm text-muted-foreground mt-1">Trade Deals Closed</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">₹120Cr+</span>
+              <span className="text-sm text-muted-foreground mt-1">Trade Deals Enabled</span>
             </div>
             <div className="flex flex-col items-center">
               <Plane className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-foreground">200+</span>
-              <span className="text-sm text-muted-foreground mt-1">Delegations Organized</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">45+</span>
+              <span className="text-sm text-muted-foreground mt-1">Delegations Completed</span>
             </div>
             <div className="flex flex-col items-center">
               <HeartPulse className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-foreground">1,000+</span>
-              <span className="text-sm text-muted-foreground mt-1">Patients Facilitated</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">800+</span>
+              <span className="text-sm text-muted-foreground mt-1">Patients Assisted</span>
             </div>
           </div>
         </div>

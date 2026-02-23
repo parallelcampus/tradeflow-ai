@@ -19,29 +19,29 @@ const HeroSection = () => {
           <div className="flex flex-col gap-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-sm w-fit animate-fade-in">
               <span className="w-2 h-2 bg-primary rounded-full" />
-              <span className="text-sm font-medium text-primary">AI-Powered Trade & Allied Services</span>
+              <span className="text-sm font-medium text-primary">International Alliance for Trade & Allied Services</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-foreground leading-[1.1] animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              Empowering
-              <span className="block text-primary">Global Trade</span>
-              <span className="block">Excellence</span>
+              Your Gateway to
+              <span className="block text-primary">Borderless</span>
+              <span className="block">Commerce</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Navigate international markets with confidence. AITAS delivers AI-driven trade intelligence, government scheme advisory, manufacturing partnerships, and medical tourism facilitation — all from a single platform.
+              AITAS unifies trade facilitation, investment advisory, government incentive navigation, manufacturing partnerships, and medical tourism under one intelligent platform — empowering enterprises to scale across borders with confidence.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <Link to="/auth">
                 <Button variant="hero" size="xl" className="group bg-primary text-primary-foreground">
-                  Start Your Journey
+                  Join AITAS Network
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link to="/global-investment">
+              <Link to="/schemes-database">
                 <Button variant="heroOutline" size="xl" className="border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground">
-                  Explore Investment
+                  Browse Govt Schemes
                 </Button>
               </Link>
             </div>
@@ -49,16 +49,16 @@ const HeroSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-bold text-primary">50K+</span>
-                <span className="text-sm text-muted-foreground">Active Members</span>
+                <span className="text-2xl md:text-3xl font-bold text-primary">12K+</span>
+                <span className="text-sm text-muted-foreground">Member Enterprises</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-bold text-primary">150+</span>
-                <span className="text-sm text-muted-foreground">Countries Served</span>
+                <span className="text-2xl md:text-3xl font-bold text-primary">85+</span>
+                <span className="text-sm text-muted-foreground">Countries Connected</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-bold text-primary">$2B+</span>
-                <span className="text-sm text-muted-foreground">Trade Facilitated</span>
+                <span className="text-2xl md:text-3xl font-bold text-primary">₹500Cr+</span>
+                <span className="text-sm text-muted-foreground">Schemes Facilitated</span>
               </div>
             </div>
           </div>

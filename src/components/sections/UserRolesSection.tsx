@@ -75,7 +75,7 @@ const UserRolesSection = () => {
             <span className="text-primary"> Multiple Roles</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Whether you're an exporter, medical tourist, consultant, or government official—AITAS provides tailored tools for your specific needs.
+            Whether you're an MSME exporter, a healthcare seeker, a trade consultant, or a policy officer — AITAS adapts to your workflow with role-specific dashboards and tools.
           </p>
         </div>
 

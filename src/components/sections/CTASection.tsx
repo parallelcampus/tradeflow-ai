@@ -13,12 +13,12 @@ const CTASection = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
-            Ready to Transform Your
-            <span className="block text-primary">Global Trade Journey?</span>
+            Ready to Scale Your
+            <span className="block text-primary">Business Internationally?</span>
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Join thousands of exporters, importers, and trade professionals who are leveraging AI-powered tools to grow their international business.
+            Join the AITAS network of exporters, manufacturers, investors, and trade professionals unlocking government incentives, global buyers, and AI-driven market intelligence.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -36,18 +36,18 @@ const CTASection = () => {
           <div className="grid sm:grid-cols-3 gap-8 pt-8 border-t border-border">
             <div className="flex flex-col items-center gap-2">
               <Globe className="w-8 h-8 text-primary" />
-              <span className="text-foreground font-semibold">150+ Countries</span>
-              <span className="text-sm text-muted-foreground">Global reach</span>
+              <span className="text-foreground font-semibold">85+ Countries</span>
+              <span className="text-sm text-muted-foreground">Market access</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Users className="w-8 h-8 text-primary" />
-              <span className="text-foreground font-semibold">50,000+ Users</span>
-              <span className="text-sm text-muted-foreground">Active community</span>
+              <span className="text-foreground font-semibold">12,000+ Members</span>
+              <span className="text-sm text-muted-foreground">Growing network</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Sparkles className="w-8 h-8 text-primary" />
-              <span className="text-foreground font-semibold">24/7 AI Support</span>
-              <span className="text-sm text-muted-foreground">Always available</span>
+              <span className="text-foreground font-semibold">500+ Schemes</span>
+              <span className="text-sm text-muted-foreground">AI-curated database</span>
             </div>
           </div>
         </div>

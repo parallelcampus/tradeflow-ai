@@ -49,7 +49,7 @@ const Footer = () => {
               <span className="text-[10px] text-background/60 tracking-widest uppercase mt-1">International Alliance for Trade and Allied Services</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Empowering businesses to navigate international trade with AI-driven insights, healthcare facilitation, and seamless global connections.
+              India's integrated platform for trade facilitation, government scheme advisory, global investment, manufacturing partnerships, and medical tourism — powered by AI.
             </p>
             
             <div className="space-y-3">
