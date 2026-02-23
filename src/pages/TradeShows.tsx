@@ -34,12 +34,12 @@ import {
   ExternalLink,
   Search,
   ArrowRight,
-  Megaphone,
-  UserPlus,
-  Ticket,
   Award,
   Briefcase,
   Send,
+  Ticket,
+  TrendingUp,
+  Zap,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -275,82 +275,104 @@ function TradeShowCard({ show }: { show: TradeShow }) {
     setDialogOpen(false);
   };
 
+  const stallFillPercent = ((show.totalStalls - show.stallsAvailable) / show.totalStalls) * 100;
+
   return (
-    <Card className="hover:shadow-card-hover transition-all duration-300 border-border group">
-      <CardHeader className="pb-3">
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <Badge variant="secondary" className="text-xs">
-                {show.category === "international" ? "International" : show.category === "national" ? "National" : "AITAS Pavilion"}
-              </Badge>
-              {show.status === "open" && (
-                <Badge variant="outline" className="text-xs">
-                  <CheckCircle className="w-3 h-3 mr-1" /> Open
-                </Badge>
-              )}
-              {show.status === "closing_soon" && (
-                <Badge variant="outline" className="text-xs border-destructive/40 text-destructive">
-                  <Clock className="w-3 h-3 mr-1" /> Closing Soon
-                </Badge>
-              )}
-              {show.isFeatured && (
-                <Badge className="bg-primary/10 text-primary border-primary/20 text-xs">
-                  <Star className="w-3 h-3 mr-1 fill-current" /> Featured
-                </Badge>
-              )}
-            </div>
-            <CardTitle className="text-lg group-hover:text-primary transition-colors leading-snug">
-              {show.name}
-            </CardTitle>
-          </div>
+    <Card className="group relative overflow-hidden border-border hover:border-primary/30 transition-all duration-300 hover:shadow-elevated">
+      {/* Top accent line */}
+      {show.isFeatured && (
+        <div className="absolute top-0 left-0 right-0 h-1 bg-primary" />
+      )}
+
+      <CardHeader className="pb-2 pt-5">
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
+          <Badge
+            variant="secondary"
+            className={`text-[11px] font-semibold uppercase tracking-wide ${
+              show.category === "aitas_pavilion"
+                ? "bg-primary/10 text-primary border-primary/20"
+                : show.category === "national"
+                ? "bg-accent text-accent-foreground"
+                : ""
+            }`}
+          >
+            {show.category === "international" ? "International" : show.category === "national" ? "National" : "AITAS Pavilion"}
+          </Badge>
+          {show.status === "closing_soon" && (
+            <Badge variant="outline" className="text-[11px] border-destructive/40 text-destructive font-medium">
+              <Clock className="w-3 h-3 mr-1" /> Closing Soon
+            </Badge>
+          )}
+          {show.isFeatured && (
+            <Badge variant="outline" className="text-[11px] border-primary/30 text-primary font-medium">
+              <Star className="w-3 h-3 mr-1 fill-current" /> Featured
+            </Badge>
+          )}
         </div>
+        <CardTitle className="text-base font-bold leading-snug group-hover:text-primary transition-colors">
+          {show.name}
+        </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-sm text-muted-foreground line-clamp-2">{show.description}</p>
-        <div className="grid grid-cols-2 gap-3 text-sm">
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <MapPin className="h-4 w-4 shrink-0 text-primary" />
-            <span className="truncate">{show.location}</span>
+
+      <CardContent className="space-y-4 pb-5">
+        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{show.description}</p>
+
+        {/* Info grid */}
+        <div className="space-y-2.5">
+          <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+            <MapPin className="h-3.5 w-3.5 shrink-0 text-primary/70" />
+            <span className="truncate">{show.location}, {show.country}</span>
           </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Globe className="h-4 w-4 shrink-0 text-primary" />
-            <span>{show.country}</span>
-          </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Calendar className="h-4 w-4 shrink-0 text-primary" />
+          <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+            <Calendar className="h-3.5 w-3.5 shrink-0 text-primary/70" />
             <span>{formatDate(show.startDate)} – {formatDate(show.endDate)}</span>
           </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Users className="h-4 w-4 shrink-0 text-primary" />
-            <span>{show.stallsAvailable}/{show.totalStalls} stalls left</span>
+        </div>
+
+        {/* Stall availability bar */}
+        <div className="space-y-1.5">
+          <div className="flex justify-between text-xs text-muted-foreground">
+            <span>{show.stallsAvailable} stalls available</span>
+            <span>{Math.round(stallFillPercent)}% filled</span>
+          </div>
+          <div className="h-1.5 bg-border rounded-full overflow-hidden">
+            <div
+              className={`h-full rounded-full transition-all ${
+                stallFillPercent > 80 ? "bg-destructive" : stallFillPercent > 50 ? "bg-[hsl(var(--warning))]" : "bg-primary"
+              }`}
+              style={{ width: `${stallFillPercent}%` }}
+            />
           </div>
         </div>
-        <div className="flex flex-wrap gap-1.5">
+
+        {/* Industries */}
+        <div className="flex flex-wrap gap-1">
           {show.industry.map((ind, i) => (
-            <Badge key={i} variant="secondary" className="text-xs">{ind}</Badge>
+            <span key={i} className="text-[11px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">
+              {ind}
+            </span>
           ))}
         </div>
-        <div className="pt-3 border-t border-border">
-          <div className="flex items-center justify-between mb-3">
+
+        {/* Price + CTA */}
+        <div className="pt-3 border-t border-border space-y-3">
+          <div className="flex items-end justify-between">
             <div>
-              <p className="text-xs text-muted-foreground mb-0.5">Stall Price</p>
-              <p className="font-semibold text-lg">{formatCurrency(show.stallPrice, show.currency)}</p>
+              <p className="text-[11px] text-muted-foreground uppercase tracking-wide mb-0.5">Stall Price</p>
+              <p className="font-bold text-xl text-foreground">{formatCurrency(show.stallPrice, show.currency)}</p>
             </div>
             {show.subsidyPercent && (
-              <div className="text-right">
-                <p className="text-xs text-muted-foreground mb-0.5">{show.subsidyType}</p>
-                <Badge className="bg-accent text-accent-foreground text-sm px-3">
-                  <BadgePercent className="w-4 h-4 mr-1" /> {show.subsidyPercent}% OFF
-                </Badge>
-              </div>
+              <Badge className="bg-[hsl(var(--success))] text-white text-sm px-2.5 py-1 font-semibold">
+                <BadgePercent className="w-3.5 h-3.5 mr-1" /> {show.subsidyPercent}% OFF
+              </Badge>
             )}
           </div>
+
           <div className="flex gap-2">
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
               <DialogTrigger asChild>
                 <Button className="flex-1" size="sm" disabled={show.status === "fully_booked"}>
-                  Apply for Stall
+                  Apply for Stall <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-lg">
@@ -423,15 +445,18 @@ function ExhibitorRegistrationForm() {
   };
 
   return (
-    <Card>
+    <Card className="border-border">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Building2 className="w-5 h-5 text-primary" /> Exhibitor Registration
+        <CardTitle className="flex items-center gap-2 text-xl">
+          <div className="p-2 rounded-lg bg-primary/10">
+            <Building2 className="w-5 h-5 text-primary" />
+          </div>
+          Exhibitor Registration
         </CardTitle>
         <p className="text-sm text-muted-foreground">Register as an exhibitor to showcase your products at upcoming trade shows.</p>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <label className="text-sm font-medium">Company Name *</label>
@@ -517,7 +542,7 @@ function ExhibitorRegistrationForm() {
             <label className="text-sm font-medium">Special Requirements</label>
             <Textarea placeholder="Any special requirements (power, water, refrigeration, etc.)" rows={2} />
           </div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" size="lg">
             <Send className="w-4 h-4 mr-2" /> Submit Exhibitor Registration
           </Button>
         </form>
@@ -535,15 +560,18 @@ function VisitorRegistrationForm() {
   };
 
   return (
-    <Card>
+    <Card className="border-border">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Ticket className="w-5 h-5 text-primary" /> Visitor Registration
+        <CardTitle className="flex items-center gap-2 text-xl">
+          <div className="p-2 rounded-lg bg-primary/10">
+            <Ticket className="w-5 h-5 text-primary" />
+          </div>
+          Visitor Registration
         </CardTitle>
         <p className="text-sm text-muted-foreground">Register as a visitor to attend trade shows and connect with exhibitors.</p>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <label className="text-sm font-medium">Full Name *</label>
@@ -612,7 +640,7 @@ function VisitorRegistrationForm() {
             <label className="text-sm font-medium">Sectors of Interest</label>
             <Textarea placeholder="Which sectors or product categories are you interested in?" rows={2} />
           </div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" size="lg">
             <Send className="w-4 h-4 mr-2" /> Register as Visitor
           </Button>
         </form>
@@ -631,32 +659,47 @@ function SponsorPackageCard({ pkg }: { pkg: SponsorPackage }) {
     setDialogOpen(false);
   };
 
+  const tierColors: Record<string, string> = {
+    Bronze: "from-amber-700/20 to-amber-900/5",
+    Silver: "from-slate-400/20 to-slate-600/5",
+    Gold: "from-yellow-500/20 to-yellow-700/5",
+    Platinum: "from-primary/15 to-primary/5",
+  };
+
   return (
-    <Card className={`relative ${pkg.isPopular ? "border-primary shadow-card-hover" : "border-border"}`}>
+    <Card className={`relative overflow-hidden transition-all duration-300 hover:shadow-elevated ${pkg.isPopular ? "border-primary ring-1 ring-primary/20" : "border-border"}`}>
+      {/* Gradient header */}
+      <div className={`h-2 bg-gradient-to-r ${tierColors[pkg.name] || ""}`} />
+
       {pkg.isPopular && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <Badge className="bg-primary text-primary-foreground">Most Popular</Badge>
+        <div className="absolute top-4 right-4">
+          <Badge className="bg-primary text-primary-foreground text-[10px] font-semibold">
+            <Zap className="w-3 h-3 mr-0.5" /> Popular
+          </Badge>
         </div>
       )}
-      <CardHeader className="text-center pb-2">
-        <CardTitle className="text-xl">{pkg.name}</CardTitle>
-        <div className="mt-2">
-          <span className="text-3xl font-bold">{formatCurrency(pkg.price, pkg.currency)}</span>
+
+      <CardHeader className="text-center pt-6 pb-2">
+        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">{pkg.name}</p>
+        <div>
+          <span className="text-3xl font-bold text-foreground">{formatCurrency(pkg.price, pkg.currency)}</span>
           <span className="text-sm text-muted-foreground ml-1">/ event</span>
         </div>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <ul className="space-y-2">
+
+      <CardContent className="space-y-5 pb-6">
+        <ul className="space-y-2.5">
           {pkg.benefits.map((benefit, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm">
+            <li key={i} className="flex items-start gap-2.5 text-sm">
               <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-              <span>{benefit}</span>
+              <span className="text-muted-foreground">{benefit}</span>
             </li>
           ))}
         </ul>
+
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
-            <Button className="w-full" variant={pkg.isPopular ? "default" : "outline"}>
+            <Button className="w-full" variant={pkg.isPopular ? "default" : "outline"} size="lg">
               Become a Sponsor
             </Button>
           </DialogTrigger>
@@ -713,96 +756,125 @@ export default function TradeShows() {
     return matchesSearch && matchesCategory;
   });
 
+  const uniqueCountries = new Set(tradeShows.map(s => s.country)).size;
+  const totalStalls = tradeShows.reduce((sum, s) => sum + s.stallsAvailable, 0);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero */}
-      <section className="pt-28 pb-16 bg-muted">
-        <div className="container mx-auto px-4 lg:px-8">
+      {/* Hero Section */}
+      <section className="relative pt-28 pb-20 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground/95 to-primary/30" />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
+
+        <div className="container mx-auto px-4 lg:px-8 relative">
           <div className="max-w-3xl">
-            <Badge variant="secondary" className="mb-4">
-              <Globe className="w-3 h-3 mr-1" /> Global Events
-            </Badge>
-            <h1 className="font-bold text-foreground mb-4">
-              International Trade Shows & Expos
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white/80 text-sm mb-6">
+              <Globe className="w-3.5 h-3.5" />
+              <span>Global Trade Events Platform</span>
+            </div>
+
+            <h1 className="text-white mb-5 leading-[1.1]">
+              International Trade Shows<br />
+              <span className="text-primary-foreground/70">& Exhibitions</span>
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+
+            <p className="text-lg text-white/60 mb-10 leading-relaxed max-w-2xl">
               Discover global exhibitions, register as an exhibitor or visitor, explore sponsorship opportunities, and grow your international trade presence.
             </p>
-            <div className="flex flex-wrap gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-primary" />
-                <span className="font-medium">{tradeShows.length} Upcoming Events</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Globe className="w-5 h-5 text-primary" />
-                <span className="font-medium">{new Set(tradeShows.map(s => s.country)).size}+ Countries</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-primary" />
-                <span className="font-medium">10,000+ Visitors Annually</span>
-              </div>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { icon: Calendar, label: "Upcoming Events", value: tradeShows.length.toString() },
+                { icon: Globe, label: "Countries", value: `${uniqueCountries}+` },
+                { icon: Users, label: "Stalls Available", value: totalStalls.toString() },
+                { icon: TrendingUp, label: "Visitors Annually", value: "10K+" },
+              ].map((stat, i) => (
+                <div key={i} className="px-4 py-3 rounded-xl bg-white/[0.06] backdrop-blur-sm border border-white/[0.08]">
+                  <stat.icon className="w-4 h-4 text-primary-foreground/50 mb-2" />
+                  <p className="text-xl font-bold text-white">{stat.value}</p>
+                  <p className="text-xs text-white/40">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Tabs */}
-      <section className="py-12">
+      {/* Tabs Section */}
+      <section className="py-14">
         <div className="container mx-auto px-4 lg:px-8">
           <Tabs defaultValue="events" className="space-y-8">
-            <TabsList className="flex flex-wrap h-auto gap-1 bg-muted p-1">
-              <TabsTrigger value="events" className="flex items-center gap-1.5 text-sm">
-                <Calendar className="w-4 h-4" /> Upcoming Events
-              </TabsTrigger>
-              <TabsTrigger value="exhibitor" className="flex items-center gap-1.5 text-sm">
-                <Building2 className="w-4 h-4" /> Exhibitor Registration
-              </TabsTrigger>
-              <TabsTrigger value="visitor" className="flex items-center gap-1.5 text-sm">
-                <Ticket className="w-4 h-4" /> Visitor Registration
-              </TabsTrigger>
-              <TabsTrigger value="sponsor" className="flex items-center gap-1.5 text-sm">
-                <Award className="w-4 h-4" /> Sponsor Packages
-              </TabsTrigger>
-            </TabsList>
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <TabsList className="flex flex-wrap h-auto gap-1 bg-card border border-border p-1.5 shadow-sm">
+                <TabsTrigger value="events" className="flex items-center gap-1.5 text-sm data-[state=active]:shadow-sm">
+                  <Calendar className="w-4 h-4" /> Upcoming Events
+                </TabsTrigger>
+                <TabsTrigger value="exhibitor" className="flex items-center gap-1.5 text-sm data-[state=active]:shadow-sm">
+                  <Building2 className="w-4 h-4" /> Exhibitor
+                </TabsTrigger>
+                <TabsTrigger value="visitor" className="flex items-center gap-1.5 text-sm data-[state=active]:shadow-sm">
+                  <Ticket className="w-4 h-4" /> Visitor
+                </TabsTrigger>
+                <TabsTrigger value="sponsor" className="flex items-center gap-1.5 text-sm data-[state=active]:shadow-sm">
+                  <Award className="w-4 h-4" /> Sponsorship
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
             {/* Events Tab */}
             <TabsContent value="events" className="space-y-6">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <Input
-                    placeholder="Search events by name, country, or industry..."
-                    className="pl-10"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                </div>
-                <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                  <SelectTrigger className="w-full sm:w-[200px]">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Categories</SelectItem>
-                    <SelectItem value="international">International</SelectItem>
-                    <SelectItem value="national">National</SelectItem>
-                    <SelectItem value="aitas_pavilion">AITAS Pavilion</SelectItem>
-                  </SelectContent>
-                </Select>
+              {/* Filters */}
+              <Card className="border-border shadow-sm">
+                <CardContent className="p-4">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="relative flex-1">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input
+                        placeholder="Search events by name, country, or industry..."
+                        className="pl-10"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                      />
+                    </div>
+                    <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                      <SelectTrigger className="w-full sm:w-[200px]">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All Categories</SelectItem>
+                        <SelectItem value="international">International</SelectItem>
+                        <SelectItem value="national">National</SelectItem>
+                        <SelectItem value="aitas_pavilion">AITAS Pavilion</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Results count */}
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-muted-foreground">
+                  Showing <span className="font-semibold text-foreground">{filteredShows.length}</span> events
+                </p>
               </div>
 
               {filteredShows.length > 0 ? (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {filteredShows.map((show) => (
                     <TradeShowCard key={show.id} show={show} />
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-16 text-muted-foreground">
-                  <Calendar className="w-12 h-12 mx-auto mb-4 opacity-40" />
-                  <p className="font-medium">No events match your search</p>
-                  <p className="text-sm mt-1">Try adjusting your filters</p>
+                <div className="text-center py-20">
+                  <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mx-auto mb-4">
+                    <Calendar className="w-7 h-7 text-muted-foreground" />
+                  </div>
+                  <p className="font-semibold text-foreground">No events match your search</p>
+                  <p className="text-sm text-muted-foreground mt-1">Try adjusting your filters</p>
                 </div>
               )}
             </TabsContent>
@@ -822,14 +894,14 @@ export default function TradeShows() {
             </TabsContent>
 
             {/* Sponsor Tab */}
-            <TabsContent value="sponsor" className="space-y-8">
+            <TabsContent value="sponsor" className="space-y-10">
               <div className="text-center max-w-2xl mx-auto">
                 <h2 className="font-bold text-foreground mb-3">Sponsorship Packages</h2>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground leading-relaxed">
                   Elevate your brand visibility at international trade events. Choose a sponsorship tier that aligns with your marketing objectives.
                 </p>
               </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {sponsorPackages.map((pkg) => (
                   <SponsorPackageCard key={pkg.id} pkg={pkg} />
                 ))}
@@ -839,20 +911,27 @@ export default function TradeShows() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-muted border-t border-border">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h2 className="font-bold text-foreground mb-4">Need Help Choosing the Right Event?</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Our trade advisory team can help you identify the best trade shows for your industry, assist with subsidy applications, and manage your participation end-to-end.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg">
-              <Briefcase className="w-5 h-5 mr-2" /> Talk to a Trade Advisor
-            </Button>
-            <Button variant="outline" size="lg">
-              Download Event Calendar <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+      {/* CTA Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/30 to-primary/5" />
+        <div className="container mx-auto px-4 lg:px-8 text-center relative">
+          <div className="max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+              <Briefcase className="w-3.5 h-3.5" />
+              Trade Advisory
+            </div>
+            <h2 className="font-bold text-foreground mb-4">Need Help Choosing the Right Event?</h2>
+            <p className="text-muted-foreground mb-8 leading-relaxed">
+              Our trade advisory team can help you identify the best trade shows for your industry, assist with subsidy applications, and manage your participation end-to-end.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button size="lg" className="shadow-sm">
+                <Briefcase className="w-4 h-4 mr-2" /> Talk to a Trade Advisor
+              </Button>
+              <Button variant="outline" size="lg">
+                Download Event Calendar <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
