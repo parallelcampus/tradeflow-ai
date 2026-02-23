@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Globe, TrendingUp, Users, Shield } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
+import heroGlobe from "@/assets/hero-globe.png";
 
 const HeroSection = () => {
   return (
@@ -69,8 +70,8 @@ const HeroSection = () => {
               <div className="absolute inset-0 rounded-full border border-primary/20" />
               <div className="absolute inset-4 rounded-full border border-primary/10" />
               
-              <div className="absolute inset-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Globe className="w-24 h-24 md:w-32 md:h-32 text-primary/60" strokeWidth={1} />
+              <div className="absolute inset-8 rounded-full overflow-hidden flex items-center justify-center">
+                <img src={heroGlobe} alt="Global trade network" className="w-full h-full object-cover rounded-full" />
               </div>
 
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-card rounded-sm p-4 shadow-md border border-border">
