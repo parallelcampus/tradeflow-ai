@@ -12,7 +12,13 @@ import {
   CheckCircle2,
   ArrowRight,
   Star,
-  Shield
+  Shield,
+  UserPlus,
+  CloudUpload,
+  Cpu,
+  Hospital,
+  HeartHandshake,
+  Lock
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,11 +55,49 @@ const pilgrimageCircuits = [
   { title: "Christian Heritage Sites", description: "Old Goa churches, Kerala Christian heritage, and historic cathedrals" },
 ];
 
-const costComparison = [
-  { procedure: "Heart Bypass Surgery", india: "$5,000–$9,000", usa: "$70,000–$130,000", uk: "$25,000–$45,000" },
-  { procedure: "Knee Replacement", india: "$4,000–$6,500", usa: "$35,000–$70,000", uk: "$15,000–$25,000" },
-  { procedure: "Dental Implants", india: "$500–$1,000", usa: "$3,000–$5,000", uk: "$2,000–$3,500" },
-  { procedure: "Cosmetic Surgery", india: "$2,000–$5,000", usa: "$10,000–$25,000", uk: "$5,000–$15,000" },
+const howItWorksSteps = [
+  {
+    step: 1,
+    icon: UserPlus,
+    headline: "Create Your Secure Medical Profile",
+    content: "Patients begin by registering through the secure AITAS Medical Portal. Basic personal details and treatment intent are submitted. A unique patient ID is generated for tracking.",
+    note: "All submissions are encrypted and handled under strict confidentiality standards.",
+  },
+  {
+    step: 2,
+    icon: CloudUpload,
+    headline: "Confidential Medical Document Upload",
+    content: "Patients upload diagnostic reports, medical history, imaging scans, and prescriptions. Files are securely stored in an encrypted document vault accessible only to authorized case coordinators.",
+    items: ["Diagnostic reports", "Medical history", "Imaging scans", "Prescriptions"],
+  },
+  {
+    step: 3,
+    icon: Cpu,
+    headline: "AI-Assisted Case Structuring",
+    content: "AITAS uses advanced AI large language model technology to organize medical documents, extract structured medical data, identify treatment categories, flag key clinical indicators, and prepare structured medical summaries.",
+    items: ["Organize medical documents", "Extract structured medical data", "Identify treatment categories", "Flag key clinical indicators", "Prepare structured medical summaries"],
+    disclaimer: "The AI system does NOT provide medical diagnosis or treatment advice. It is used solely to organize and structure information to support efficient specialist review.",
+  },
+  {
+    step: 4,
+    icon: Hospital,
+    headline: "Secure Specialist Review",
+    content: "Structured case summaries are shared privately with accredited hospitals and specialists in India. Doctors review medical reports, AI-structured summaries, and clinical documentation. Hospitals provide medical opinions, treatment pathways, suggested duration, and required pre-travel preparation.",
+  },
+  {
+    step: 5,
+    icon: Plane,
+    headline: "End-to-End Treatment Coordination",
+    content: "Once the patient confirms the preferred hospital, AITAS coordinates the entire journey.",
+    items: ["Medical visa documentation guidance", "Travel coordination", "Accommodation assistance", "Airport transfer", "Admission scheduling", "In-hospital case management"],
+  },
+  {
+    step: 6,
+    icon: HeartHandshake,
+    headline: "Continued Care & Remote Follow-Up",
+    content: "After treatment, patients receive continued support through follow-up report uploads, tele-consultation coordination, and long-term monitoring plans.",
+    items: ["Follow-up reports uploaded", "Tele-consultation coordination", "Long-term monitoring plan provided"],
+  },
 ];
 
 export default function TourismMedical() {
@@ -189,32 +233,90 @@ export default function TourismMedical() {
                 </div>
               </div>
 
-              {/* Cost Comparison */}
+              {/* How It Works Section */}
               <div className="mb-16">
-                <h3 className="text-2xl font-display font-bold text-foreground mb-6">
-                  Cost Advantage: <span className="text-primary">India vs Global Markets</span>
-                </h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full border border-border rounded-sm">
-                    <thead>
-                      <tr className="bg-primary/10">
-                        <th className="text-left p-4 font-semibold text-sm text-foreground">Procedure</th>
-                        <th className="text-left p-4 font-semibold text-sm text-foreground">India</th>
-                        <th className="text-left p-4 font-semibold text-sm text-foreground">USA</th>
-                        <th className="text-left p-4 font-semibold text-sm text-foreground">UK</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {costComparison.map((row, i) => (
-                        <tr key={i} className="border-t border-border">
-                          <td className="p-4 text-sm font-medium text-foreground">{row.procedure}</td>
-                          <td className="p-4 text-sm text-primary font-semibold">{row.india}</td>
-                          <td className="p-4 text-sm text-muted-foreground">{row.usa}</td>
-                          <td className="p-4 text-sm text-muted-foreground">{row.uk}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                <div className="text-center mb-12">
+                  <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-sm mb-4">
+                    AI-Powered Secure Process
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+                    How It Works — <span className="text-primary">Secure, Structured & Intelligent Coordination</span>
+                  </h3>
+                </div>
+
+                <div className="space-y-6">
+                  {howItWorksSteps.map((step) => {
+                    const StepIcon = step.icon;
+                    return (
+                      <div key={step.step} className="flex gap-6 items-start">
+                        {/* Step Number & Line */}
+                        <div className="flex flex-col items-center flex-shrink-0">
+                          <div className="w-12 h-12 rounded-sm bg-primary flex items-center justify-center">
+                            <StepIcon className="w-6 h-6 text-primary-foreground" />
+                          </div>
+                          {step.step < 6 && <div className="w-px h-full min-h-[40px] bg-border mt-2" />}
+                        </div>
+
+                        {/* Step Content */}
+                        <div className="pb-6 flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-sm">STEP {step.step}</span>
+                          </div>
+                          <h4 className="text-lg font-display font-bold text-foreground mb-2">{step.headline}</h4>
+                          <p className="text-sm text-muted-foreground leading-relaxed mb-3">{step.content}</p>
+                          
+                          {step.items && (
+                            <ul className="space-y-1.5 mb-3">
+                              {step.items.map((item, i) => (
+                                <li key={i} className="flex items-center gap-2 text-sm text-foreground">
+                                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+
+                          {step.note && (
+                            <div className="flex items-start gap-2 bg-primary/5 border border-primary/15 rounded-sm p-3">
+                              <Shield className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                              <p className="text-xs text-muted-foreground">{step.note}</p>
+                            </div>
+                          )}
+
+                          {step.disclaimer && (
+                            <div className="flex items-start gap-2 bg-destructive/5 border border-destructive/15 rounded-sm p-3">
+                              <Shield className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                              <p className="text-xs text-muted-foreground"><strong>Important:</strong> {step.disclaimer}</p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Trust & Security Box */}
+                <div className="mt-12 bg-primary/5 border border-primary/20 rounded-sm p-8 lg:p-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-sm bg-primary flex items-center justify-center">
+                      <Lock className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    <h4 className="text-xl font-display font-bold text-foreground">Your Data. Your Privacy. Your Control.</h4>
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {[
+                      "Encrypted document storage",
+                      "Restricted access controls",
+                      "No third-party data sharing without consent",
+                      "Secure AI environment",
+                      "Confidential case routing",
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-sm text-foreground">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
