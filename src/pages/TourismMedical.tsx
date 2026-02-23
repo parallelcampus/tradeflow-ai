@@ -20,6 +20,7 @@ import {
   HeartHandshake,
   Lock
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -103,13 +104,6 @@ const howItWorksSteps = [
 export default function TourismMedical() {
   const [activeTab, setActiveTab] = useState<'medical' | 'pilgrimage' | 'partner'>('medical');
   
-  // Medical form state
-  const [medicalForm, setMedicalForm] = useState({
-    patient_name: '', country: '', medical_condition: '', preferred_location: '',
-    contact_email: '', contact_phone: '',
-  });
-  const [medicalSubmitting, setMedicalSubmitting] = useState(false);
-
   // Pilgrimage form state
   const [pilgrimageForm, setPilgrimageForm] = useState({
     client_name: '', country: '', special_requests: '', group_size: '',
@@ -117,28 +111,6 @@ export default function TourismMedical() {
   });
   const [pilgrimageSubmitting, setPilgrimageSubmitting] = useState(false);
 
-  const handleMedicalSubmit = async () => {
-    if (!medicalForm.patient_name || !medicalForm.contact_email || !medicalForm.medical_condition) {
-      toast.error('Please fill in required fields');
-      return;
-    }
-    setMedicalSubmitting(true);
-    const { error } = await supabase.from('medical_inquiries').insert({
-      patient_name: medicalForm.patient_name,
-      country: medicalForm.country || null,
-      medical_condition: medicalForm.medical_condition,
-      preferred_location: medicalForm.preferred_location || null,
-      contact_email: medicalForm.contact_email,
-      contact_phone: medicalForm.contact_phone || null,
-    });
-    setMedicalSubmitting(false);
-    if (error) {
-      toast.error('Failed to submit. Please try again.');
-    } else {
-      toast.success('Consultation request submitted successfully! Our team will contact you shortly.');
-      setMedicalForm({ patient_name: '', country: '', medical_condition: '', preferred_location: '', contact_email: '', contact_phone: '' });
-    }
-  };
 
   const handlePilgrimageSubmit = async () => {
     if (!pilgrimageForm.client_name || !pilgrimageForm.client_email || !pilgrimageForm.special_requests) {
@@ -320,57 +292,22 @@ export default function TourismMedical() {
                 </div>
               </div>
 
-              {/* Medical Consultation Form */}
-              <Card className="border border-primary/20 max-w-2xl">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-display flex items-center gap-3">
-                    <Stethoscope className="w-6 h-6 text-primary" />
-                    Request Medical Consultation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Patient Name *</label>
-                      <Input placeholder="Full name" className="rounded-sm" value={medicalForm.patient_name} onChange={e => setMedicalForm({...medicalForm, patient_name: e.target.value})} />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Country *</label>
-                      <Input placeholder="Your country" className="rounded-sm" value={medicalForm.country} onChange={e => setMedicalForm({...medicalForm, country: e.target.value})} />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Medical Condition *</label>
-                    <Textarea placeholder="Describe the medical condition or treatment needed" className="rounded-sm" value={medicalForm.medical_condition} onChange={e => setMedicalForm({...medicalForm, medical_condition: e.target.value})} />
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Preferred Treatment Location</label>
-                      <Input placeholder="e.g., Mumbai, Delhi, Chennai" className="rounded-sm" value={medicalForm.preferred_location} onChange={e => setMedicalForm({...medicalForm, preferred_location: e.target.value})} />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Contact Email *</label>
-                      <Input type="email" placeholder="your@email.com" className="rounded-sm" value={medicalForm.contact_email} onChange={e => setMedicalForm({...medicalForm, contact_email: e.target.value})} />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Phone Number</label>
-                    <Input type="tel" placeholder="+1 234 567 8900" className="rounded-sm" value={medicalForm.contact_phone} onChange={e => setMedicalForm({...medicalForm, contact_phone: e.target.value})} />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Upload Medical Reports</label>
-                    <div className="border-2 border-dashed border-border rounded-sm p-6 text-center hover:border-primary/30 transition-colors cursor-pointer">
-                      <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-                      <p className="text-sm text-muted-foreground">Click to upload or drag and drop</p>
-                      <p className="text-xs text-muted-foreground mt-1">PDF, JPG, PNG up to 10MB</p>
-                    </div>
-                  </div>
-                  <Button className="w-full" size="lg" onClick={handleMedicalSubmit} disabled={medicalSubmitting}>
-                    {medicalSubmitting ? 'Submitting...' : 'Submit Consultation Request'}
-                    <ArrowRight className="w-4 h-4 ml-2" />
+              {/* CTA to Register */}
+              <div className="bg-primary/5 border border-primary/20 rounded-sm p-8 lg:p-10 max-w-2xl text-center">
+                <Shield className="w-10 h-10 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-display font-bold text-foreground mb-3">
+                  Start Your Medical Journey
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Register securely on the AITAS Medical Portal to submit your details, upload medical records, and receive coordinated specialist care.
+                </p>
+                <Link to="/auth">
+                  <Button size="lg" className="group">
+                    Register Now
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
-                </CardContent>
-              </Card>
+                </Link>
+              </div>
             </div>
           </section>
         )}
