@@ -13,39 +13,23 @@ import {
 
 const navItems = [
   {
-    label: "Services",
+    label: "Trade",
     href: "/trade-services",
     children: [
       { label: "Export-Import Facilitation", href: "/trade-services" },
       { label: "Buyer Discovery", href: "/dashboard/buyers" },
       { label: "B2B Matchmaking", href: "/dashboard/b2b" },
-      { label: "Consultants Network", href: "/dashboard/consultants" },
-      { label: "AI Trade Assistant", href: "/dashboard/ai-assistant" },
+      { label: "Trade Shows", href: "/trade-shows" },
     ],
   },
   {
-    label: "Global Investment",
-    href: "/global-investment",
-  },
-  {
-    label: "Manufacturing",
-    href: "/manufacturing",
-  },
-  {
-    label: "Govt Schemes",
-    href: "/schemes",
-  },
-  {
-    label: "Medical & Tourism",
+    label: "Allied Services",
     href: "/tourism-medical",
-  },
-  {
-    label: "Trade Shows",
-    href: "/trade-shows",
-  },
-  {
-    label: "Membership",
-    href: "/membership",
+    children: [
+      { label: "Medical & Tourism", href: "/tourism-medical" },
+      { label: "Consultants Network", href: "/dashboard/consultants" },
+      { label: "AI Trade Assistant", href: "/dashboard/ai-assistant" },
+    ],
   },
   {
     label: "Insights",
