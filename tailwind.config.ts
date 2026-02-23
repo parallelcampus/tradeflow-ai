@@ -63,8 +63,8 @@ export default {
         info: "hsl(var(--info))",
       },
       fontFamily: {
-        sans: ["'Public Sans'", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "Arial", "sans-serif"],
-        display: ["'DM Serif Display'", "Georgia", "'Times New Roman'", "serif"],
+        sans: ["'Inter'", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "Arial", "sans-serif"],
+        display: ["'Plus Jakarta Sans'", "'Inter'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
