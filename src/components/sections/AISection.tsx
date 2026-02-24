@@ -13,32 +13,32 @@ const aiFeatures = [
   {
     icon: FileSearch,
     title: "Document Intelligence",
-    description: "Upload government PDFs, policies, and circulars. Our AI extracts key eligibility points, benefits, deadlines, and required documents.",
+    description: "Upload trade documents, medical reports, and business registrations. Our AI extracts key details, eligibility points, and required documentation.",
   },
   {
     icon: Link,
-    title: "Scheme Analyzer",
-    description: "Paste any government scheme URL. AI fetches live content, summarizes benefits, identifies applicable industries, and auto-tags by category.",
+    title: "Business Setup Advisor",
+    description: "Get AI-powered guidance on company formation in Dubai, UAE Free Zones, and global markets — including licensing, visa, and compliance requirements.",
   },
   {
     icon: MessageSquare,
-    title: "Trade Assistant",
-    description: "Chat with our AI to understand export/import procedures, compare incentives, get compliance guidance, and ask questions from uploaded documents.",
+    title: "Medical Tourism Concierge",
+    description: "Chat with our AI to find accredited hospitals, compare treatment options, coordinate travel logistics, and get cost estimates for medical procedures.",
   },
   {
     icon: Languages,
     title: "Multilingual Support",
-    description: "Access everything in English, Hindi, Arabic, Vietnamese, Bahasa, French, and Spanish. AI responses in your preferred language.",
+    description: "Access everything in English, Arabic, Hindi, Vietnamese, Bahasa, French, and Spanish. AI responses in your preferred language.",
   },
 ];
 
 const capabilities = [
-  "Extract key points from 100+ page PDFs in seconds",
-  "Auto-generate step-by-step application guides",
-  "Context-aware responses based on your profile",
+  "Dubai Free Zone setup guidance in minutes",
+  "Auto-generate step-by-step visa & licensing guides",
+  "Medical tourism cost comparisons across hospitals",
   "Escalate complex queries to human consultants",
-  "OCR support for scanned documents",
-  "Real-time policy updates and alerts",
+  "Trade event recommendations based on your sector",
+  "Real-time regulatory updates for UAE & global markets",
 ];
 
 const AISection = () => {
@@ -56,7 +56,7 @@ const AISection = () => {
               <span className="block text-primary">Understands Trade</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Our AI engine is specifically trained on trade policies, government schemes, and export-import regulations. It reads, analyzes, and explains complex documents so you can focus on growing your business.
+              Our AI engine is trained on international trade regulations, Dubai business setup procedures, medical tourism coordination, and global event management — so you can focus on growing your business across borders.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -117,9 +117,9 @@ const AISection = () => {
           </div>
           
           <div className="p-6 space-y-4">
-            <div className="flex justify-end">
+    <div className="flex justify-end">
               <div className="bg-primary/10 rounded-sm px-4 py-3 max-w-md">
-                <p className="text-sm text-foreground">What are the benefits of MEIS scheme for textile exporters?</p>
+                <p className="text-sm text-foreground">What are the steps to set up a business in Dubai Free Zone?</p>
               </div>
             </div>
             
@@ -129,20 +129,20 @@ const AISection = () => {
               </div>
               <div className="bg-muted rounded-sm px-4 py-3 max-w-lg">
                 <p className="text-sm text-foreground mb-3">
-                  The <strong>Merchandise Exports from India Scheme (MEIS)</strong> offers several benefits for textile exporters:
+                  Setting up a business in a <strong>Dubai Free Zone</strong> involves these key steps:
                 </p>
                 <ul className="text-sm text-foreground space-y-2">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
-                    <span><strong>Duty Credit:</strong> 2-5% of FOB value as duty credit scrips</span>
+                    <span><strong>Choose Free Zone:</strong> DMCC, JAFZA, DAFZA based on your industry</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
-                    <span><strong>Transferable:</strong> Scrips can be used or sold in market</span>
+                    <span><strong>100% Ownership:</strong> No local sponsor required, full repatriation of profits</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
-                    <span><strong>Wide Coverage:</strong> Over 8,000 tariff lines covered</span>
+                    <span><strong>Tax Benefits:</strong> 0% corporate & income tax in most free zones</span>
                   </li>
                 </ul>
               </div>
@@ -153,7 +153,7 @@ const AISection = () => {
             <div className="flex gap-3">
               <input
                 type="text"
-                placeholder="Ask about schemes, policies, or export procedures..."
+                placeholder="Ask about Dubai business setup, medical tourism, or trade events..."
                 className="flex-1 bg-muted rounded-sm px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
               <Button variant="default" size="default">Send</Button>

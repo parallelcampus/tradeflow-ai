@@ -1,6 +1,5 @@
 import { 
   Globe, 
-  FileText, 
   Users, 
   Calendar, 
   Sparkles,
@@ -15,13 +14,13 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: Globe,
-    title: "Export-Import Facilitation",
-    description: "End-to-end trade support — from IEC registration and customs documentation to shipping logistics and foreign exchange compliance for Indian MSMEs and corporates.",
+    title: "International Trade Facilitation",
+    description: "End-to-end cross-border trade support — from company registration and customs documentation to shipping logistics and compliance across UAE, Asia, Europe, and Africa.",
   },
   {
-    icon: FileText,
-    title: "Government Scheme Advisory",
-    description: "AI-curated access to 500+ central and state incentive programmes including RoDTEP, PLI, ECLGS, and MSME subsidies — matched to your business profile automatically.",
+    icon: Building2,
+    title: "Dubai Business Setup",
+    description: "Complete company formation services in Dubai Free Zones (DMCC, JAFZA, DAFZA), mainland, and offshore — including licensing, visa processing, and PRO services.",
   },
   {
     icon: Users,
@@ -30,18 +29,18 @@ const services = [
   },
   {
     icon: Calendar,
-    title: "Trade Shows & Delegations",
-    description: "Participate in AITAS-organized international exhibitions, trade delegations, and sector-specific buyer-seller meets in key markets worldwide.",
+    title: "Trade Shows & Events",
+    description: "Participate in AITAS-organized international exhibitions, trade delegations, and sector-specific buyer-seller meets in Dubai, Asia, and global markets.",
   },
   {
     icon: HeartPulse,
-    title: "Medical & Tourism Services",
-    description: "Comprehensive coordination for international patients seeking treatment at NABH-accredited hospitals in India, plus curated pilgrimage and heritage tourism circuits.",
+    title: "Medical Tourism Services",
+    description: "Comprehensive coordination for international patients seeking world-class treatment — hospital selection, visa facilitation, travel logistics, and post-treatment follow-up.",
   },
   {
     icon: Sparkles,
     title: "AI Trade Intelligence",
-    description: "24/7 AI assistant trained on Indian trade policy, DGFT notifications, customs tariffs, and FEMA regulations — with multilingual support in 7 languages.",
+    description: "24/7 AI assistant trained on international trade regulations, UAE business laws, free zone policies, and medical tourism procedures — with multilingual support in 7 languages.",
   },
 ];
 
@@ -59,7 +58,7 @@ const ServicesSection = () => {
             <span className="text-primary"> Allied Services</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            AITAS brings together every service an Indian enterprise needs to export, invest, manufacture, and grow globally — powered by AI and backed by domain experts.
+            AITAS brings together every service an enterprise needs to trade, set up operations, access healthcare, and grow globally — powered by AI and backed by domain experts from Dubai.
           </p>
         </div>
 
@@ -103,11 +102,11 @@ const ServicesSection = () => {
             <div className="flex flex-col items-center">
               <Building2 className="w-8 h-8 text-primary mb-3" />
               <span className="text-3xl lg:text-4xl font-bold text-foreground">3,200+</span>
-              <span className="text-sm text-muted-foreground mt-1">MSME Members</span>
+              <span className="text-sm text-muted-foreground mt-1">Global Members</span>
             </div>
             <div className="flex flex-col items-center">
               <ShoppingBag className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-foreground">₹120Cr+</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">$50M+</span>
               <span className="text-sm text-muted-foreground mt-1">Trade Deals Enabled</span>
             </div>
             <div className="flex flex-col items-center">

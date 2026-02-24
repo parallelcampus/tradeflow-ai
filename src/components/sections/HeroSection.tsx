@@ -30,7 +30,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              AITAS unifies trade facilitation, investment advisory, government incentive navigation, manufacturing partnerships, and medical tourism under one intelligent platform — empowering enterprises to scale across borders with confidence.
+              Headquartered in Dubai, AITAS unifies international trade facilitation, business setup advisory, medical tourism coordination, and global event management — empowering enterprises to scale across borders with confidence.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -58,8 +58,8 @@ const HeroSection = () => {
                 <span className="text-sm text-muted-foreground">Countries Connected</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-bold text-primary">₹500Cr+</span>
-                <span className="text-sm text-muted-foreground">Schemes Facilitated</span>
+                <span className="text-2xl md:text-3xl font-bold text-primary">$200M+</span>
+                <span className="text-sm text-muted-foreground">Trade Facilitated</span>
               </div>
             </div>
           </div>

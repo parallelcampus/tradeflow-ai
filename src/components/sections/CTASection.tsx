@@ -18,7 +18,7 @@ const CTASection = () => {
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Join the AITAS network of exporters, manufacturers, investors, and trade professionals unlocking government incentives, global buyers, and AI-driven market intelligence.
+            Join the AITAS network of global traders, investors, healthcare seekers, and business professionals — access Dubai business setup, medical tourism, trade events, and AI-driven market intelligence.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
