@@ -25,7 +25,7 @@ const services = [
   {
     icon: Users,
     title: "Global Buyer Discovery",
-    description: "Identify verified importers across 85+ countries using AI-powered intent signals, trade data analytics, and curated B2B matchmaking events.",
+    description: "Identify verified importers across 18+ countries using AI-powered intent signals, trade data analytics, and curated B2B matchmaking events.",
   },
   {
     icon: Calendar,
@@ -101,23 +101,23 @@ const ServicesSection = () => {
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="flex flex-col items-center">
               <Building2 className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-foreground">3,200+</span>
-              <span className="text-sm text-muted-foreground mt-1">Global Members</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">1,000+</span>
+              <span className="text-sm text-muted-foreground mt-1">Alliance Members</span>
             </div>
             <div className="flex flex-col items-center">
               <ShoppingBag className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-foreground">$50M+</span>
-              <span className="text-sm text-muted-foreground mt-1">Trade Deals Enabled</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">50+</span>
+              <span className="text-sm text-muted-foreground mt-1">Partner Companies</span>
             </div>
             <div className="flex flex-col items-center">
               <Plane className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-foreground">45+</span>
-              <span className="text-sm text-muted-foreground mt-1">Delegations Completed</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">18+</span>
+              <span className="text-sm text-muted-foreground mt-1">Countries & Setups</span>
             </div>
             <div className="flex flex-col items-center">
               <HeartPulse className="w-8 h-8 text-primary mb-3" />
-              <span className="text-3xl lg:text-4xl font-bold text-foreground">800+</span>
-              <span className="text-sm text-muted-foreground mt-1">Patients Assisted</span>
+              <span className="text-3xl lg:text-4xl font-bold text-foreground">6+</span>
+              <span className="text-sm text-muted-foreground mt-1">Service Verticals</span>
             </div>
           </div>
         </div>

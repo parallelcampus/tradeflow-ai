@@ -36,18 +36,18 @@ const CTASection = () => {
           <div className="grid sm:grid-cols-3 gap-8 pt-8 border-t border-border">
             <div className="flex flex-col items-center gap-2">
               <Globe className="w-8 h-8 text-primary" />
-              <span className="text-foreground font-semibold">85+ Countries</span>
-              <span className="text-sm text-muted-foreground">Market access</span>
+              <span className="text-foreground font-semibold">18+ Countries</span>
+              <span className="text-sm text-muted-foreground">Global presence</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Users className="w-8 h-8 text-primary" />
-              <span className="text-foreground font-semibold">12,000+ Members</span>
-              <span className="text-sm text-muted-foreground">Growing network</span>
+              <span className="text-foreground font-semibold">1,000+ Members</span>
+              <span className="text-sm text-muted-foreground">Alliance network</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Sparkles className="w-8 h-8 text-primary" />
-              <span className="text-foreground font-semibold">500+ Schemes</span>
-              <span className="text-sm text-muted-foreground">AI-curated database</span>
+              <span className="text-foreground font-semibold">50+ Partners</span>
+              <span className="text-sm text-muted-foreground">Trusted companies</span>
             </div>
           </div>
         </div>

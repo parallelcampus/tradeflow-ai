@@ -50,16 +50,16 @@ const HeroSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-bold text-primary">12K+</span>
-                <span className="text-sm text-muted-foreground">Member Enterprises</span>
+                <span className="text-2xl md:text-3xl font-bold text-primary">1,000+</span>
+                <span className="text-sm text-muted-foreground">Alliance Members</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-bold text-primary">85+</span>
+                <span className="text-2xl md:text-3xl font-bold text-primary">18+</span>
                 <span className="text-sm text-muted-foreground">Countries Connected</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-bold text-primary">$200M+</span>
-                <span className="text-sm text-muted-foreground">Trade Facilitated</span>
+                <span className="text-2xl md:text-3xl font-bold text-primary">50+</span>
+                <span className="text-sm text-muted-foreground">Partner Companies</span>
               </div>
             </div>
           </div>
