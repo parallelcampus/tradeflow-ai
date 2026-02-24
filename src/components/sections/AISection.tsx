@@ -101,47 +101,57 @@ const AISection = () => {
         </div>
 
         {/* Chat Preview */}
-        <div className="mt-20 bg-card rounded-sm shadow-elevated border border-border overflow-hidden">
-          <div className="bg-primary/5 px-6 py-4 flex items-center gap-3 border-b border-border">
-            <div className="w-10 h-10 rounded-sm bg-primary flex items-center justify-center">
+        <div className="mt-20 rounded-sm overflow-hidden shadow-elevated border border-primary/20" style={{ background: 'linear-gradient(135deg, hsl(var(--primary) / 0.03), hsl(var(--primary) / 0.08))' }}>
+          {/* Chat Header */}
+          <div className="px-6 py-4 flex items-center gap-3 border-b border-primary/15" style={{ background: 'linear-gradient(90deg, hsl(var(--primary) / 0.12), hsl(var(--primary) / 0.05))' }}>
+            <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center shadow-md">
               <Bot className="w-5 h-5 text-primary-foreground" />
             </div>
             <div>
-              <h4 className="text-foreground font-semibold">AITAS AI Trade Assistant</h4>
+              <h4 className="text-foreground font-bold text-base">AITAS AI Trade Assistant</h4>
               <p className="text-xs text-muted-foreground">Powered by Advanced Language Models</p>
             </div>
-            <div className="ml-auto flex items-center gap-2">
-              <span className="w-2 h-2 bg-primary rounded-full" />
-              <span className="text-xs text-muted-foreground">Online</span>
+            <div className="ml-auto flex items-center gap-2 bg-background/60 backdrop-blur-sm rounded-full px-3 py-1.5">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-xs font-medium text-foreground/70">Online</span>
             </div>
           </div>
           
-          <div className="p-6 space-y-4">
-    <div className="flex justify-end">
-              <div className="bg-primary/10 rounded-sm px-4 py-3 max-w-md">
-                <p className="text-sm text-foreground">What are the steps to set up a business in Dubai Free Zone?</p>
+          {/* Chat Messages */}
+          <div className="p-6 lg:p-8 space-y-5 min-h-[240px]">
+            {/* User Message */}
+            <div className="flex justify-end">
+              <div className="bg-primary text-primary-foreground rounded-2xl rounded-br-sm px-5 py-3 max-w-md shadow-md">
+                <p className="text-sm font-medium">What are the steps to set up a business in Dubai Free Zone?</p>
               </div>
             </div>
             
+            {/* Bot Response */}
             <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-sm bg-primary flex items-center justify-center flex-shrink-0">
-                <Bot className="w-4 h-4 text-primary-foreground" />
+              <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-1">
+                <Bot className="w-4 h-4 text-primary" />
               </div>
-              <div className="bg-muted rounded-sm px-4 py-3 max-w-lg">
+              <div className="bg-background rounded-2xl rounded-bl-sm px-5 py-4 max-w-lg shadow-sm border border-border/50">
                 <p className="text-sm text-foreground mb-3">
                   Setting up a business in a <strong>Dubai Free Zone</strong> involves these key steps:
                 </p>
-                <ul className="text-sm text-foreground space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
+                <ul className="text-sm text-foreground space-y-2.5">
+                  <li className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    </span>
                     <span><strong>Choose Free Zone:</strong> DMCC, JAFZA, DAFZA based on your industry</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
+                  <li className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    </span>
                     <span><strong>100% Ownership:</strong> No local sponsor required, full repatriation of profits</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
+                  <li className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    </span>
                     <span><strong>Tax Benefits:</strong> 0% corporate & income tax in most free zones</span>
                   </li>
                 </ul>
@@ -149,14 +159,15 @@ const AISection = () => {
             </div>
           </div>
           
-          <div className="px-6 pb-6">
-            <div className="flex gap-3">
+          {/* Chat Input */}
+          <div className="px-6 lg:px-8 pb-6 lg:pb-8">
+            <div className="flex gap-3 bg-background rounded-xl p-2 shadow-sm border border-border/50">
               <input
                 type="text"
                 placeholder="Ask about Dubai business setup, medical tourism, or trade events..."
-                className="flex-1 bg-muted rounded-sm px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="flex-1 bg-transparent px-4 py-2.5 text-sm focus:outline-none placeholder:text-muted-foreground/60"
               />
-              <Button variant="default" size="default">Send</Button>
+              <Button variant="default" size="default" className="rounded-lg px-5 shadow-sm">Send</Button>
             </div>
           </div>
         </div>
